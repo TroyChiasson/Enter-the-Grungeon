@@ -35,21 +35,37 @@ namespace Fall2020_CSC403_Project.code
             {
                 case 0:
                     this.GoLeft();
-                    //System.Diagnostics.Debug.WriteLine("left...");
+                    //System.Diagnostics.Debug.WriteLine("W...");
                     break;
                 case 1:
-                    this.GoUp();
-                    //System.Diagnostics.Debug.WriteLine("up...");
+                    this.GoRight();
+                    //System.Diagnostics.Debug.WriteLine("E...");
                     break;
                 case 2:
-                    this.GoRight();
-                    //System.Diagnostics.Debug.WriteLine("right...");
+                    this.GoUp();
+                    //System.Diagnostics.Debug.WriteLine("N...");
                     break;
                 case 3:
                     this.GoDown();
-                    //System.Diagnostics.Debug.WriteLine("down...");
+                    //System.Diagnostics.Debug.WriteLine("S...");
                     break;
                 case 4:
+                    this.GoNW();
+                    //System.Diagnostics.Debug.WriteLine("NW...");
+                    break;
+                case 5:
+                    this.GoNE();
+                    //System.Diagnostics.Debug.WriteLine("NE...");
+                    break;
+                case 6:
+                    this.GoSW();
+                    //System.Diagnostics.Debug.WriteLine("SW...");
+                    break;
+                case 7:
+                    this.GoSE();
+                    //System.Diagnostics.Debug.WriteLine("SE...");
+                    break;
+                case 8:
                     this.ResetMoveSpeed();
                     //System.Diagnostics.Debug.WriteLine("stay...");
                     break;

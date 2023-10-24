@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
@@ -169,6 +170,11 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattle.SetupForBossBattle();
             }
+
+            if (enemy == enemyFlea) 
+            {
+                frmBattle.SetupForFlea();
+            }
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
@@ -190,6 +196,24 @@ namespace Fall2020_CSC403_Project
                 case Keys.Down:
                     player.GoDown();
                     break;
+                
+                /*
+                case (Keys.Left & Keys.Up):
+                    player.GoNW();
+                    break;
+
+                case (Keys.Right & Keys.Up):
+                    player.GoNE();
+                    break;
+
+                case (Keys.Left & Keys.Down):
+                    player.GoSW();
+                    break;
+
+                case (Keys.Right & Keys.Down):
+                    player.GoSW();
+                    break;
+                */
 
                 default:
                     player.ResetMoveSpeed();

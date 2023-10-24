@@ -28,5 +28,18 @@ namespace Fall2020_CSC403_Project.code
         {
             Health += amount;
         }
+
+        //increases MaxHealth and adds new amount Health
+        public void buffHealth(int amount = 4) 
+        {
+            MaxHealth += amount;
+            AlterHealth(amount);
+        }
+
+        //increases strength
+        public void buffAttack(int amount = 2)
+        {
+            _strength += amount;
+        }
     }
 }

@@ -48,5 +48,22 @@
         {
             MoveSpeed = new Vector2(0, 0);
         }
+
+        //Diagonal movement vectors for multi-key input or rand movement
+        public void GoNE() { 
+            MoveSpeed = new Vector2 (-GO_INC, +GO_INC);
+        }
+        public void GoNW()
+        {
+            MoveSpeed = new Vector2(+GO_INC, +GO_INC);
+        }
+        public void GoSW()
+        {
+            MoveSpeed = new Vector2(+GO_INC, -GO_INC);
+        }
+        public void GoSE()
+        {
+            MoveSpeed = new Vector2(-GO_INC, -GO_INC);
+        }
     }
 }
