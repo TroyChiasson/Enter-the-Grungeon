@@ -139,4 +139,13 @@
   <data name="final_battle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\final_battle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ArmsWideOpen_wav" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\ArmsWideOpen.wav.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BeQuietAndDrive_wav" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\BeQuietAndDrive.wav.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_3_Doors_Down_wav" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\data\3-Doors-Down.wav.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
