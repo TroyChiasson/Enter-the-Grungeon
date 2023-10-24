@@ -121,5 +121,11 @@
       <Name>MyGameLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_flea_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\enemy_flea_1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
