@@ -29,6 +29,7 @@ namespace Fall2020_CSC403_Project {
 
         public FrmLevel() {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         
@@ -199,16 +200,9 @@ namespace Fall2020_CSC403_Project {
 
                     Stream stream = (Stream)rm.GetObject(song);
 
-                    if (stream != null)
-                    {
-                        var waveStream = new RawSourceWaveStream(stream, new WaveFormat());
-                        waveOut.Init(waveStream);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Resource stream is null");
-                    }
-
+                    var waveStream = new RawSourceWaveStream(stream, new WaveFormat());
+                    waveOut.Init(waveStream);
+                    
                 }
                 catch (Exception ex)
                 {
@@ -220,23 +214,27 @@ namespace Fall2020_CSC403_Project {
 
         private void PlayButtonClick(object sender, EventArgs e)
         {
-            if (waveOut.PlaybackState == PlaybackState.Stopped)
-            {
-                waveOut.Play();
-            }
-            else if (waveOut.PlaybackState == PlaybackState.Paused)
-            {
-                waveOut.Play();
-            }
 
+    
+                if (waveOut.PlaybackState == PlaybackState.Stopped)
+                {
+                waveOut.Play();
+                }
+                else if (waveOut.PlaybackState == PlaybackState.Paused)
+                {
+                    waveOut.Play();
+                }
+                
         }
 
         private void PauseButtonClick(object sender, EventArgs e)
         {
-            if (waveOut.PlaybackState == PlaybackState.Playing)
-            {
-                waveOut.Pause();
-            }
+          
+                    if (waveOut.PlaybackState == PlaybackState.Playing)
+                {
+                    waveOut.Pause();
+                }
+            
         }
 
         private void NextButtonClick(object sender, EventArgs e)
