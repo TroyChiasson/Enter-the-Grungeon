@@ -70,7 +70,14 @@ namespace Fall2020_CSC403_Project {
       }
 
       UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      if (player.Health <= 0) {
+        FrmGameOver frmGameOver = new FrmGameOver();
+        frmGameOver.Show();
+
+                instance = null;
+        Close();
+      }
+      else if (enemy.Health <= 0) {
         instance = null;
         Close();
       }
