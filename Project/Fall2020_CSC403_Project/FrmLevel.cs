@@ -225,5 +225,47 @@ namespace Fall2020_CSC403_Project
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (button1.Enabled)
+            {
+                player.MaxHealth = 50;
+                player.Health = 50;
+                this.Controls.Remove(button1);
+                this.Controls.Remove(button2);
+                this.Controls.Remove(button3);
+                this.Controls.Remove(pictureBox1);
+                this.Controls.Remove(label1);
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            player.MaxHealth = 20;
+            player.Health = 20;
+            this.Controls.Remove(button1);
+            this.Controls.Remove(button2);
+            this.Controls.Remove(button3);
+            this.Controls.Remove(pictureBox1);
+            this.Controls.Remove(label1);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            player.MaxHealth = 30;
+            player.Health = 30;
+            this.Controls.Remove(button1);
+            this.Controls.Remove(button2);
+            this.Controls.Remove(button3);
+            this.Controls.Remove(pictureBox1);
+            this.Controls.Remove(label1);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
