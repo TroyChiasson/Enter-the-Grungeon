@@ -3,25 +3,37 @@ using System;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
+using NAudio.Wave;
+using System.Reflection;
+using System.IO;
+using System.Resources;
 
-namespace Fall2020_CSC403_Project
-{
-    public partial class FrmLevel : Form
-    {
+
+namespace Fall2020_CSC403_Project {
+    public partial class FrmLevel : Form {
+
         private Player player;
 
         private Enemy enemyPoisonPacket;
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
+
         private Enemy enemyFlea;
+
         private Character[] walls;
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
+        private int currentSong = 0;
+        private IWavePlayer waveOut;
+        private AudioFileReader audio;
+        private ResourceManager rm;
+        private string[] songNames; // Array to store the resource names of your songs
+        private bool changingSong = false;
 
-        public FrmLevel()
-        {
+        public FrmLevel() {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -54,6 +66,31 @@ namespace Fall2020_CSC403_Project
 
             Game.player = player;
             timeBegin = DateTime.Now;
+          
+          songNames = new string[]
+        {
+            "JaredLeto_wav",
+            "BeQuietAndDrive_wav",
+            "ArmsWideOpen_wav",
+            "_3_Doors_Down_wav",
+            "HowYouRemindMe_wav",
+            "MySacrifice_wav",
+            "OneLatBreath_wav"
+            
+        };
+          rm = new ResourceManager("Fall2020_CSC403_Project.Properties.Resources", Assembly.GetExecutingAssembly());
+
+            // Initialize NAudio objects
+            waveOut = new WaveOutEvent();
+            LoadSong();
+
+           // waveOut.PlaybackStopped += (sender, e) =>
+           // {
+               // if (e.Exception == null)
+               // {
+               //     NextButtonClick(this, EventArgs.Empty);
+              //  }
+            //};
         }
 
         private Vector2 CreatePosition(PictureBox pic)
@@ -262,9 +299,95 @@ namespace Fall2020_CSC403_Project
             this.Controls.Remove(pictureBox1);
             this.Controls.Remove(label1);
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+      
+      private void LoadSong()
         {
+            if (currentSong >= 0 && currentSong < songNames.Length)
+            {
+
+                StopAndDispose();
+
+                string song = songNames[currentSong];
+
+
+
+                try
+                {
+
+                    Stream stream = (Stream)rm.GetObject(song);
+
+                    var waveStream = new RawSourceWaveStream(stream, new WaveFormat());
+                    waveOut.Init(waveStream);
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading the song" + ex.Message);
+                    audio = null;
+                }
+            }
+        }
+
+        private void PlayButtonClick(object sender, EventArgs e)
+        {
+
+    
+                if (waveOut.PlaybackState == PlaybackState.Stopped)
+                {
+                waveOut.Play();
+                }
+                else if (waveOut.PlaybackState == PlaybackState.Paused)
+                {
+                    waveOut.Play();
+                }
+                
+        }
+
+        private void PauseButtonClick(object sender, EventArgs e)
+        {
+          
+                    if (waveOut.PlaybackState == PlaybackState.Playing)
+                {
+                    waveOut.Pause();
+                }
+            
+        }
+
+        private void NextButtonClick(object sender, EventArgs e)
+        {
+            if (!changingSong)
+            {
+                changingSong = true;
+                // Stop the current song
+                PauseButtonClick(sender, e);
+
+                // Move to the next song
+                currentSong++;
+                if (currentSong >= songNames.Length)
+                {
+                    currentSong = 0; // Wrap around to the first song
+                }
+
+                // Load and play the next song
+                LoadSong();
+                PlayButtonClick(sender, e);
+
+                changingSong = false;
+            }
+
+        }
+
+        private void StopAndDispose()
+        {
+            if (waveOut.PlaybackState != PlaybackState.Stopped)
+            {
+                waveOut.Stop();
+            }
+            if (audio != null)
+            {
+                audio.Dispose();
+                audio = null;
+            }
 
         }
     }
