@@ -20,13 +20,13 @@ namespace Fall2020_CSC403_Project
         // quit button
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         // retry button
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Application.Restart();
         }
     }
 }

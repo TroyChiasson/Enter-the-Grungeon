@@ -37,7 +37,7 @@ namespace Fall2020_CSC403_Project.code
         }
 
         //increases strength
-        public void buffAttack(int amount = 2)
+        public void buffAttack(int amount = 1)
         {
             _strength += amount;
         }
