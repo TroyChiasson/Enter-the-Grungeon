@@ -12,7 +12,7 @@ namespace Fall2020_CSC403_Project
         public static FrmBattle instance = null;
         private Enemy enemy;
         private Player player;
-        private bool flea = false;
+        private bool fightingFlea = false;
 
         private FrmBattle()
         {
@@ -50,7 +50,7 @@ namespace Fall2020_CSC403_Project
 
         public void SetupForFlea()
         {
-            flea = true;
+            fightingFlea = true;
         }
 
         public static FrmBattle GetInstance(Enemy enemy)
@@ -87,19 +87,25 @@ namespace Fall2020_CSC403_Project
 
             UpdateHealthBars();
 
-            if (enemy.Health <= 0 && flea)
+            if (enemy.Health <= 0 && fightingFlea)
             {
                 Random rand = new Random();
                 int buffEffect = rand.Next(2);
+                switch (buffEffect)
+                {
+                    case 0:
+                        player.buffHealth();
+                        break;
+                    case 1:
+                        player.buffAttack();
+                        break;
+                    case 2:
+                        player.buffHealth();
+                        player.buffAttack();
+                        break;
+                }
 
-                if (buffEffect == 0)
-                    player.buffHealth();
-                else if (buffEffect == 1)
-                    player.buffAttack();
-                else if (buffEffect == 2)
-                    player.buffHealth();
-                    player.buffAttack();
-                flea = false;
+                fightingFlea = false;
             }
             if (player.Health <= 0)
             {

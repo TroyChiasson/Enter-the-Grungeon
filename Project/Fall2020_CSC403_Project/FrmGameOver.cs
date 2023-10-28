@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project
-    {
+{
     public partial class FrmGameOver : Form
     {
         public FrmGameOver()
@@ -17,11 +17,13 @@ namespace Fall2020_CSC403_Project
             InitializeComponent();
         }
 
+        // quit button
         private void button2_Click(object sender, EventArgs e)
         {
 
         }
 
+        // retry button
         private void button1_Click(object sender, EventArgs e)
         {
 
