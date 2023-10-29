@@ -264,7 +264,7 @@ namespace Fall2020_CSC403_Project
         {
             player.MaxHealth = 15;
             player.Health = 15;
-            player._strength = 1;
+            player._strength = 3;
             this.Controls.Remove(ClassTankButton);
             this.Controls.Remove(ClassFighterButton);
             this.Controls.Remove(ClassAssassinButton);
