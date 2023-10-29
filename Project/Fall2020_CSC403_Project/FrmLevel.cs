@@ -305,11 +305,6 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        public void GameOver()
-        {
-            Close();
-        }
-
         private void ClassTankButton_Click(object sender, EventArgs e)
         {
             player.MaxHealth = 50;
