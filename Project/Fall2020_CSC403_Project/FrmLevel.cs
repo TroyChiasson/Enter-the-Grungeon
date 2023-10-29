@@ -18,6 +18,8 @@ namespace Fall2020_CSC403_Project
         private DateTime timeBegin;
         private FrmBattle frmBattle;
 
+        private bool fleaFlag = true;
+
         public FrmLevel()
         {
             InitializeComponent();
@@ -34,6 +36,11 @@ namespace Fall2020_CSC403_Project
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             enemyFlea = new Enemy(CreatePosition(picEnemyFlea), CreateCollider(picEnemyFlea, PADDING), 1);
 
+            bossKoolaid.Name = "enemyBossKoolAid";
+            enemyPoisonPacket.Name = "enemyPoisonPacket";
+            enemyCheeto.Name = "enemyCheeto";
+            enemyFlea.Name = "enemyFlea";
+            
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -60,9 +67,18 @@ namespace Fall2020_CSC403_Project
             return new Vector2(pic.Location.X, pic.Location.Y);
         }
 
+        private Vector2 RemovePosition(int x, int y) {
+            return new Vector2(x, y);
+        }
+
         private Collider CreateCollider(PictureBox pic, int padding)
         {
             Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+            return new Collider(rect);
+        }
+        private Collider RemoveCollider()
+        {
+            Rectangle rect = new Rectangle(0,0,0,0);
             return new Collider(rect);
         }
 
@@ -112,29 +128,33 @@ namespace Fall2020_CSC403_Project
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
 
             // randomly move flea
-            enemyFlea.Move();
-            enemyFlea.MoveRand();
+            if (fleaFlag == true)
+            {
+                enemyFlea.Move();
+                enemyFlea.MoveRand();
 
-            // check collision with enemies and walls
-            if (HitAWall(enemyFlea))
-            {
-                enemyFlea.MoveBack();
-            }
-            if (HitAChar(enemyFlea, enemyPoisonPacket))
-            {
-                enemyFlea.MoveBack();
-            }
-            if (HitAChar(enemyFlea, enemyCheeto))
-            {
-                enemyFlea.MoveBack();
-            }
-            if (HitAChar(enemyFlea, bossKoolaid))
-            {
-                enemyFlea.MoveBack();
-            }
 
-            // update flea's picture box
-            picEnemyFlea.Location = new Point((int)enemyFlea.Position.x, (int)enemyFlea.Position.y);
+                // check collision with enemies and walls
+                if (HitAWall(enemyFlea))
+                {
+                    enemyFlea.MoveBack();
+                }
+                if (HitAChar(enemyFlea, enemyPoisonPacket))
+                {
+                    enemyFlea.MoveBack();
+                }
+                if (HitAChar(enemyFlea, enemyCheeto))
+                {
+                    enemyFlea.MoveBack();
+                }
+                if (HitAChar(enemyFlea, bossKoolaid))
+                {
+                    enemyFlea.MoveBack();
+                }
+
+                // update flea's picture box
+                picEnemyFlea.Location = new Point((int)enemyFlea.Position.x, (int)enemyFlea.Position.y);
+            }
         }
 
         private bool HitAWall(Character c)
@@ -172,6 +192,31 @@ namespace Fall2020_CSC403_Project
             {
                 frmBattle.SetupForFlea();
             }
+
+            switch (enemy.Name) {
+                case "bossKoolaid":
+                    bossKoolaid = new Enemy(RemovePosition(0,0), RemoveCollider());
+                    bossKoolaid.Img = null;
+                    picBossKoolAid.BackgroundImage = null;
+                    break;
+                case "enemyPoisonPacket":
+                    enemyPoisonPacket = new Enemy(RemovePosition(0,0), RemoveCollider());
+                    enemyPoisonPacket.Img = null;
+                    picEnemyPoisonPacket.BackgroundImage = null;
+
+                    break;
+                case "enemyCheeto":
+                    enemyCheeto = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    enemyCheeto.Img = null;
+                    picEnemyCheeto.BackgroundImage = null;
+                    break;
+                case "enemyFlea":
+                    enemyFlea = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    picEnemyFlea.BackgroundImage = null;
+                    fleaFlag = false;
+                    break;
+            }
+
         }
 
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)

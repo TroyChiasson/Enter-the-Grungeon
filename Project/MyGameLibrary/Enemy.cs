@@ -9,6 +9,11 @@ namespace Fall2020_CSC403_Project.code
     public class Enemy : BattleCharacter
     {
         /// <summary>
+        /// THis is the name for an enemy
+        /// </summary>
+        public String Name { get; set; }
+
+        /// <summary>
         /// THis is the image for an enemy
         /// </summary>
         public Image Img { get; set; }
