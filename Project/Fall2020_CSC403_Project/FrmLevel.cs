@@ -272,5 +272,55 @@ namespace Fall2020_CSC403_Project
         {
             Close();
         }
+
+        private void ClassTankButton_Click(object sender, EventArgs e)
+        {
+            player.MaxHealth = 50;
+            player.Health = 50;
+            player._strength = 1;
+            this.Controls.Remove(ClassTankButton);
+            this.Controls.Remove(ClassFighterButton);
+            this.Controls.Remove(ClassAssassinButton);
+            this.Controls.Remove(ClassMenuBackground);
+            this.Controls.Remove(ChooseClassLabel);
+            this.Controls.Remove(picPlayer);
+            this.Controls.Remove(picAssassin);
+            this.Controls.Remove(DisplayClassFighter);
+            this.picPlayer = picTank;
+        }
+
+        private void ClassFighterButton_Click(object sender, EventArgs e)
+        {
+            player.MaxHealth = 20;
+            player.Health = 20;
+            player._strength = 2;
+            this.Controls.Remove(ClassTankButton);
+            this.Controls.Remove(ClassFighterButton);
+            this.Controls.Remove(ClassAssassinButton);
+            this.Controls.Remove(ClassMenuBackground);
+            this.Controls.Remove(ChooseClassLabel);
+            this.Controls.Remove(picTank);
+            this.Controls.Remove(picAssassin);
+            this.Controls.Remove(DisplayClassFighter);
+
+        }
+
+        private void ClassAssassinButton_Click(object sender, EventArgs e)
+        {
+            player.MaxHealth = 15;
+            player.Health = 15;
+            player._strength = 3;
+            this.Controls.Remove(ClassTankButton);
+            this.Controls.Remove(ClassFighterButton);
+            this.Controls.Remove(ClassAssassinButton);
+            this.Controls.Remove(ClassMenuBackground);
+            this.Controls.Remove(ChooseClassLabel);
+            this.Controls.Remove(picPlayer);
+            this.Controls.Remove(picTank);
+            this.Controls.Remove(DisplayClassFighter);
+            this.picPlayer = picAssassin;
+        }
+
+ 
     }
 }

@@ -28,7 +28,14 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
-            this.picEnemyFlea = new System.Windows.Forms.PictureBox();
+            this.ChooseClassLabel = new System.Windows.Forms.Label();
+            this.ClassAssassinButton = new System.Windows.Forms.Button();
+            this.ClassFighterButton = new System.Windows.Forms.Button();
+            this.ClassTankButton = new System.Windows.Forms.Button();
+            this.DisplayClassFighter = new System.Windows.Forms.PictureBox();
+            this.picTank = new System.Windows.Forms.PictureBox();
+            this.picAssassin = new System.Windows.Forms.PictureBox();
+            this.ClassMenuBackground = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall8 = new System.Windows.Forms.PictureBox();
@@ -41,12 +48,16 @@
             this.picWall12 = new System.Windows.Forms.PictureBox();
             this.picWall4 = new System.Windows.Forms.PictureBox();
             this.picWall5 = new System.Windows.Forms.PictureBox();
-            this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
-            this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
-            this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea)).BeginInit();
+            this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
+            this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
+            this.picBossKoolAid = new System.Windows.Forms.PictureBox();
+            this.picEnemyFlea = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.DisplayClassFighter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTank)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAssassin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClassMenuBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -59,11 +70,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -90,16 +102,86 @@
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
             // 
-            // picEnemyFlea
+            // ChooseClassLabel
             // 
-            this.picEnemyFlea.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyFlea.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_flea_0;
-            this.picEnemyFlea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picEnemyFlea.Location = new System.Drawing.Point(433, 324);
-            this.picEnemyFlea.Name = "picEnemyFlea";
-            this.picEnemyFlea.Size = new System.Drawing.Size(54, 102);
-            this.picEnemyFlea.TabIndex = 18;
-            this.picEnemyFlea.TabStop = false;
+            this.ChooseClassLabel.AutoSize = true;
+            this.ChooseClassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChooseClassLabel.Location = new System.Drawing.Point(412, 168);
+            this.ChooseClassLabel.Name = "ChooseClassLabel";
+            this.ChooseClassLabel.Size = new System.Drawing.Size(295, 46);
+            this.ChooseClassLabel.TabIndex = 31;
+            this.ChooseClassLabel.Text = "Choose a class";
+            // 
+            // ClassAssassinButton
+            // 
+            this.ClassAssassinButton.Location = new System.Drawing.Point(867, 322);
+            this.ClassAssassinButton.Name = "ClassAssassinButton";
+            this.ClassAssassinButton.Size = new System.Drawing.Size(219, 99);
+            this.ClassAssassinButton.TabIndex = 30;
+            this.ClassAssassinButton.Text = "Assassin";
+            this.ClassAssassinButton.UseVisualStyleBackColor = true;
+            this.ClassAssassinButton.Click += new System.EventHandler(this.ClassAssassinButton_Click);
+            // 
+            // ClassFighterButton
+            // 
+            this.ClassFighterButton.Location = new System.Drawing.Point(471, 322);
+            this.ClassFighterButton.Name = "ClassFighterButton";
+            this.ClassFighterButton.Size = new System.Drawing.Size(219, 99);
+            this.ClassFighterButton.TabIndex = 29;
+            this.ClassFighterButton.Text = "Fighter";
+            this.ClassFighterButton.UseVisualStyleBackColor = true;
+            this.ClassFighterButton.Click += new System.EventHandler(this.ClassFighterButton_Click);
+            // 
+            // ClassTankButton
+            // 
+            this.ClassTankButton.Location = new System.Drawing.Point(91, 326);
+            this.ClassTankButton.Name = "ClassTankButton";
+            this.ClassTankButton.Size = new System.Drawing.Size(219, 99);
+            this.ClassTankButton.TabIndex = 28;
+            this.ClassTankButton.Text = "Tank";
+            this.ClassTankButton.UseVisualStyleBackColor = true;
+            this.ClassTankButton.Click += new System.EventHandler(this.ClassTankButton_Click);
+            // 
+            // DisplayClassFighter
+            // 
+            this.DisplayClassFighter.BackColor = System.Drawing.Color.Transparent;
+            this.DisplayClassFighter.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+            this.DisplayClassFighter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DisplayClassFighter.Location = new System.Drawing.Point(557, 452);
+            this.DisplayClassFighter.Name = "DisplayClassFighter";
+            this.DisplayClassFighter.Size = new System.Drawing.Size(54, 106);
+            this.DisplayClassFighter.TabIndex = 34;
+            this.DisplayClassFighter.TabStop = false;
+            // 
+            // picTank
+            // 
+            this.picTank.BackColor = System.Drawing.Color.Transparent;
+            this.picTank.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Tank;
+            this.picTank.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picTank.Location = new System.Drawing.Point(179, 454);
+            this.picTank.Name = "picTank";
+            this.picTank.Size = new System.Drawing.Size(58, 113);
+            this.picTank.TabIndex = 32;
+            this.picTank.TabStop = false;
+            // 
+            // picAssassin
+            // 
+            this.picAssassin.BackColor = System.Drawing.Color.Transparent;
+            this.picAssassin.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.assassin;
+            this.picAssassin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picAssassin.Location = new System.Drawing.Point(972, 445);
+            this.picAssassin.Name = "picAssassin";
+            this.picAssassin.Size = new System.Drawing.Size(54, 106);
+            this.picAssassin.TabIndex = 33;
+            this.picAssassin.TabStop = false;
+            // 
+            // ClassMenuBackground
+            // 
+            this.ClassMenuBackground.Location = new System.Drawing.Point(3, 2);
+            this.ClassMenuBackground.Name = "ClassMenuBackground";
+            this.ClassMenuBackground.Size = new System.Drawing.Size(1187, 742);
+            this.ClassMenuBackground.TabIndex = 19;
+            this.ClassMenuBackground.TabStop = false;
             // 
             // picWall11
             // 
@@ -233,28 +315,6 @@
             this.picWall5.TabIndex = 6;
             this.picWall5.TabStop = false;
             // 
-            // picEnemyCheeto
-            // 
-            this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
-            this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyCheeto.Location = new System.Drawing.Point(838, 540);
-            this.picEnemyCheeto.Name = "picEnemyCheeto";
-            this.picEnemyCheeto.Size = new System.Drawing.Size(64, 107);
-            this.picEnemyCheeto.TabIndex = 5;
-            this.picEnemyCheeto.TabStop = false;
-            // 
-            // picEnemyPoisonPacket
-            // 
-            this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
-            this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(110, 98);
-            this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
-            this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96);
-            this.picEnemyPoisonPacket.TabIndex = 4;
-            this.picEnemyPoisonPacket.TabStop = false;
-            // 
             // picWall3
             // 
             this.picWall3.BackColor = System.Drawing.Color.Transparent;
@@ -265,17 +325,6 @@
             this.picWall3.Size = new System.Drawing.Size(358, 67);
             this.picWall3.TabIndex = 3;
             this.picWall3.TabStop = false;
-            // 
-            // picBossKoolAid
-            // 
-            this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
-            this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
-            this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(971, 74);
-            this.picBossKoolAid.Name = "picBossKoolAid";
-            this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
-            this.picBossKoolAid.TabIndex = 1;
-            this.picBossKoolAid.TabStop = false;
             // 
             // picPlayer
             // 
@@ -288,6 +337,50 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
+            // picEnemyPoisonPacket
+            // 
+            this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
+            this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(110, 98);
+            this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
+            this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96);
+            this.picEnemyPoisonPacket.TabIndex = 4;
+            this.picEnemyPoisonPacket.TabStop = false;
+            // 
+            // picEnemyCheeto
+            // 
+            this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
+            this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEnemyCheeto.Location = new System.Drawing.Point(838, 540);
+            this.picEnemyCheeto.Name = "picEnemyCheeto";
+            this.picEnemyCheeto.Size = new System.Drawing.Size(64, 107);
+            this.picEnemyCheeto.TabIndex = 5;
+            this.picEnemyCheeto.TabStop = false;
+            // 
+            // picBossKoolAid
+            // 
+            this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
+            this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
+            this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBossKoolAid.Location = new System.Drawing.Point(971, 74);
+            this.picBossKoolAid.Name = "picBossKoolAid";
+            this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
+            this.picBossKoolAid.TabIndex = 1;
+            this.picBossKoolAid.TabStop = false;
+            // 
+            // picEnemyFlea
+            // 
+            this.picEnemyFlea.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemyFlea.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_flea_0;
+            this.picEnemyFlea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picEnemyFlea.Location = new System.Drawing.Point(433, 324);
+            this.picEnemyFlea.Name = "picEnemyFlea";
+            this.picEnemyFlea.Size = new System.Drawing.Size(54, 102);
+            this.picEnemyFlea.TabIndex = 18;
+            this.picEnemyFlea.TabStop = false;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,6 +388,14 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.Controls.Add(this.DisplayClassFighter);
+            this.Controls.Add(this.picTank);
+            this.Controls.Add(this.picAssassin);
+            this.Controls.Add(this.ChooseClassLabel);
+            this.Controls.Add(this.ClassAssassinButton);
+            this.Controls.Add(this.ClassFighterButton);
+            this.Controls.Add(this.ClassTankButton);
+            this.Controls.Add(this.ClassMenuBackground);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -321,7 +422,10 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DisplayClassFighter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTank)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAssassin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClassMenuBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
@@ -334,11 +438,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,5 +472,13 @@
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
     private System.Windows.Forms.PictureBox picEnemyFlea;
+        private System.Windows.Forms.PictureBox ClassMenuBackground;
+        private System.Windows.Forms.PictureBox DisplayClassFighter;
+        private System.Windows.Forms.PictureBox picTank;
+        private System.Windows.Forms.PictureBox picAssassin;
+        private System.Windows.Forms.Label ChooseClassLabel;
+        private System.Windows.Forms.Button ClassAssassinButton;
+        private System.Windows.Forms.Button ClassFighterButton;
+        private System.Windows.Forms.Button ClassTankButton;
     }
 }
