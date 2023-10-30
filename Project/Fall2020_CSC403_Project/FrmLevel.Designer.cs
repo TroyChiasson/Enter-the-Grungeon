@@ -54,6 +54,9 @@
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picEnemyFlea = new System.Windows.Forms.PictureBox();
+            this.PlayButton = new System.Windows.Forms.Button();
+            this.PauseButton = new System.Windows.Forms.Button();
+            this.NextButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DisplayClassFighter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAssassin)).BeginInit();
@@ -381,6 +384,36 @@
             this.picEnemyFlea.TabIndex = 18;
             this.picEnemyFlea.TabStop = false;
             // 
+            // PlayButton
+            // 
+            this.PlayButton.Location = new System.Drawing.Point(1019, 4);
+            this.PlayButton.Name = "PlayButton";
+            this.PlayButton.Size = new System.Drawing.Size(75, 23);
+            this.PlayButton.TabIndex = 18;
+            this.PlayButton.Text = "Play";
+            this.PlayButton.UseVisualStyleBackColor = true;
+            this.PlayButton.Click += new System.EventHandler(this.PlayButtonClick);
+            // 
+            // PauseButton
+            // 
+            this.PauseButton.Location = new System.Drawing.Point(1100, 4);
+            this.PauseButton.Name = "PauseButton";
+            this.PauseButton.Size = new System.Drawing.Size(71, 23);
+            this.PauseButton.TabIndex = 19;
+            this.PauseButton.Text = "Pause";
+            this.PauseButton.UseVisualStyleBackColor = true;
+            this.PauseButton.Click += new System.EventHandler(this.PauseButtonClick);
+            // 
+            // NextButton
+            // 
+            this.NextButton.Location = new System.Drawing.Point(1058, 33);
+            this.NextButton.Name = "NextButton";
+            this.NextButton.Size = new System.Drawing.Size(75, 23);
+            this.NextButton.TabIndex = 20;
+            this.NextButton.Text = "Next";
+            this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButtonClick);
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,6 +421,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.Controls.Add(this.NextButton);
+            this.Controls.Add(this.PauseButton);
+            this.Controls.Add(this.PlayButton);
             this.Controls.Add(this.DisplayClassFighter);
             this.Controls.Add(this.picTank);
             this.Controls.Add(this.picAssassin);
@@ -480,5 +516,8 @@
         private System.Windows.Forms.Button ClassAssassinButton;
         private System.Windows.Forms.Button ClassFighterButton;
         private System.Windows.Forms.Button ClassTankButton;
+        private System.Windows.Forms.Button PlayButton;
+        private System.Windows.Forms.Button PauseButton;
+        private System.Windows.Forms.Button NextButton;
     }
 }
