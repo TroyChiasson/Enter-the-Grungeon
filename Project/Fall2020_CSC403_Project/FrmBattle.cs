@@ -13,6 +13,7 @@ namespace Fall2020_CSC403_Project
         private Enemy enemy;
         private Player player;
         private bool fightingFlea = false;
+        private int score = 0;
 
         private FrmBattle()
         {
@@ -117,6 +118,7 @@ namespace Fall2020_CSC403_Project
             }
             else if (enemy.Health <= 0)
             {
+                score += 20;
                 instance = null;
                 Close();
             }
