@@ -1,11 +1,13 @@
 ﻿using Fall2020_CSC403_Project.code;
+using NAudio.Wave;
 using System;
 using System.Drawing;
-using System.Windows.Forms;
-using NAudio.Wave;
-using System.Reflection;
 using System.IO;
+using System.Reflection;
 using System.Resources;
+using System.Windows.Forms;
+using System.Windows.Input;
+using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 
 namespace Fall2020_CSC403_Project
 {
@@ -28,7 +30,10 @@ namespace Fall2020_CSC403_Project
         private ResourceManager rm;
         private string[] songNames; // Array to store the resource names of your songs
         private bool changingSong = false;
+
         private bool fleaFlag = true;
+
+        private Tuple<Key, Vector2>[] moveKeys;
 
         public FrmLevel()
         {
@@ -52,7 +57,7 @@ namespace Fall2020_CSC403_Project
             enemyPoisonPacket.Name = "enemyPoisonPacket";
             enemyCheeto.Name = "enemyCheeto";
             enemyFlea.Name = "enemyFlea";
-            
+
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -97,6 +102,14 @@ namespace Fall2020_CSC403_Project
             //     NextButtonClick(this, EventArgs.Empty);
             //  }
             //};
+
+            moveKeys = new Tuple<Key, Vector2>[]
+            {
+                Tuple.Create(Key.A,     new Vector2(-1, 0)),
+                Tuple.Create(Key.D,     new Vector2(+1, 0)),
+                Tuple.Create(Key.W,     new Vector2(0, -1)),
+                Tuple.Create(Key.S,     new Vector2(0, +1)),
+            };
         }
 
         private Vector2 CreatePosition(PictureBox pic)
@@ -104,7 +117,8 @@ namespace Fall2020_CSC403_Project
             return new Vector2(pic.Location.X, pic.Location.Y);
         }
 
-        private Vector2 RemovePosition(int x, int y) {
+        private Vector2 RemovePosition(int x, int y)
+        {
             return new Vector2(x, y);
         }
 
@@ -115,13 +129,8 @@ namespace Fall2020_CSC403_Project
         }
         private Collider RemoveCollider()
         {
-            Rectangle rect = new Rectangle(0,0,0,0);
+            Rectangle rect = new Rectangle(0, 0, 0, 0);
             return new Collider(rect);
-        }
-
-        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
-        {
-            player.ResetMoveSpeed();
         }
 
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
@@ -230,14 +239,15 @@ namespace Fall2020_CSC403_Project
                 frmBattle.SetupForFlea();
             }
 
-            switch (enemy.Name) {
+            switch (enemy.Name)
+            {
                 case "bossKoolaid":
-                    bossKoolaid = new Enemy(RemovePosition(0,0), RemoveCollider());
+                    bossKoolaid = new Enemy(RemovePosition(0, 0), RemoveCollider());
                     bossKoolaid.Img = null;
                     picBossKoolAid.BackgroundImage = null;
                     break;
                 case "enemyPoisonPacket":
-                    enemyPoisonPacket = new Enemy(RemovePosition(0,0), RemoveCollider());
+                    enemyPoisonPacket = new Enemy(RemovePosition(0, 0), RemoveCollider());
                     enemyPoisonPacket.Img = null;
                     picEnemyPoisonPacket.BackgroundImage = null;
 
@@ -256,48 +266,33 @@ namespace Fall2020_CSC403_Project
 
         }
 
+
+        private void playerMove()
+        {
+            Vector2 move = new Vector2(0, 0);
+
+            foreach (Tuple<Key, Vector2> Binding in this.moveKeys)
+            {
+                if (Keyboard.IsKeyDown(Binding.Item1))
+                {
+                    move = Vector2.Add(move, Binding.Item2);
+                }
+
+                if (move.IsZero())
+                    player.ResetMoveSpeed();
+                else
+                    player.MoveVector(move);
+            }
+        }
+
+        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
+        {
+                playerMove();
+        }
+
         private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.A:
-                    player.GoLeft();
-                    break;
-
-                case Keys.D:
-                    player.GoRight();
-                    break;
-
-                case Keys.W:
-                    player.GoUp();
-                    break;
-
-                case Keys.S:
-                    player.GoDown();
-                    break;
-
-                /*
-                case (Keys.Left & Keys.Up):
-                    player.GoNW();
-                    break;
-
-                case (Keys.Right & Keys.Up):
-                    player.GoNE();
-                    break;
-
-                case (Keys.Left & Keys.Down):
-                    player.GoSW();
-                    break;
-
-                case (Keys.Right & Keys.Down):
-                    player.GoSW();
-                    break;
-                */
-
-                default:
-                    player.ResetMoveSpeed();
-                    break;
-            }
+            
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)

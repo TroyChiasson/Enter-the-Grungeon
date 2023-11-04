@@ -27,6 +27,16 @@
             Position = LastPosition;
         }
 
+        public void MoveVector(Vector2 vector) 
+        {
+            MoveSpeed = new Vector2(GO_INC * vector.x, GO_INC * vector.y);
+        }
+
+        public void ResetMoveSpeed()
+        {
+            MoveSpeed = new Vector2(0, 0);
+        }
+
         public void GoLeft()
         {
             MoveSpeed = new Vector2(-GO_INC, 0);
@@ -42,11 +52,6 @@
         public void GoDown()
         {
             MoveSpeed = new Vector2(0, +GO_INC);
-        }
-
-        public void ResetMoveSpeed()
-        {
-            MoveSpeed = new Vector2(0, 0);
         }
 
         //Diagonal movement vectors for multi-key input or rand movement
