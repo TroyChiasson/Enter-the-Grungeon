@@ -39,40 +39,31 @@ namespace Fall2020_CSC403_Project.code
             switch (moveDir)
             {
                 case 0:
-                    this.GoLeft();
-                    //System.Diagnostics.Debug.WriteLine("W...");
+                    MoveVector(new Vector2(-1, 0)); //west
                     break;
                 case 1:
-                    this.GoRight();
-                    //System.Diagnostics.Debug.WriteLine("E...");
+                    MoveVector(new Vector2(+1, 0)); //east
                     break;
                 case 2:
-                    this.GoUp();
-                    //System.Diagnostics.Debug.WriteLine("N...");
+                    MoveVector(new Vector2(0, -1)); //north
                     break;
                 case 3:
-                    this.GoDown();
-                    //System.Diagnostics.Debug.WriteLine("S...");
+                    MoveVector(new Vector2(0, +1)); //south
                     break;
                 case 4:
-                    this.GoNW();
-                    //System.Diagnostics.Debug.WriteLine("NW...");
+                    MoveVector(new Vector2(-1, -1)); //nw
                     break;
                 case 5:
-                    this.GoNE();
-                    //System.Diagnostics.Debug.WriteLine("NE...");
+                    MoveVector(new Vector2(+1, -1)); //ne
                     break;
                 case 6:
-                    this.GoSW();
-                    //System.Diagnostics.Debug.WriteLine("SW...");
+                    MoveVector(new Vector2(-1, +1)); //sw
                     break;
                 case 7:
-                    this.GoSE();
-                    //System.Diagnostics.Debug.WriteLine("SE...");
+                    MoveVector(new Vector2(+1, +1)); //se
                     break;
                 case 8:
                     this.ResetMoveSpeed();
-                    //System.Diagnostics.Debug.WriteLine("stay...");
                     break;
                 default:
                     break;
