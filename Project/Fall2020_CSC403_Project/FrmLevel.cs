@@ -7,7 +7,6 @@ using System.Reflection;
 using System.Resources;
 using System.Windows.Forms;
 using System.Windows.Input;
-using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 
 namespace Fall2020_CSC403_Project
 {
@@ -269,30 +268,31 @@ namespace Fall2020_CSC403_Project
 
         private void playerMove()
         {
-            Vector2 move = new Vector2(0, 0);
+            Vector2 moveDir = new Vector2(0, 0);
 
-            foreach (Tuple<Key, Vector2> Binding in this.moveKeys)
+            foreach (Tuple<Key, Vector2> keyBind in this.moveKeys)
             {
-                if (Keyboard.IsKeyDown(Binding.Item1))
+                if (Keyboard.IsKeyDown(keyBind.Item1))
                 {
-                    move = Vector2.Add(move, Binding.Item2);
+                    moveDir = new Vector2(moveDir.x + keyBind.Item2.x, moveDir.y + keyBind.Item2.y);
                 }
-
-                if (move.IsZero())
-                    player.ResetMoveSpeed();
-                else
-                    player.MoveVector(move);
             }
-        }
 
-        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
-        {
-                playerMove();
-        }
-
-        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
-        {
+            if (moveDir.Equals(new Vector2(0, 0)))
+                player.ResetMoveSpeed();
+            else
+                player.MoveVector(moveDir);
             
+        }
+
+        private void FrmLevel_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            playerMove();
+        }
+
+        private void FrmLevel_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            playerMove();
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
