@@ -57,6 +57,7 @@
             this.PlayButton = new System.Windows.Forms.Button();
             this.PauseButton = new System.Windows.Forms.Button();
             this.NextButton = new System.Windows.Forms.Button();
+            this.lblPlayerHealthFull = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DisplayClassFighter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAssassin)).BeginInit();
@@ -87,7 +88,7 @@
             this.lblInGameTime.BackColor = System.Drawing.Color.Black;
             this.lblInGameTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInGameTime.ForeColor = System.Drawing.Color.White;
-            this.lblInGameTime.Location = new System.Drawing.Point(12, 9);
+            this.lblInGameTime.Location = new System.Drawing.Point(12, 38);
             this.lblInGameTime.Name = "lblInGameTime";
             this.lblInGameTime.Size = new System.Drawing.Size(46, 18);
             this.lblInGameTime.TabIndex = 2;
@@ -180,11 +181,12 @@
             // 
             // ClassMenuBackground
             // 
-            this.ClassMenuBackground.Location = new System.Drawing.Point(3, 2);
+            this.ClassMenuBackground.Location = new System.Drawing.Point(-12, 1);
             this.ClassMenuBackground.Name = "ClassMenuBackground";
             this.ClassMenuBackground.Size = new System.Drawing.Size(1187, 742);
             this.ClassMenuBackground.TabIndex = 19;
             this.ClassMenuBackground.TabStop = false;
+            this.ClassMenuBackground.Click += new System.EventHandler(this.ClassMenuBackground_Click);
             // 
             // picWall11
             // 
@@ -414,6 +416,16 @@
             this.NextButton.UseVisualStyleBackColor = true;
             this.NextButton.Click += new System.EventHandler(this.NextButtonClick);
             // 
+            // lblPlayerHealthFull
+            // 
+            this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
+            this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
+            this.lblPlayerHealthFull.Location = new System.Drawing.Point(11, 7);
+            this.lblPlayerHealthFull.Name = "lblPlayerHealthFull";
+            this.lblPlayerHealthFull.Size = new System.Drawing.Size(136, 20);
+            this.lblPlayerHealthFull.TabIndex = 35;
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,8 +448,6 @@
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
             this.Controls.Add(this.picWall7);
-            this.Controls.Add(this.picWall1);
-            this.Controls.Add(this.picWall0);
             this.Controls.Add(this.picWall10);
             this.Controls.Add(this.picWall9);
             this.Controls.Add(this.picWall6);
@@ -445,12 +455,15 @@
             this.Controls.Add(this.picWall4);
             this.Controls.Add(this.picWall5);
             this.Controls.Add(this.picWall3);
-            this.Controls.Add(this.lblInGameTime);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picEnemyCheeto);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picEnemyFlea);
+            this.Controls.Add(this.lblInGameTime);
+            this.Controls.Add(this.lblPlayerHealthFull);
+            this.Controls.Add(this.picWall0);
+            this.Controls.Add(this.picWall1);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -519,5 +532,6 @@
         private System.Windows.Forms.Button PlayButton;
         private System.Windows.Forms.Button PauseButton;
         private System.Windows.Forms.Button NextButton;
+        private System.Windows.Forms.Label lblPlayerHealthFull;
     }
 }

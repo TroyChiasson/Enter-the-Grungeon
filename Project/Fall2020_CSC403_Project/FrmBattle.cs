@@ -139,5 +139,15 @@ namespace Fall2020_CSC403_Project
             picBossBattle.Visible = false;
             tmrFinalBattle.Enabled = false;
         }
+
+        private void lblPlayerHealthFull_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picEnemy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

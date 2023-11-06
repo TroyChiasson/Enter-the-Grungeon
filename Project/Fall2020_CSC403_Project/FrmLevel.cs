@@ -137,6 +137,8 @@ namespace Fall2020_CSC403_Project
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
+
+            playerHealthUpdate();
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
@@ -262,9 +264,8 @@ namespace Fall2020_CSC403_Project
                     fleaFlag = false;
                     break;
             }
-
+            playerHealthUpdate();
         }
-
 
         private void playerMove()
         {
@@ -283,6 +284,16 @@ namespace Fall2020_CSC403_Project
             else
                 player.MoveVector(moveDir);
             
+        }
+
+        private void playerHealthUpdate()
+        {
+            float playerHealthPer = player.Health / (float)player.MaxHealth;
+
+            const int MAX_HEALTHBAR_WIDTH = 226;
+            lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+
+            lblPlayerHealthFull.Text = player.Health.ToString();
         }
 
         private void FrmLevel_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -436,6 +447,11 @@ namespace Fall2020_CSC403_Project
                 audio.Dispose();
                 audio = null;
             }
+        }
+
+        private void ClassMenuBackground_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
