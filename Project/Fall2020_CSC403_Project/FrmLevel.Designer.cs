@@ -58,6 +58,7 @@
             this.PauseButton = new System.Windows.Forms.Button();
             this.NextButton = new System.Windows.Forms.Button();
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DisplayClassFighter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAssassin)).BeginInit();
@@ -181,12 +182,11 @@
             // 
             // ClassMenuBackground
             // 
-            this.ClassMenuBackground.Location = new System.Drawing.Point(-12, 1);
+            this.ClassMenuBackground.Location = new System.Drawing.Point(2, 1);
             this.ClassMenuBackground.Name = "ClassMenuBackground";
             this.ClassMenuBackground.Size = new System.Drawing.Size(1187, 742);
             this.ClassMenuBackground.TabIndex = 19;
             this.ClassMenuBackground.TabStop = false;
-            this.ClassMenuBackground.Click += new System.EventHandler(this.ClassMenuBackground_Click);
             // 
             // picWall11
             // 
@@ -421,10 +421,19 @@
             this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
             this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
-            this.lblPlayerHealthFull.Location = new System.Drawing.Point(11, 7);
+            this.lblPlayerHealthFull.Location = new System.Drawing.Point(12, 4);
             this.lblPlayerHealthFull.Name = "lblPlayerHealthFull";
-            this.lblPlayerHealthFull.Size = new System.Drawing.Size(136, 20);
+            this.lblPlayerHealthFull.Size = new System.Drawing.Size(226, 23);
             this.lblPlayerHealthFull.TabIndex = 35;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(12, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(225, 23);
+            this.label1.TabIndex = 36;
             // 
             // FrmLevel
             // 
@@ -455,15 +464,16 @@
             this.Controls.Add(this.picWall4);
             this.Controls.Add(this.picWall5);
             this.Controls.Add(this.picWall3);
-            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picEnemyCheeto);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picEnemyFlea);
             this.Controls.Add(this.lblInGameTime);
             this.Controls.Add(this.lblPlayerHealthFull);
-            this.Controls.Add(this.picWall0);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.picWall1);
+            this.Controls.Add(this.picWall0);
+            this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -533,5 +543,6 @@
         private System.Windows.Forms.Button PauseButton;
         private System.Windows.Forms.Button NextButton;
         private System.Windows.Forms.Label lblPlayerHealthFull;
+        private System.Windows.Forms.Label label1;
     }
 }

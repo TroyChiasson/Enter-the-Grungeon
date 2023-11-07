@@ -448,10 +448,5 @@ namespace Fall2020_CSC403_Project
                 audio = null;
             }
         }
-
-        private void ClassMenuBackground_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

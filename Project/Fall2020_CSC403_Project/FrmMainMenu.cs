@@ -29,7 +29,6 @@ namespace Fall2020_CSC403_Project
             this.pictureBox1.Size = new System.Drawing.Size(1399, 779);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // button1
             // 
@@ -50,11 +49,6 @@ namespace Fall2020_CSC403_Project
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         private void button1_Click(object sender, System.EventArgs e)
