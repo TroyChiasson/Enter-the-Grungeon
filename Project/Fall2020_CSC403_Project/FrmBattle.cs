@@ -118,7 +118,7 @@ namespace Fall2020_CSC403_Project
             }
             else if (enemy.Health <= 0)
             {
-                score += 20;
+                player.Score += 20;
                 instance = null;
                 Close();
             }
