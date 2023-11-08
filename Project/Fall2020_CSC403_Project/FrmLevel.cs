@@ -44,7 +44,7 @@ namespace Fall2020_CSC403_Project
         private void FrmLevel_Load(object sender, EventArgs e)
         {
             const int PADDING = 7;
-            const int NUM_WALLS = 13;
+            const int NUM_WALLS = 10;
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -138,7 +138,7 @@ namespace Fall2020_CSC403_Project
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
 
-            playerHealthUpdate();
+            playerStatsUpdate();
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
@@ -264,7 +264,6 @@ namespace Fall2020_CSC403_Project
                     fleaFlag = false;
                     break;
             }
-            playerHealthUpdate();
         }
 
         private void playerMove()
@@ -286,7 +285,7 @@ namespace Fall2020_CSC403_Project
             
         }
 
-        private void playerHealthUpdate()
+        private void playerStatsUpdate()
         {
             float playerHealthPer = player.Health / (float)player.MaxHealth;
 
@@ -294,7 +293,13 @@ namespace Fall2020_CSC403_Project
             lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
 
             lblPlayerHealthFull.Text = player.Health.ToString();
+
+            lblPlayerStrength.Text = "Attack Power: " + (player._strength*4).ToString();
+
+            lblPlayerScore.Text = "Score: " + player.Score.ToString();
         }
+
+
 
         private void FrmLevel_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
@@ -306,10 +311,6 @@ namespace Fall2020_CSC403_Project
             playerMove();
         }
 
-        private void lblInGameTime_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void ClassTankButton_Click(object sender, EventArgs e)
         {
