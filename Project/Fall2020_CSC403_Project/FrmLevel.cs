@@ -81,9 +81,6 @@ namespace Fall2020_CSC403_Project
             this.picWall7.BringToFront();
             this.picWall8.BringToFront();
             this.picWall9.BringToFront();
-            this.picWall10.BringToFront();
-            this.picWall11.BringToFront();
-            this.picWall12.BringToFront();
             this.picEnemyCheeto.BringToFront();
             this.picBossKoolAid.BringToFront();
             this.picEnemyFlea.BringToFront();
@@ -135,7 +132,7 @@ namespace Fall2020_CSC403_Project
         {
             displayMainMenu();
             const int PADDING = 7;
-            const int NUM_WALLS = 13;
+            const int NUM_WALLS = 10;
 
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
@@ -229,6 +226,8 @@ namespace Fall2020_CSC403_Project
             TimeSpan span = DateTime.Now - timeBegin;
             string time = span.ToString(@"hh\:mm\:ss");
             lblInGameTime.Text = "Time: " + time.ToString();
+
+            playerStatsUpdate();
         }
 
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
@@ -354,9 +353,7 @@ namespace Fall2020_CSC403_Project
                     fleaFlag = false;
                     break;
             }
-
         }
-
 
         private void playerMove()
         {
@@ -377,6 +374,22 @@ namespace Fall2020_CSC403_Project
             
         }
 
+        private void playerStatsUpdate()
+        {
+            float playerHealthPer = player.Health / (float)player.MaxHealth;
+
+            const int MAX_HEALTHBAR_WIDTH = 226;
+            lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+
+            lblPlayerHealthFull.Text = player.Health.ToString();
+
+            lblPlayerStrength.Text = "Attack Power: " + (player._strength*4).ToString();
+
+            lblPlayerScore.Text = "Score: " + player.Score.ToString();
+        }
+
+
+
         private void FrmLevel_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             playerMove();
@@ -387,10 +400,6 @@ namespace Fall2020_CSC403_Project
             playerMove();
         }
 
-        private void lblInGameTime_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void ClassTankButton_Click(object sender, EventArgs e)
         {
