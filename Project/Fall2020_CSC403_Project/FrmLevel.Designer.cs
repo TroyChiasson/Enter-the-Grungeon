@@ -455,7 +455,7 @@
             this.VolumeDownInGame.Text = "-";
             this.VolumeDownInGame.UseVisualStyleBackColor = true;
             this.VolumeDownInGame.Click += new System.EventHandler(this.VolumeDownInGame_Click);
-            //
+            // 
             // lblPlayerHealthFull
             // 
             this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
@@ -511,14 +511,6 @@
             this.Controls.Add(this.NextButton);
             this.Controls.Add(this.PauseButton);
             this.Controls.Add(this.PlayButton);
-            this.Controls.Add(this.DisplayClassFighter);
-            this.Controls.Add(this.picTank);
-            this.Controls.Add(this.picAssassin);
-            this.Controls.Add(this.ChooseClassLabel);
-            this.Controls.Add(this.ClassAssassinButton);
-            this.Controls.Add(this.ClassFighterButton);
-            this.Controls.Add(this.ClassTankButton);
-            this.Controls.Add(this.ClassMenuBackground);
             this.Controls.Add(this.picWall7);
             this.Controls.Add(this.picWall5);
             this.Controls.Add(this.picWall9);

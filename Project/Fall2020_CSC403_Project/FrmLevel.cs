@@ -85,6 +85,11 @@ namespace Fall2020_CSC403_Project
             this.picBossKoolAid.BringToFront();
             this.picEnemyFlea.BringToFront();
             this.picPlayer.BringToFront();
+            this.lblInGameTime.BringToFront();
+            this.lblPlayerScore.BringToFront();
+            this.lblPlayerStrength.BringToFront();
+            this.label1.BringToFront();
+            this.lblPlayerHealthFull.BringToFront();
 
         }
 
