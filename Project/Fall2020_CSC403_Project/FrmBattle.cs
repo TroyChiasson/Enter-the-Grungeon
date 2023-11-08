@@ -13,7 +13,6 @@ namespace Fall2020_CSC403_Project
         private Enemy enemy;
         private Player player;
         private bool fightingFlea = false;
-        private int score = 0;
 
         private FrmBattle()
         {
@@ -34,7 +33,7 @@ namespace Fall2020_CSC403_Project
             player.AttackEvent += EnemyDamage;
 
             // show health
-            UpdateHealthBars();
+            UpdateStats();
         }
 
         public void SetupForBossBattle()
@@ -65,7 +64,7 @@ namespace Fall2020_CSC403_Project
             return instance;
         }
 
-        private void UpdateHealthBars()
+        private void UpdateStats()
         {
             float playerHealthPer = player.Health / (float)player.MaxHealth;
             float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
@@ -76,6 +75,10 @@ namespace Fall2020_CSC403_Project
 
             lblPlayerHealthFull.Text = player.Health.ToString();
             lblEnemyHealthFull.Text = enemy.Health.ToString();
+
+            lblPlayerStrength.Text = "Attack Power: " + (player._strength * 4).ToString();
+
+            lblPlayerScore.Text = "Score: " + player.Score.ToString();
         }
 
         private void btnAttack_Click(object sender, EventArgs e)
@@ -86,7 +89,7 @@ namespace Fall2020_CSC403_Project
                 enemy.OnAttack(-2);
             }
 
-            UpdateHealthBars();
+            UpdateStats();
 
             if (enemy.Health <= 0 && fightingFlea)
             {
@@ -140,12 +143,7 @@ namespace Fall2020_CSC403_Project
             tmrFinalBattle.Enabled = false;
         }
 
-        private void lblPlayerHealthFull_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picEnemy_Click(object sender, EventArgs e)
+        private void FrmBattle_Load(object sender, EventArgs e)
         {
 
         }

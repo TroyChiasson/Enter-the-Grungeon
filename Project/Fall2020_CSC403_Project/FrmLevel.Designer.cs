@@ -177,7 +177,7 @@
             // 
             // ClassMenuBackground
             // 
-            this.ClassMenuBackground.Location = new System.Drawing.Point(-12, -9);
+            this.ClassMenuBackground.Location = new System.Drawing.Point(-12, 1);
             this.ClassMenuBackground.Name = "ClassMenuBackground";
             this.ClassMenuBackground.Size = new System.Drawing.Size(1187, 742);
             this.ClassMenuBackground.TabIndex = 19;

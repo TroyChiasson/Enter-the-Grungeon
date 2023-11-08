@@ -33,6 +33,8 @@
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
+            this.lblPlayerStrength = new System.Windows.Forms.Label();
+            this.lblPlayerScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -58,7 +60,6 @@
             this.lblPlayerHealthFull.Name = "lblPlayerHealthFull";
             this.lblPlayerHealthFull.Size = new System.Drawing.Size(226, 20);
             this.lblPlayerHealthFull.TabIndex = 3;
-            this.lblPlayerHealthFull.Click += new System.EventHandler(this.lblPlayerHealthFull_Click);
             // 
             // label1
             // 
@@ -110,7 +111,6 @@
             this.picEnemy.Size = new System.Drawing.Size(229, 267);
             this.picEnemy.TabIndex = 1;
             this.picEnemy.TabStop = false;
-            this.picEnemy.Click += new System.EventHandler(this.picEnemy_Click);
             // 
             // picPlayer
             // 
@@ -129,6 +129,30 @@
             this.tmrFinalBattle.Interval = 5600;
             this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
             // 
+            // lblPlayerStrength
+            // 
+            this.lblPlayerStrength.AutoSize = true;
+            this.lblPlayerStrength.BackColor = System.Drawing.Color.Black;
+            this.lblPlayerStrength.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerStrength.ForeColor = System.Drawing.Color.White;
+            this.lblPlayerStrength.Location = new System.Drawing.Point(67, 368);
+            this.lblPlayerStrength.Name = "lblPlayerStrength";
+            this.lblPlayerStrength.Size = new System.Drawing.Size(61, 18);
+            this.lblPlayerStrength.TabIndex = 39;
+            this.lblPlayerStrength.Text = "strength";
+            // 
+            // lblPlayerScore
+            // 
+            this.lblPlayerScore.AutoSize = true;
+            this.lblPlayerScore.BackColor = System.Drawing.Color.Black;
+            this.lblPlayerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerScore.ForeColor = System.Drawing.Color.White;
+            this.lblPlayerScore.Location = new System.Drawing.Point(67, 396);
+            this.lblPlayerScore.Name = "lblPlayerScore";
+            this.lblPlayerScore.Size = new System.Drawing.Size(46, 18);
+            this.lblPlayerScore.TabIndex = 40;
+            this.lblPlayerScore.Text = "score";
+            // 
             // FrmBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,6 +160,8 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
+            this.Controls.Add(this.lblPlayerScore);
+            this.Controls.Add(this.lblPlayerStrength);
             this.Controls.Add(this.picBossBattle);
             this.Controls.Add(this.lblEnemyHealthFull);
             this.Controls.Add(this.label2);
@@ -148,10 +174,12 @@
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fight!";
+            this.Load += new System.EventHandler(this.FrmBattle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
     }
 
@@ -166,5 +194,7 @@
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
-  }
+        private System.Windows.Forms.Label lblPlayerStrength;
+        private System.Windows.Forms.Label lblPlayerScore;
+    }
 }
