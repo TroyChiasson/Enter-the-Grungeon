@@ -41,10 +41,25 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        public void displayClassMenu()
+        {
+            this.ClassMenuBackground.BringToFront();
+            this.ClassTankButton.BringToFront();
+            this.ClassFighterButton.BringToFront();
+            this.ClassAssassinButton.BringToFront();
+            this.ChooseClassLabel.BringToFront();
+            this.picTank.BringToFront();
+            this.picAssassin.BringToFront();
+            this.DisplayClassFighter.BringToFront();
+ 
+        }
+
         private void FrmLevel_Load(object sender, EventArgs e)
         {
+            displayClassMenu();
             const int PADDING = 7;
             const int NUM_WALLS = 13;
+
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
