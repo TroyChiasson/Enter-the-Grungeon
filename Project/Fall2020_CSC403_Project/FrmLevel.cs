@@ -53,10 +53,87 @@ namespace Fall2020_CSC403_Project
             this.DisplayClassFighter.BringToFront();
  
         }
+        public void displayMainMenu()
+        {
+            this.pictureBox1.BringToFront();
+            this.mainMenuPlay.BringToFront();
+            this.SettingsButton.BringToFront();
+
+        }
+
+        public void displayFirstLevel()
+        {
+            removeMainMenu();
+            removeSettingsMenu();
+            this.Controls.Remove(VolumeUp);
+            this.Controls.Remove(VolumeDown);
+            this.Controls.Remove(BackToMenu);
+            this.VolumeUpInGame.BringToFront();
+            this.VolumeDownInGame.BringToFront();
+            this.ClassMenuBackground.BringToFront();
+            this.picWall0.BringToFront();
+            this.picWall1.BringToFront();
+            this.picWall2.BringToFront();
+            this.picWall3.BringToFront();
+            this.picWall4.BringToFront();
+            this.picWall5.BringToFront();
+            this.picWall6.BringToFront();
+            this.picWall7.BringToFront();
+            this.picWall8.BringToFront();
+            this.picWall9.BringToFront();
+            this.picWall10.BringToFront();
+            this.picWall11.BringToFront();
+            this.picWall12.BringToFront();
+            this.picEnemyCheeto.BringToFront();
+            this.picBossKoolAid.BringToFront();
+            this.picEnemyFlea.BringToFront();
+            this.picPlayer.BringToFront();
+
+        }
+
+        public void displaySettingsMenu()
+        {  
+            this.mainMenuPlay.SendToBack();
+            this.SettingsButton.SendToBack();
+            this.ClassMenuBackground.BringToFront();
+            this.VolumeDown.BringToFront();
+            this.VolumeUp.BringToFront();
+            this.BackToMenu.BringToFront();
+
+        }
+
+        public void removeSettingsMenu()
+        {
+            this.ClassMenuBackground.SendToBack();
+            this.VolumeDown.SendToBack();
+            this.VolumeUp.SendToBack();
+            this.BackToMenu.SendToBack();
+        }
+        public void removeMainMenu()
+        {
+            this.mainMenuPlay.SendToBack();
+            this.SettingsButton.SendToBack();
+        }
+
+        public void removeClassMenu()
+        {
+            
+            this.ClassMenuBackground.SendToBack();
+            this.ClassTankButton.SendToBack();
+            this.ClassFighterButton.SendToBack();
+            this.ClassAssassinButton.SendToBack();
+            this.ChooseClassLabel.SendToBack();
+            this.picTank.SendToBack();
+            this.picAssassin.SendToBack();
+            this.DisplayClassFighter.SendToBack();
+        }
+
+
+
 
         private void FrmLevel_Load(object sender, EventArgs e)
         {
-            displayClassMenu();
+            displayMainMenu();
             const int PADDING = 7;
             const int NUM_WALLS = 13;
 
@@ -320,6 +397,9 @@ namespace Fall2020_CSC403_Project
             player.MaxHealth = 50;
             player.Health = 50;
             player._strength = 1;
+            removeClassMenu();
+            displayFirstLevel();
+            this.Controls.Remove(SettingsButton);
             this.Controls.Remove(ClassTankButton);
             this.Controls.Remove(ClassFighterButton);
             this.Controls.Remove(ClassAssassinButton);
@@ -336,6 +416,9 @@ namespace Fall2020_CSC403_Project
             player.MaxHealth = 20;
             player.Health = 20;
             player._strength = 2;
+            removeClassMenu();
+            displayFirstLevel();
+            this.Controls.Remove(SettingsButton);
             this.Controls.Remove(ClassTankButton);
             this.Controls.Remove(ClassFighterButton);
             this.Controls.Remove(ClassAssassinButton);
@@ -352,6 +435,9 @@ namespace Fall2020_CSC403_Project
             player.MaxHealth = 15;
             player.Health = 15;
             player._strength = 3;
+            removeClassMenu();
+            displayFirstLevel();
+            this.Controls.Remove(SettingsButton);
             this.Controls.Remove(ClassTankButton);
             this.Controls.Remove(ClassFighterButton);
             this.Controls.Remove(ClassAssassinButton);
@@ -450,6 +536,58 @@ namespace Fall2020_CSC403_Project
             {
                 audio.Dispose();
                 audio = null;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            this.Controls.Remove(mainMenuPlay);
+            this.Controls.Remove(pictureBox1);
+            removeMainMenu();
+            displayClassMenu();
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            displaySettingsMenu();
+        }
+
+        private void VolumeUp_Click(object sender, EventArgs e)
+        {
+            if (waveOut.Volume + .10f < 1)
+            {
+                waveOut.Volume += 0.10f;
+            }
+        }
+
+        private void BackToMenu_Click(object sender, EventArgs e)
+        {
+            removeSettingsMenu();
+            displayMainMenu();
+        }
+
+        private void VolumeDown_Click(object sender, EventArgs e)
+        {
+            if (waveOut.Volume-.10f > 0)
+            {
+                waveOut.Volume -= 0.10f;
+            }
+        }
+
+        private void VolumeUpInGame_Click(object sender, EventArgs e)
+        {
+            if (waveOut.Volume + .10f < 1)
+            {
+                waveOut.Volume += 0.10f;
+            }
+        }
+
+        private void VolumeDownInGame_Click(object sender, EventArgs e)
+        {
+            if (waveOut.Volume - .10f > 0)
+            {
+                waveOut.Volume -= 0.10f;
             }
         }
     }
