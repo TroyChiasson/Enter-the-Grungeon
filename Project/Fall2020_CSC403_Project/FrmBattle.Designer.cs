@@ -35,6 +35,7 @@
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
             this.lblPlayerStrength = new System.Windows.Forms.Label();
             this.lblPlayerScore = new System.Windows.Forms.Label();
+            this.buttonTaunt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -153,6 +154,17 @@
             this.lblPlayerScore.TabIndex = 40;
             this.lblPlayerScore.Text = "score";
             // 
+            // buttonTaunt
+            // 
+            this.buttonTaunt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTaunt.Location = new System.Drawing.Point(127, 486);
+            this.buttonTaunt.Name = "buttonTaunt";
+            this.buttonTaunt.Size = new System.Drawing.Size(128, 43);
+            this.buttonTaunt.TabIndex = 41;
+            this.buttonTaunt.Text = "Taunt";
+            this.buttonTaunt.UseVisualStyleBackColor = true;
+            this.buttonTaunt.Click += new System.EventHandler(this.buttonTaunt_Click);
+            // 
             // FrmBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,6 +172,7 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
+            this.Controls.Add(this.buttonTaunt);
             this.Controls.Add(this.lblPlayerScore);
             this.Controls.Add(this.lblPlayerStrength);
             this.Controls.Add(this.picBossBattle);
@@ -196,5 +209,6 @@
     private System.Windows.Forms.Timer tmrFinalBattle;
         private System.Windows.Forms.Label lblPlayerStrength;
         private System.Windows.Forms.Label lblPlayerScore;
+        private System.Windows.Forms.Button buttonTaunt;
     }
 }

@@ -19,6 +19,8 @@ namespace Fall2020_CSC403_Project
         private Enemy enemyCheeto;
         private Enemy enemyFlea;
         private Character[] walls;
+        private string playerName = "hi";
+
 
         private DateTime timeBegin;
         private FrmBattle frmBattle;
@@ -55,9 +57,13 @@ namespace Fall2020_CSC403_Project
         }
         public void displayMainMenu()
         {
+            
             this.pictureBox1.BringToFront();
             this.mainMenuPlay.BringToFront();
             this.SettingsButton.BringToFront();
+            this.playerNameTextBox.BringToFront();
+            this.playerNameLabel.BringToFront();
+            this.SetNameButton.BringToFront();
 
         }
 
@@ -68,6 +74,9 @@ namespace Fall2020_CSC403_Project
             this.Controls.Remove(VolumeUp);
             this.Controls.Remove(VolumeDown);
             this.Controls.Remove(BackToMenu);
+            this.Controls.Remove(playerNameTextBox);
+            this.Controls.Remove(playerNameLabel);
+            this.Controls.Remove(SetNameButton);
             this.VolumeUpInGame.BringToFront();
             this.VolumeDownInGame.BringToFront();
             this.ClassMenuBackground.BringToFront();
@@ -113,6 +122,9 @@ namespace Fall2020_CSC403_Project
         }
         public void removeMainMenu()
         {
+            this.SetNameButton.SendToBack();
+            this.playerNameLabel.SendToBack();
+            this.playerNameTextBox.SendToBack();
             this.mainMenuPlay.SendToBack();
             this.SettingsButton.SendToBack();
         }
@@ -169,6 +181,7 @@ namespace Fall2020_CSC403_Project
             }
 
             Game.player = player;
+            
             timeBegin = DateTime.Now;
 
             songNames = new string[]
@@ -603,6 +616,11 @@ namespace Fall2020_CSC403_Project
             {
                 waveOut.Volume -= 0.10f;
             }
+        }
+
+        private void SetNameButton_Click(object sender, EventArgs e)
+        {
+            Game.player.playerName = playerNameTextBox.Text;
         }
     }
 }

@@ -147,5 +147,33 @@ namespace Fall2020_CSC403_Project
         {
 
         }
+
+        private void buttonTaunt_Click(object sender, EventArgs e)
+        {
+
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-2);
+            }
+
+            UpdateStats();
+
+            if (player.Health <= 0)
+            {
+                FrmGameOver frmGameOver = new FrmGameOver();
+                frmGameOver.Show();
+
+                instance = null;
+                Close();
+            }
+
+            else if (enemy.Health <= 0)
+            {
+                player.Score += 20;
+                instance = null;
+                Close();
+            }
+            player.buffAttack();
+        }
     }
 }

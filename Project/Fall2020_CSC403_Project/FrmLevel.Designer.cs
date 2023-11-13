@@ -66,6 +66,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblPlayerScore = new System.Windows.Forms.Label();
             this.lblPlayerStrength = new System.Windows.Forms.Label();
+            this.playerNameTextBox = new System.Windows.Forms.TextBox();
+            this.playerNameLabel = new System.Windows.Forms.Label();
+            this.SetNameButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DisplayClassFighter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAssassin)).BeginInit();
@@ -499,6 +502,32 @@
             this.lblPlayerStrength.TabIndex = 38;
             this.lblPlayerStrength.Text = "strength";
             // 
+            // playerNameTextBox
+            // 
+            this.playerNameTextBox.Location = new System.Drawing.Point(400, 89);
+            this.playerNameTextBox.Name = "playerNameTextBox";
+            this.playerNameTextBox.Size = new System.Drawing.Size(315, 20);
+            this.playerNameTextBox.TabIndex = 43;
+            // 
+            // playerNameLabel
+            // 
+            this.playerNameLabel.AutoSize = true;
+            this.playerNameLabel.Location = new System.Drawing.Point(327, 92);
+            this.playerNameLabel.Name = "playerNameLabel";
+            this.playerNameLabel.Size = new System.Drawing.Size(67, 13);
+            this.playerNameLabel.TabIndex = 44;
+            this.playerNameLabel.Text = "Player Name";
+            // 
+            // SetNameButton
+            // 
+            this.SetNameButton.Location = new System.Drawing.Point(741, 78);
+            this.SetNameButton.Name = "SetNameButton";
+            this.SetNameButton.Size = new System.Drawing.Size(130, 40);
+            this.SetNameButton.TabIndex = 45;
+            this.SetNameButton.Text = "Set Name";
+            this.SetNameButton.UseVisualStyleBackColor = true;
+            this.SetNameButton.Click += new System.EventHandler(this.SetNameButton_Click);
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -506,6 +535,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.Controls.Add(this.SetNameButton);
+            this.Controls.Add(this.playerNameLabel);
+            this.Controls.Add(this.playerNameTextBox);
             this.Controls.Add(this.VolumeDownInGame);
             this.Controls.Add(this.VolumeUpInGame);
             this.Controls.Add(this.NextButton);
@@ -620,5 +652,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPlayerScore;
         private System.Windows.Forms.Label lblPlayerStrength;
+        private System.Windows.Forms.TextBox playerNameTextBox;
+        private System.Windows.Forms.Label playerNameLabel;
+        private System.Windows.Forms.Button SetNameButton;
     }
 }
