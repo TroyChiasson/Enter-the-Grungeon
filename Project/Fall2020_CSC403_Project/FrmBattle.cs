@@ -13,7 +13,6 @@ namespace Fall2020_CSC403_Project
         private Enemy enemy;
         private Player player;
         private FrmLevel level;
-        private bool fightingFlea = false;
 
 
         private FrmBattle()
@@ -52,7 +51,6 @@ namespace Fall2020_CSC403_Project
 
         public void SetupForFlea(FrmLevel level)
         {
-            fightingFlea = true;
             this.level = level;
         }
 
@@ -89,12 +87,29 @@ namespace Fall2020_CSC403_Project
             player.OnAttack(-4);
             if (enemy.Health > 0)
             {
-                enemy.OnAttack(-2);
+                switch (enemy.Name)
+                {
+                    case "enemyBossKoolAid":
+                        enemy.OnAttack(-2);
+                        break;
+
+                    case "enemyPoisonPacket":
+                        enemy.OnAttack(-2);
+                        break;
+
+                    case "enemyCheeto":
+                        enemy.OnAttack(-2);
+                        break;
+
+                    case "enemyFlea":
+                        enemy.OnAttack(-2);
+                        break;
+                }
             }
 
             UpdateStats();
 
-            if (enemy.Health <= 0 && fightingFlea)
+            if (enemy.Health <= 0 && enemy.Name == "enemyFlea")
             {
                 Random rand = new Random();
                 int buffEffect = rand.Next(2);
@@ -113,8 +128,6 @@ namespace Fall2020_CSC403_Project
                         level.displayAttackBoost();
                         break;
                 }
-
-                fightingFlea = false;
             }
             if (player.Health <= 0)
             {
@@ -132,6 +145,68 @@ namespace Fall2020_CSC403_Project
             }
         }
 
+
+        private void HeavyAttackButton_Click(object sender, EventArgs e)
+        {
+            player.OnAttack(-6);
+            if (enemy.Health > 0)
+            {
+                switch (enemy.Name)
+                {
+                    case "enemyBossKoolAid":
+                        enemy.OnAttack(-2);
+                        break;
+
+                    case "enemyPoisonPacket":
+                        enemy.OnAttack(-2);
+                        break;
+
+                    case "enemyCheeto":
+                        enemy.OnAttack(-2);
+                        break;
+
+                    case "enemyFlea":
+                        enemy.OnAttack(-2);
+                        break;
+                }
+            }
+            UpdateStats();
+
+            if (enemy.Health <= 0 && enemy.Name == "enemyFlea")
+            {
+                Random rand = new Random();
+                int buffEffect = rand.Next(2);
+                switch (buffEffect)
+                {
+                    case 0:
+                        player.buffHealth();
+                        break;
+                    case 1:
+                        player.buffAttack();
+                        level.displayAttackBoost();
+                        break;
+                    case 2:
+                        player.buffHealth();
+                        player.buffAttack();
+                        level.displayAttackBoost();
+                        break;
+                }
+            }
+            if (player.Health <= 0)
+            {
+                FrmGameOver frmGameOver = new FrmGameOver();
+                frmGameOver.Show();
+
+                instance = null;
+                Close();
+            }
+            else if (enemy.Health <= 0)
+            {
+                player.Score += 20;
+                instance = null;
+                Close();
+            }
+        }
         private void EnemyDamage(int amount)
         {
             enemy.AlterHealth(amount);
@@ -182,53 +257,6 @@ namespace Fall2020_CSC403_Project
             UpdateStats();
         }
 
-        private void HeavyAttackButton_Click(object sender, EventArgs e)
-        {
-            player.OnAttack(-6);
-            if (enemy.Health > 0)
-            {
-                enemy.OnAttack(-2);
-                enemy.OnAttack(-2);
-            }
 
-            UpdateStats();
-
-            if (enemy.Health <= 0 && fightingFlea)
-            {
-                Random rand = new Random();
-                int buffEffect = rand.Next(2);
-                switch (buffEffect)
-                {
-                    case 0:
-                        player.buffHealth();
-                        break;
-                    case 1:
-                        player.buffAttack();
-                        level.displayAttackBoost();
-                        break;
-                    case 2:
-                        player.buffHealth();
-                        player.buffAttack();
-                        level.displayAttackBoost();
-                        break;
-                }
-
-                fightingFlea = false;
-            }
-            if (player.Health <= 0)
-            {
-                FrmGameOver frmGameOver = new FrmGameOver();
-                frmGameOver.Show();
-
-                instance = null;
-                Close();
-            }
-            else if (enemy.Health <= 0)
-            {
-                player.Score += 20;
-                instance = null;
-                Close();
-            }
-        }
     }
 }

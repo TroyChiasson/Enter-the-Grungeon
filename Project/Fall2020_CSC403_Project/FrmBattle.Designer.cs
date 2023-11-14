@@ -47,9 +47,9 @@
             this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAttack.Location = new System.Drawing.Point(52, 426);
             this.btnAttack.Name = "btnAttack";
-            this.btnAttack.Size = new System.Drawing.Size(128, 43);
+            this.btnAttack.Size = new System.Drawing.Size(128, 63);
             this.btnAttack.TabIndex = 2;
-            this.btnAttack.Text = "Attack";
+            this.btnAttack.Text = "Piercing Attack";
             this.btnAttack.UseVisualStyleBackColor = true;
             this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
             // 
@@ -158,7 +158,7 @@
             // buttonTaunt
             // 
             this.buttonTaunt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTaunt.Location = new System.Drawing.Point(119, 475);
+            this.buttonTaunt.Location = new System.Drawing.Point(119, 504);
             this.buttonTaunt.Name = "buttonTaunt";
             this.buttonTaunt.Size = new System.Drawing.Size(128, 43);
             this.buttonTaunt.TabIndex = 41;
@@ -171,9 +171,9 @@
             this.HeavyAttackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HeavyAttackButton.Location = new System.Drawing.Point(186, 426);
             this.HeavyAttackButton.Name = "HeavyAttackButton";
-            this.HeavyAttackButton.Size = new System.Drawing.Size(128, 43);
+            this.HeavyAttackButton.Size = new System.Drawing.Size(128, 63);
             this.HeavyAttackButton.TabIndex = 42;
-            this.HeavyAttackButton.Text = "Heavy Attack";
+            this.HeavyAttackButton.Text = "Bludeoning Attack";
             this.HeavyAttackButton.UseVisualStyleBackColor = true;
             this.HeavyAttackButton.Click += new System.EventHandler(this.HeavyAttackButton_Click);
             // 
