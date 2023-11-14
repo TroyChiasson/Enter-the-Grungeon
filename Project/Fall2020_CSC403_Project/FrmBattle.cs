@@ -196,6 +196,7 @@ namespace Fall2020_CSC403_Project
         {
             FrmLevel2 level2 = new FrmLevel2();
             level2.FormClosed += GameExit;
+            level2.picPlayer.BackgroundImage = picPlayer.BackgroundImage;
             level2.Show();
 
             level.StopAndDispose();

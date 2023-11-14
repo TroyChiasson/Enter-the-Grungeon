@@ -389,8 +389,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox picPlayer;
         private System.Windows.Forms.Label lblInGameTime;
         private System.Windows.Forms.Timer tmrUpdateInGameTime;
         private System.Windows.Forms.Timer tmrPlayerMove;
@@ -416,5 +414,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPlayerScore;
         private System.Windows.Forms.Label lblPlayerStrength;
+        public System.Windows.Forms.PictureBox picPlayer;
     }
 }

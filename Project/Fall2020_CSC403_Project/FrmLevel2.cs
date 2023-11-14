@@ -41,31 +41,6 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        public void displayFirstLevel()
-        {
-            this.VolumeUpInGame.BringToFront();
-            this.VolumeDownInGame.BringToFront();
-            this.picWall0.BringToFront();
-            this.picWall1.BringToFront();
-            this.picWall2.BringToFront();
-            this.picWall3.BringToFront();
-            this.picWall4.BringToFront();
-            this.picWall5.BringToFront();
-            this.picWall6.BringToFront();
-            this.picWall7.BringToFront();
-            this.picWall8.BringToFront();
-            this.picWall9.BringToFront();
-            this.picEnemyCheeto.BringToFront();
-            this.picEnemyFlea.BringToFront();
-            this.picPlayer.BringToFront();
-            this.lblInGameTime.BringToFront();
-            this.lblPlayerScore.BringToFront();
-            this.lblPlayerStrength.BringToFront();
-            this.label1.BringToFront();
-            this.lblPlayerHealthFull.BringToFront();
-
-        }
-
         private void FrmLevel_Load(object sender, EventArgs e)
         {
             const int PADDING = 7;
@@ -313,9 +288,6 @@ namespace Fall2020_CSC403_Project
         {
             playerMove();
         }
-
-
-       
 
         private void LoadSong()
         {

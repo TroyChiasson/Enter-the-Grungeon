@@ -163,7 +163,6 @@ namespace Fall2020_CSC403_Project
             enemyCheeto.Name = "enemyCheeto";
             enemyFlea.Name = "enemyFlea";
 
-            player.Img = picPlayer.BackgroundImage;
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
