@@ -161,7 +161,7 @@ namespace Fall2020_CSC403_Project
                 enemy.OnAttack(-2);
             }
 
-            UpdateStats();
+            
 
             if (player.Health <= 0)
             {
@@ -179,6 +179,7 @@ namespace Fall2020_CSC403_Project
                 Close();
             }
             player.buffAttack();
+            UpdateStats();
         }
 
         private void HeavyAttackButton_Click(object sender, EventArgs e)
