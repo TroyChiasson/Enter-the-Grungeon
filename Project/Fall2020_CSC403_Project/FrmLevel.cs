@@ -333,8 +333,11 @@ namespace Fall2020_CSC403_Project
 
         private bool HitAChar(Character you, Character other)
         {
+            if(other == null) return false;
             return you.Collider.Intersects(other.Collider);
         }
+
+
 
         private void Fight(Enemy enemy)
         {
@@ -640,6 +643,10 @@ namespace Fall2020_CSC403_Project
         {
             StopAndDispose();
             HaltMove = true;
+            bossKoolaid = null;
+            enemyPoisonPacket = null;
+            enemyCheeto = null;
+            enemyFlea = null;
         }
     }
 }
