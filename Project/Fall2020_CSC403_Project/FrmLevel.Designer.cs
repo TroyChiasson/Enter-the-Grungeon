@@ -559,8 +559,8 @@
             this.Controls.Add(this.lblPlayerScore);
             this.Controls.Add(this.lblPlayerStrength);
             this.Controls.Add(this.picWall0);
-            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picEnemyFlea);
+            this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.DisplayClassFighter);
             this.Controls.Add(this.ClassMenuBackground);
             this.Controls.Add(this.VolumeDown);

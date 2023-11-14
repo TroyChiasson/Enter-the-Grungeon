@@ -442,7 +442,6 @@ namespace Fall2020_CSC403_Project
             player.Health = 50;
             player._strength = 1;
             removeClassMenu();
-            displayFirstLevel();
             this.Controls.Remove(SettingsButton);
             this.Controls.Remove(ClassTankButton);
             this.Controls.Remove(ClassFighterButton);
@@ -453,6 +452,7 @@ namespace Fall2020_CSC403_Project
             this.Controls.Remove(picAssassin);
             this.Controls.Remove(DisplayClassFighter);
             this.picPlayer = picTank;
+            displayFirstLevel();
         }
 
         private void ClassFighterButton_Click(object sender, EventArgs e)
@@ -460,8 +460,7 @@ namespace Fall2020_CSC403_Project
             player.MaxHealth = 20;
             player.Health = 20;
             player._strength = 2;
-            removeClassMenu();
-            displayFirstLevel();
+            removeClassMenu();          
             this.Controls.Remove(SettingsButton);
             this.Controls.Remove(ClassTankButton);
             this.Controls.Remove(ClassFighterButton);
@@ -471,7 +470,7 @@ namespace Fall2020_CSC403_Project
             this.Controls.Remove(picTank);
             this.Controls.Remove(picAssassin);
             this.Controls.Remove(DisplayClassFighter);
-
+            displayFirstLevel();
         }
 
         private void ClassAssassinButton_Click(object sender, EventArgs e)
@@ -480,7 +479,6 @@ namespace Fall2020_CSC403_Project
             player.Health = 15;
             player._strength = 3;
             removeClassMenu();
-            displayFirstLevel();
             this.Controls.Remove(SettingsButton);
             this.Controls.Remove(ClassTankButton);
             this.Controls.Remove(ClassFighterButton);
@@ -491,6 +489,7 @@ namespace Fall2020_CSC403_Project
             this.Controls.Remove(picTank);
             this.Controls.Remove(DisplayClassFighter);
             this.picPlayer = picAssassin;
+            displayFirstLevel();
         }
 
         private void LoadSong()
