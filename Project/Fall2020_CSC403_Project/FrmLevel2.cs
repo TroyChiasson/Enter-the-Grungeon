@@ -141,7 +141,7 @@ namespace Fall2020_CSC403_Project
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
             // move player
-            //player.Move();
+            player.Move();
 
             // check collision with walls
             if (HitAWall(player))

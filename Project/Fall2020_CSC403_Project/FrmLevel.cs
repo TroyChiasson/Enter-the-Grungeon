@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Resources;
 using System.Security.AccessControl;
 using System.Windows.Forms;
@@ -253,7 +254,10 @@ namespace Fall2020_CSC403_Project
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
             // move player
-            player.Move();
+            if (!HaltMove)
+            { 
+                player.Move(); 
+            }
 
             // check collision with walls
             if (HitAWall(player))
@@ -414,12 +418,12 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if (!HaltMove) { playerMove(); }
+            playerMove();
         }
 
         private void FrmLevel_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if (!HaltMove) { playerMove(); }
+            playerMove();
         }
 
 
@@ -630,6 +634,12 @@ namespace Fall2020_CSC403_Project
         private void GameExit(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        internal void HaltAll()
+        {
+            StopAndDispose();
+            HaltMove = true;
         }
     }
 }

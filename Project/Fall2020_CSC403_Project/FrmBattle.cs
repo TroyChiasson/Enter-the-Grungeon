@@ -199,8 +199,7 @@ namespace Fall2020_CSC403_Project
             level2.picPlayer.BackgroundImage = picPlayer.BackgroundImage;
             level2.Show();
 
-            level.StopAndDispose();
-            level.HaltMove = true;
+            level.HaltAll();
             level.Hide();
         }
 
