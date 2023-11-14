@@ -18,13 +18,14 @@ namespace Fall2020_CSC403_Project
         public FrmGameOver()
         {
             InitializeComponent();
-            
+
             /*
             string playerName = Game.player.playerName;
             File.AppendAllLines(@"E:\github\AustinTesting2\Project\Fall2020_CSC403_Project\leaderboard.txt", new string[] { playerName + " " + Game.player.Score.ToString()}); 
             string content = File.ReadAllText(@"E:\github\AustinTesting2\Project\Fall2020_CSC403_Project\leaderboard.txt");
             ScoreBoardTextBox.Text = content; 
             */
+            System.Diagnostics.Debug.WriteLine(Application.ExecutablePath);
 
         }
 

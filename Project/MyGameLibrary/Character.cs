@@ -22,6 +22,12 @@
             Collider.MovePosition((int)Position.x, (int)Position.y);
         }
 
+        public void Teleport(Vector2 vector)
+        {
+            Position = vector;
+            Collider.MovePosition((int)Position.x, (int)Position.y);
+        }
+
         public void MoveBack()
         {
             Position = LastPosition;

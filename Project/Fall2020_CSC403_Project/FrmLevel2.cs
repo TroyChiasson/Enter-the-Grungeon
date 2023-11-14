@@ -36,17 +36,15 @@ namespace Fall2020_CSC403_Project
         public FrmLevel2()
         {
             player = Game.player;
+            player.Teleport(new Vector2(125, 540));
             InitializeComponent();
             this.KeyPreview = true;
-
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
         {
             const int PADDING = 7;
             const int NUM_WALLS = 10;
-
-
             
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
@@ -293,21 +291,14 @@ namespace Fall2020_CSC403_Project
         {
             if (currentSong >= 0 && currentSong < songNames.Length)
             {
-
                 StopAndDispose();
-
                 string song = songNames[currentSong];
-
-
 
                 try
                 {
-
                     Stream stream = (Stream)rm.GetObject(song);
-
                     var waveStream = new RawSourceWaveStream(stream, new WaveFormat());
                     waveOut.Init(waveStream);
-
                 }
                 catch (Exception ex)
                 {
@@ -319,8 +310,6 @@ namespace Fall2020_CSC403_Project
 
         private void PlayButtonClick(object sender, EventArgs e)
         {
-
-
             if (waveOut.PlaybackState == PlaybackState.Stopped)
             {
                 waveOut.Play();

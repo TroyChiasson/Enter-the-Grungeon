@@ -491,21 +491,14 @@ namespace Fall2020_CSC403_Project
         {
             if (currentSong >= 0 && currentSong < songNames.Length)
             {
-
                 StopAndDispose();
-
                 string song = songNames[currentSong];
-
-
 
                 try
                 {
-
                     Stream stream = (Stream)rm.GetObject(song);
-
                     var waveStream = new RawSourceWaveStream(stream, new WaveFormat());
                     waveOut.Init(waveStream);
-
                 }
                 catch (Exception ex)
                 {
@@ -517,8 +510,6 @@ namespace Fall2020_CSC403_Project
 
         private void PlayButtonClick(object sender, EventArgs e)
         {
-
-
             if (waveOut.PlaybackState == PlaybackState.Stopped)
             {
                 waveOut.Play();
@@ -532,7 +523,6 @@ namespace Fall2020_CSC403_Project
 
         private void PauseButtonClick(object sender, EventArgs e)
         {
-
             if (waveOut.PlaybackState == PlaybackState.Playing)
             {
                 waveOut.Pause();
@@ -578,8 +568,7 @@ namespace Fall2020_CSC403_Project
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            
+        {            
             this.Controls.Remove(mainMenuPlay);
             this.Controls.Remove(pictureBox1);
             removeMainMenu();
