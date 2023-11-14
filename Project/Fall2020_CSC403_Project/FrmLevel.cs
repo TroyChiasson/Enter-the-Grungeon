@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Resources;
+using System.Security.AccessControl;
 using System.Windows.Forms;
 using System.Windows.Input;
 
@@ -33,6 +34,8 @@ namespace Fall2020_CSC403_Project
         private bool changingSong = false;
 
         private bool fleaFlag = true;
+        
+        public bool BossDead { get; set; }
 
         private Tuple<Key, Vector2>[] moveKeys;
 
@@ -40,6 +43,7 @@ namespace Fall2020_CSC403_Project
         {
             InitializeComponent();
             this.KeyPreview = true;
+            this.BossDead = false;
 
         }
 
@@ -339,7 +343,7 @@ namespace Fall2020_CSC403_Project
 
             if (enemy == bossKoolaid)
             {
-                frmBattle.SetupForBossBattle();
+                frmBattle.SetupForBossBattle(BossDead);
             }
 
             if (enemy == enemyFlea)
@@ -371,6 +375,14 @@ namespace Fall2020_CSC403_Project
                     fleaFlag = false;
                     break;
             }
+
+            if (BossDead) 
+            {
+                FrmLevel2 level2 = new FrmLevel2();
+                level2.FormClosed += GameExit;
+                level2.Show();
+                this.Hide();
+            }
         }
 
         private void playerMove()
@@ -399,7 +411,7 @@ namespace Fall2020_CSC403_Project
             const int MAX_HEALTHBAR_WIDTH = 226;
             lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
 
-            lblPlayerHealthFull.Text = player.Health.ToString();
+            lblPlayerHealthFull.Text = player.Health.ToString() +"/"+ player.MaxHealth.ToString();
 
             lblPlayerStrength.Text = "Attack Power: " + (player._strength*4).ToString();
 
@@ -621,6 +633,11 @@ namespace Fall2020_CSC403_Project
         private void SetNameButton_Click(object sender, EventArgs e)
         {
             Game.player.playerName = playerNameTextBox.Text;
+        }
+
+        private void GameExit(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

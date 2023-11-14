@@ -14,6 +14,7 @@ namespace Fall2020_CSC403_Project
         private Player player;
         private bool fightingFlea = false;
         private bool fightingBoss = false;
+        private bool BossDead;
 
         private FrmBattle()
         {
@@ -37,7 +38,7 @@ namespace Fall2020_CSC403_Project
             UpdateStats();
         }
 
-        public void SetupForBossBattle()
+        public void SetupForBossBattle(bool BossDead)
         {
             picBossBattle.Location = Point.Empty;
             picBossBattle.Size = ClientSize;
@@ -48,6 +49,8 @@ namespace Fall2020_CSC403_Project
 
             tmrFinalBattle.Enabled = true;
             fightingBoss = true;
+
+            this.BossDead = BossDead;
         }
 
         public void SetupForFlea()
@@ -75,8 +78,8 @@ namespace Fall2020_CSC403_Project
             lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
             lblEnemyHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
 
-            lblPlayerHealthFull.Text = player.Health.ToString();
-            lblEnemyHealthFull.Text = enemy.Health.ToString();
+            lblPlayerHealthFull.Text = player.Health.ToString() + "/" + player.MaxHealth.ToString();
+            lblEnemyHealthFull.Text = enemy.Health.ToString() + "/" + enemy.MaxHealth.ToString();
 
             lblPlayerStrength.Text = "Attack Power: " + (player._strength * 4).ToString();
 
@@ -120,13 +123,11 @@ namespace Fall2020_CSC403_Project
             if (enemy.Health <= 0 && fightingBoss)
             {
                 fightingBoss = false;
-
+                BossDead = true;
+                
                 player.Score += 30;
                 instance = null;
                 Close();
-
-                FrmLevel2 lvl2 = new FrmLevel2();
-                lvl2.Show();
             }
             if (player.Health <= 0)
             {

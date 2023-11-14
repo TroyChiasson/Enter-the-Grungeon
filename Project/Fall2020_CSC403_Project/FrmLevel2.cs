@@ -15,7 +15,6 @@ namespace Fall2020_CSC403_Project
         private Player player;
 
         private Enemy enemyPoisonPacket;
-        private Enemy bossKoolaid;
         private Enemy enemyCheeto;
         private Enemy enemyFlea;
         private Character[] walls;
@@ -36,6 +35,7 @@ namespace Fall2020_CSC403_Project
 
         public FrmLevel2()
         {
+            player = Game.player;
             InitializeComponent();
             this.KeyPreview = true;
 
@@ -72,12 +72,11 @@ namespace Fall2020_CSC403_Project
             const int NUM_WALLS = 10;
 
 
-            player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
             enemyFlea = new Enemy(CreatePosition(picEnemyFlea), CreateCollider(picEnemyFlea, PADDING), 1);
 
-            bossKoolaid.Name = "enemyBossKoolAid";
             enemyPoisonPacket.Name = "enemyPoisonPacket";
             enemyCheeto.Name = "enemyCheeto";
             enemyFlea.Name = "enemyFlea";
@@ -86,7 +85,6 @@ namespace Fall2020_CSC403_Project
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
             enemyFlea.Img = picEnemyFlea.BackgroundImage;
 
-            bossKoolaid.Color = Color.Red;
             enemyPoisonPacket.Color = Color.Green;
             enemyCheeto.Color = Color.FromArgb(255, 245, 161);
             enemyFlea.Color = Color.BurlyWood;
@@ -190,11 +188,6 @@ namespace Fall2020_CSC403_Project
                 Fight(enemyFlea);
             }
 
-            if (HitAChar(player, bossKoolaid))
-            {
-                Fight(bossKoolaid);
-            }
-
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
 
@@ -215,10 +208,6 @@ namespace Fall2020_CSC403_Project
                     enemyFlea.MoveBack();
                 }
                 if (HitAChar(enemyFlea, enemyCheeto))
-                {
-                    enemyFlea.MoveBack();
-                }
-                if (HitAChar(enemyFlea, bossKoolaid))
                 {
                     enemyFlea.MoveBack();
                 }
@@ -253,11 +242,6 @@ namespace Fall2020_CSC403_Project
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy);
             frmBattle.Show();
-
-            if (enemy == bossKoolaid)
-            {
-                frmBattle.SetupForBossBattle();
-            }
 
             if (enemy == enemyFlea)
             {
@@ -311,7 +295,7 @@ namespace Fall2020_CSC403_Project
             const int MAX_HEALTHBAR_WIDTH = 226;
             lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
 
-            lblPlayerHealthFull.Text = player.Health.ToString();
+            lblPlayerHealthFull.Text = player.Health.ToString() + "/" + player.MaxHealth.ToString();
 
             lblPlayerStrength.Text = "Attack Power: " + (player._strength*4).ToString();
 
