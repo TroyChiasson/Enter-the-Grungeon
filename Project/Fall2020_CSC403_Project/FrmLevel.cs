@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Resources;
+using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -636,6 +637,7 @@ namespace Fall2020_CSC403_Project
             enemyPoisonPacket = null;
             enemyCheeto = null;
             enemyFlea = null;
+            fleaFlag = false;
 
             walls = null;
         }
