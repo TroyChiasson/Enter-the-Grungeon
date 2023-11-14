@@ -49,13 +49,16 @@ namespace Fall2020_CSC403_Project
             simpleSound.Play();
 
             tmrFinalBattle.Enabled = true;
-            fightingBoss = true;
             level = lvl;
         }
 
         public void SetupForFlea(FrmLevel level)
         {
             this.level = level;
+        }
+        public void SetupForLVL2(Player player)
+        {
+            this.player = player;
         }
 
         public static FrmBattle GetInstance(Enemy enemy, PictureBox picPlayer)
@@ -107,6 +110,15 @@ namespace Fall2020_CSC403_Project
                 case "enemyFlea":
                     player.OnAttack(-4);
                     break;
+                case "enemyFlea0":
+                    player.OnAttack(-4);
+                    break;
+                case "enemyFlea1":
+                    player.OnAttack(-4);
+                    break;
+                case "enemyFlea2":
+                    player.OnAttack(-4);
+                    break;
             }
 
             if (enemy.Health > 0)
@@ -135,6 +147,11 @@ namespace Fall2020_CSC403_Project
                         level.displayAttackBoost();
                         break;
                 }
+            }
+            if (enemy.Health <= 0 && enemy.Name == "enemyBossKoolAid")
+            {
+                player.Score += 10;
+                NextLevel();
             }
             if (player.Health <= 0)
             {
@@ -174,12 +191,21 @@ namespace Fall2020_CSC403_Project
                 case "enemyFlea":
                     player.OnAttack(-6);
                     break;
+                case "enemyFlea0":
+                    player.OnAttack(-6);
+                    break;
+                case "enemyFlea1":
+                    player.OnAttack(-6);
+                    break;
+                case "enemyFlea2":
+                    player.OnAttack(-6);
+                    break;
+
             }
 
             if (enemy.Health > 0)
             {
-                enemy.OnAttack(-2);
-                enemy.OnAttack(-2);
+                enemy.OnAttack(-4);
             }
             UpdateStats();
 
@@ -203,7 +229,7 @@ namespace Fall2020_CSC403_Project
                         break;
                 }
             }
-            if (enemy.Health <= 0 && enemy.Name == "enemyBossKoolaid")
+            if (enemy.Health <= 0 && enemy.Name == "enemyBossKoolAid")
             {
                 player.Score += 10;
                 NextLevel();

@@ -51,6 +51,9 @@
             this.picEnemyFlea1 = new System.Windows.Forms.PictureBox();
             this.lblPlayerScore2 = new System.Windows.Forms.Label();
             this.lblPlayerStrength2 = new System.Windows.Forms.Label();
+            this.PauseMenuBackground = new System.Windows.Forms.PictureBox();
+            this.ResumeGameButton = new System.Windows.Forms.Button();
+            this.QuitToMainMenuButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
@@ -59,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PauseMenuBackground)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -285,6 +289,36 @@
             this.lblPlayerStrength2.TabIndex = 47;
             this.lblPlayerStrength2.Text = "strength";
             // 
+            // PauseMenuBackground
+            // 
+            this.PauseMenuBackground.Location = new System.Drawing.Point(0, 0);
+            this.PauseMenuBackground.Name = "PauseMenuBackground";
+            this.PauseMenuBackground.Size = new System.Drawing.Size(1187, 742);
+            this.PauseMenuBackground.TabIndex = 49;
+            this.PauseMenuBackground.TabStop = false;
+            // 
+            // ResumeGameButton
+            // 
+            this.ResumeGameButton.Location = new System.Drawing.Point(485, 270);
+            this.ResumeGameButton.Name = "ResumeGameButton";
+            this.ResumeGameButton.Size = new System.Drawing.Size(206, 100);
+            this.ResumeGameButton.TabIndex = 50;
+            this.ResumeGameButton.Text = "Resume Game";
+            this.ResumeGameButton.UseVisualStyleBackColor = true;
+            this.ResumeGameButton.Click += new System.EventHandler(this.ResumeGameButton_Click);
+
+            // 
+            // QuitToMainMenuButton
+            // 
+            this.QuitToMainMenuButton.Location = new System.Drawing.Point(485, 376);
+            this.QuitToMainMenuButton.Name = "QuitToMainMenuButton";
+            this.QuitToMainMenuButton.Size = new System.Drawing.Size(206, 100);
+            this.QuitToMainMenuButton.TabIndex = 51;
+            this.QuitToMainMenuButton.Text = "Quit to Main Menu";
+            this.QuitToMainMenuButton.UseVisualStyleBackColor = true;
+            this.QuitToMainMenuButton.Click += new System.EventHandler(this.QuitToMainMenuButton_Click);
+
+            // 
             // FrmLevel2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,6 +346,9 @@
             this.Controls.Add(this.picEnemyFlea0);
             this.Controls.Add(this.picEnemyFlea1);
             this.Controls.Add(this.picEnemyFlea2);
+            this.Controls.Add(this.PauseMenuBackground);
+            this.Controls.Add(this.ResumeGameButton);
+            this.Controls.Add(this.QuitToMainMenuButton);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -327,6 +364,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PauseMenuBackground)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,5 +393,8 @@
         private System.Windows.Forms.PictureBox picEnemyFlea1;
         private System.Windows.Forms.Label lblPlayerScore2;
         private System.Windows.Forms.Label lblPlayerStrength2;
+        private System.Windows.Forms.PictureBox PauseMenuBackground;
+        private System.Windows.Forms.Button ResumeGameButton;
+        private System.Windows.Forms.Button QuitToMainMenuButton;
     }
 }

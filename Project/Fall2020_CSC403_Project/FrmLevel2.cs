@@ -29,9 +29,13 @@ namespace Fall2020_CSC403_Project
         private string[] songNames; // Array to store the resource names of your songs
         private bool changingSong = false;
 
+        private bool pause = false;
+
         private Tuple<Key, Vector2>[] moveKeys;
 
         private int count = 0;
+        private bool HaltMove { get; set; }
+
 
         public FrmLevel2()
         {
@@ -39,6 +43,8 @@ namespace Fall2020_CSC403_Project
             player.Teleport(new Vector2(125, 540));
             InitializeComponent();
             this.KeyPreview = true;
+            HaltMove = false;
+
         }
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -129,6 +135,24 @@ namespace Fall2020_CSC403_Project
             return new Collider(rect);
         }
 
+        public void displayPauseMenu()
+        {
+            if (Keyboard.IsKeyDown(Key.Escape))
+            {
+                this.PauseMenuBackground.BringToFront();
+                this.ResumeGameButton.BringToFront();
+                this.QuitToMainMenuButton.BringToFront();
+                pause = true;
+            }
+        }
+        public void removePauseMenu()
+        {
+            this.PauseMenuBackground.SendToBack();
+            this.ResumeGameButton.SendToBack();
+            this.QuitToMainMenuButton.SendToBack();
+            pause = false;
+        }
+
         private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
         {
             TimeSpan span = DateTime.Now - timeBegin;
@@ -141,7 +165,10 @@ namespace Fall2020_CSC403_Project
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
             // move player
-            player.Move();
+            if (!HaltMove)
+            {
+                player.Move();
+            }
 
             // check collision with walls
             if (HitAWall(player))
@@ -268,7 +295,7 @@ namespace Fall2020_CSC403_Project
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy, picPlayer);
             frmBattle.Show();
-            frmBattle.SetupForFlea();
+            frmBattle.SetupForLVL2(player);
 
 
             switch (enemy.Name)
@@ -290,21 +317,23 @@ namespace Fall2020_CSC403_Project
 
         private void playerMove()
         {
-            Vector2 moveDir = new Vector2(0, 0);
-
-            foreach (Tuple<Key, Vector2> keyBind in this.moveKeys)
+            if (pause == false)
             {
-                if (Keyboard.IsKeyDown(keyBind.Item1))
-                {
-                    moveDir = new Vector2(moveDir.x + keyBind.Item2.x, moveDir.y + keyBind.Item2.y);
-                }
-            }
+                Vector2 moveDir = new Vector2(0, 0);
 
-            if (moveDir.Equals(new Vector2(0, 0)))
-                player.ResetMoveSpeed();
-            else
-                player.MoveVector(moveDir);
-            
+                foreach (Tuple<Key, Vector2> keyBind in this.moveKeys)
+                {
+                    if (Keyboard.IsKeyDown(keyBind.Item1))
+                    {
+                        moveDir = new Vector2(moveDir.x + keyBind.Item2.x, moveDir.y + keyBind.Item2.y);
+                    }
+                }
+
+                if (moveDir.Equals(new Vector2(0, 0)))
+                    player.ResetMoveSpeed();
+                else
+                    player.MoveVector(moveDir);
+            }
         }
 
         private void playerStatsUpdate()
@@ -325,11 +354,13 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
+            displayPauseMenu();
             playerMove();
         }
 
         private void FrmLevel_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
+            displayPauseMenu();
             playerMove();
         }
 
@@ -428,6 +459,15 @@ namespace Fall2020_CSC403_Project
             {
                 waveOut.Volume -= 0.10f;
             }
+        }
+        private void QuitToMainMenuButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void ResumeGameButton_Click(object sender, EventArgs e)
+        {
+            removePauseMenu();
         }
     }
 }

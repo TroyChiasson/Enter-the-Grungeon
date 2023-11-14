@@ -39,7 +39,7 @@ namespace Fall2020_CSC403_Project
 
         private Tuple<Key, Vector2>[] moveKeys;
 
-        public bool HaltMove { get; set; }
+        private bool HaltMove { get; set; }
 
         public FrmLevel()
         {
@@ -464,15 +464,13 @@ namespace Fall2020_CSC403_Project
 
 
         private void FrmLevel_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
-        {
-            
+        {          
             displayPauseMenu();
             playerMove();
         }
 
         private void FrmLevel_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
-        {
-            
+        {            
             displayPauseMenu();
             playerMove();
         }
