@@ -1,30 +1,35 @@
-﻿namespace Fall2020_CSC403_Project {
-  partial class FrmLevel {
-    /// <summary>
-    /// Required designer variable.
-    /// </summary>
-    private System.ComponentModel.IContainer components = null;
+﻿namespace Fall2020_CSC403_Project
+{
+    partial class FrmLevel2
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-    /// <summary>
-    /// Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing) {
-      if (disposing && (components != null)) {
-        components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-    #region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent() {
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel2));
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
@@ -66,9 +71,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblPlayerScore = new System.Windows.Forms.Label();
             this.lblPlayerStrength = new System.Windows.Forms.Label();
-            this.playerNameTextBox = new System.Windows.Forms.TextBox();
-            this.playerNameLabel = new System.Windows.Forms.Label();
-            this.SetNameButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DisplayClassFighter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAssassin)).BeginInit();
@@ -342,11 +344,11 @@
             // picEnemyFlea
             // 
             this.picEnemyFlea.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyFlea.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_flea_0;
+            this.picEnemyFlea.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_flea_1;
             this.picEnemyFlea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picEnemyFlea.Location = new System.Drawing.Point(433, 324);
+            this.picEnemyFlea.Location = new System.Drawing.Point(471, 288);
             this.picEnemyFlea.Name = "picEnemyFlea";
-            this.picEnemyFlea.Size = new System.Drawing.Size(54, 102);
+            this.picEnemyFlea.Size = new System.Drawing.Size(117, 101);
             this.picEnemyFlea.TabIndex = 18;
             this.picEnemyFlea.TabStop = false;
             // 
@@ -502,43 +504,13 @@
             this.lblPlayerStrength.TabIndex = 38;
             this.lblPlayerStrength.Text = "strength";
             // 
-            // playerNameTextBox
-            // 
-            this.playerNameTextBox.Location = new System.Drawing.Point(400, 89);
-            this.playerNameTextBox.Name = "playerNameTextBox";
-            this.playerNameTextBox.Size = new System.Drawing.Size(315, 20);
-            this.playerNameTextBox.TabIndex = 43;
-            // 
-            // playerNameLabel
-            // 
-            this.playerNameLabel.AutoSize = true;
-            this.playerNameLabel.BackColor = System.Drawing.Color.DimGray;
-            this.playerNameLabel.Location = new System.Drawing.Point(327, 92);
-            this.playerNameLabel.Name = "playerNameLabel";
-            this.playerNameLabel.Size = new System.Drawing.Size(67, 13);
-            this.playerNameLabel.TabIndex = 44;
-            this.playerNameLabel.Text = "Player Name";
-            // 
-            // SetNameButton
-            // 
-            this.SetNameButton.Location = new System.Drawing.Point(741, 78);
-            this.SetNameButton.Name = "SetNameButton";
-            this.SetNameButton.Size = new System.Drawing.Size(130, 40);
-            this.SetNameButton.TabIndex = 45;
-            this.SetNameButton.Text = "Set Name";
-            this.SetNameButton.UseVisualStyleBackColor = true;
-            this.SetNameButton.Click += new System.EventHandler(this.SetNameButton_Click);
-            // 
-            // FrmLevel
+            // FrmLevel2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
-            this.Controls.Add(this.SetNameButton);
-            this.Controls.Add(this.playerNameLabel);
-            this.Controls.Add(this.playerNameTextBox);
             this.Controls.Add(this.VolumeDownInGame);
             this.Controls.Add(this.VolumeUpInGame);
             this.Controls.Add(this.NextButton);
@@ -579,7 +551,7 @@
             this.Controls.Add(this.picTank);
             this.Controls.Add(this.ClassTankButton);
             this.DoubleBuffered = true;
-            this.Name = "FrmLevel";
+            this.Name = "FrmLevel2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Explore";
             this.Load += new System.EventHandler(this.FrmLevel_Load);
@@ -608,28 +580,28 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-    }
+        }
 
-    #endregion
+        #endregion
 
-    private System.Windows.Forms.PictureBox picPlayer;
-    private System.Windows.Forms.PictureBox picBossKoolAid;
-    private System.Windows.Forms.Label lblInGameTime;
-    private System.Windows.Forms.Timer tmrUpdateInGameTime;
-    private System.Windows.Forms.Timer tmrPlayerMove;
-    private System.Windows.Forms.PictureBox picWall2;
-    private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
-    private System.Windows.Forms.PictureBox picEnemyCheeto;
-    private System.Windows.Forms.PictureBox picWall4;
-    private System.Windows.Forms.PictureBox picWall3;
-    private System.Windows.Forms.PictureBox picWall6;
-    private System.Windows.Forms.PictureBox picWall8;
-    private System.Windows.Forms.PictureBox picWall9;
-    private System.Windows.Forms.PictureBox picWall1;
-    private System.Windows.Forms.PictureBox picWall5;
-    private System.Windows.Forms.PictureBox picWall0;
-    private System.Windows.Forms.PictureBox picWall7;
-    private System.Windows.Forms.PictureBox picEnemyFlea;
+        private System.Windows.Forms.PictureBox picPlayer;
+        private System.Windows.Forms.PictureBox picBossKoolAid;
+        private System.Windows.Forms.Label lblInGameTime;
+        private System.Windows.Forms.Timer tmrUpdateInGameTime;
+        private System.Windows.Forms.Timer tmrPlayerMove;
+        private System.Windows.Forms.PictureBox picWall2;
+        private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
+        private System.Windows.Forms.PictureBox picEnemyCheeto;
+        private System.Windows.Forms.PictureBox picWall4;
+        private System.Windows.Forms.PictureBox picWall3;
+        private System.Windows.Forms.PictureBox picWall6;
+        private System.Windows.Forms.PictureBox picWall8;
+        private System.Windows.Forms.PictureBox picWall9;
+        private System.Windows.Forms.PictureBox picWall1;
+        private System.Windows.Forms.PictureBox picWall5;
+        private System.Windows.Forms.PictureBox picWall0;
+        private System.Windows.Forms.PictureBox picWall7;
+        private System.Windows.Forms.PictureBox picEnemyFlea;
         private System.Windows.Forms.PictureBox ClassMenuBackground;
         private System.Windows.Forms.PictureBox DisplayClassFighter;
         private System.Windows.Forms.PictureBox picTank;
@@ -653,8 +625,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPlayerScore;
         private System.Windows.Forms.Label lblPlayerStrength;
-        private System.Windows.Forms.TextBox playerNameTextBox;
-        private System.Windows.Forms.Label playerNameLabel;
-        private System.Windows.Forms.Button SetNameButton;
     }
 }

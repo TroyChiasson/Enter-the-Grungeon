@@ -13,6 +13,7 @@ namespace Fall2020_CSC403_Project
         private Enemy enemy;
         private Player player;
         private bool fightingFlea = false;
+        private bool fightingBoss = false;
 
         private FrmBattle()
         {
@@ -46,6 +47,7 @@ namespace Fall2020_CSC403_Project
             simpleSound.Play();
 
             tmrFinalBattle.Enabled = true;
+            fightingBoss = true;
         }
 
         public void SetupForFlea()
@@ -86,7 +88,7 @@ namespace Fall2020_CSC403_Project
             player.OnAttack(-4);
             if (enemy.Health > 0)
             {
-                enemy.OnAttack(-2);
+                enemy.OnAttack(-3);
             }
 
             UpdateStats();
@@ -110,6 +112,21 @@ namespace Fall2020_CSC403_Project
                 }
 
                 fightingFlea = false;
+
+                player.Score += 10;
+                instance = null;
+                Close();
+            }
+            if (enemy.Health <= 0 && fightingBoss)
+            {
+                FrmLevel2 lvl2 = new FrmLevel2();
+                lvl2.Show();
+
+                fightingBoss = false;
+
+                player.Score += 30;
+                instance = null;
+                Close();
             }
             if (player.Health <= 0)
             {
@@ -153,10 +170,8 @@ namespace Fall2020_CSC403_Project
 
             if (enemy.Health > 0)
             {
-                enemy.OnAttack(-2);
+                enemy.OnAttack(-3);
             }
-
-            UpdateStats();
 
             if (player.Health <= 0)
             {
@@ -166,14 +181,15 @@ namespace Fall2020_CSC403_Project
                 instance = null;
                 Close();
             }
-
             else if (enemy.Health <= 0)
             {
                 player.Score += 20;
                 instance = null;
                 Close();
             }
+
             player.buffAttack();
+            UpdateStats();
         }
     }
 }

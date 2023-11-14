@@ -115,6 +115,12 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLevel2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLevel2.designer.cs">
+      <DependentUpon>FrmLevel2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmBattle.resx">
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLevel2.resx">
+      <DependentUpon>FrmLevel2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
