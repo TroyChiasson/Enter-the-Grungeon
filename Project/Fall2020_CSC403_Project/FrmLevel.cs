@@ -4,7 +4,10 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Resources;
+using System.Runtime.CompilerServices;
+using System.Security.AccessControl;
 using System.Windows.Forms;
 using System.Windows.Input;
 
@@ -36,11 +39,13 @@ namespace Fall2020_CSC403_Project
 
         private Tuple<Key, Vector2>[] moveKeys;
 
+        public bool HaltMove { get; set; }
+
         public FrmLevel()
         {
             InitializeComponent();
             this.KeyPreview = true;
-
+            this.HaltMove = false;
         }
 
         public void displayClassMenu()
@@ -56,8 +61,7 @@ namespace Fall2020_CSC403_Project
  
         }
         public void displayMainMenu()
-        {
-            
+        {        
             this.pictureBox1.BringToFront();
             this.mainMenuPlay.BringToFront();
             this.SettingsButton.BringToFront();
@@ -82,6 +86,10 @@ namespace Fall2020_CSC403_Project
             this.VolumeUpInGame.BringToFront();
             this.VolumeDownInGame.BringToFront();
             this.ClassMenuBackground.BringToFront();
+            this.picEnemyCheeto.BringToFront();
+            this.picBossKoolAid.BringToFront();
+            this.picEnemyFlea.BringToFront();
+            this.picPlayer.BringToFront();
             this.picWall0.BringToFront();
             this.picWall1.BringToFront();
             this.picWall2.BringToFront();
@@ -92,10 +100,6 @@ namespace Fall2020_CSC403_Project
             this.picWall7.BringToFront();
             this.picWall8.BringToFront();
             this.picWall9.BringToFront();
-            this.picEnemyCheeto.BringToFront();
-            this.picBossKoolAid.BringToFront();
-            this.picEnemyFlea.BringToFront();
-            this.picPlayer.BringToFront();
             this.lblInGameTime.BringToFront();
             this.lblPlayerScore.BringToFront();
             this.lblPlayerStrength.BringToFront();
@@ -259,7 +263,7 @@ namespace Fall2020_CSC403_Project
             return new Vector2(pic.Location.X, pic.Location.Y);
         }
 
-        private Vector2 RemovePosition(int x, int y)
+        private Vector2 RemovePosition(int x = 0, int y = 0)
         {
             return new Vector2(x, y);
         }
@@ -287,7 +291,10 @@ namespace Fall2020_CSC403_Project
         private void tmrPlayerMove_Tick(object sender, EventArgs e)
         {
             // move player
-            player.Move();
+            if (!HaltMove)
+            { 
+                player.Move(); 
+            }
 
             // check collision with walls
             if (HitAWall(player))
@@ -320,7 +327,8 @@ namespace Fall2020_CSC403_Project
             // randomly move flea
             if (fleaFlag == true && pause == false)
             {
-                enemyFlea.MoveRand();
+                Random rand = new Random();
+                enemyFlea.MoveRand(rand.Next(32));
                 enemyFlea.Move();
 
 
@@ -350,6 +358,10 @@ namespace Fall2020_CSC403_Project
         private bool HitAWall(Character c)
         {
             bool hitAWall = false;
+
+            if (walls == null) 
+                return  hitAWall;
+
             for (int w = 0; w < walls.Length; w++)
             {
                 if (c.Collider.Intersects(walls[w].Collider))
@@ -363,19 +375,22 @@ namespace Fall2020_CSC403_Project
 
         private bool HitAChar(Character you, Character other)
         {
+            if(other == null) return false;
             return you.Collider.Intersects(other.Collider);
         }
+
+
 
         private void Fight(Enemy enemy)
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle = FrmBattle.GetInstance(enemy, picPlayer);
             frmBattle.Show();
 
             if (enemy == bossKoolaid)
             {
-                frmBattle.SetupForBossBattle();
+                frmBattle.SetupForBossBattle(this);
             }
 
             if (enemy == enemyFlea)
@@ -386,28 +401,30 @@ namespace Fall2020_CSC403_Project
             switch (enemy.Name)
             {
                 case "bossKoolaid":
-                    bossKoolaid = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    bossKoolaid = new Enemy(RemovePosition(), RemoveCollider());
                     bossKoolaid.Img = null;
                     picBossKoolAid.BackgroundImage = null;
                     break;
                 case "enemyPoisonPacket":
-                    enemyPoisonPacket = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    enemyPoisonPacket = new Enemy(RemovePosition(), RemoveCollider());
                     enemyPoisonPacket.Img = null;
                     picEnemyPoisonPacket.BackgroundImage = null;
 
                     break;
                 case "enemyCheeto":
-                    enemyCheeto = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    enemyCheeto = new Enemy(RemovePosition(), RemoveCollider());
                     enemyCheeto.Img = null;
                     picEnemyCheeto.BackgroundImage = null;
                     break;
                 case "enemyFlea":
-                    enemyFlea = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    enemyFlea = new Enemy(RemovePosition(), RemoveCollider());
+                    enemyFlea.Img = null;
                     picEnemyFlea.BackgroundImage = null;
                     fleaFlag = false;
                     break;
             }
         }
+
 
         private void playerMove()
         {
@@ -437,7 +454,7 @@ namespace Fall2020_CSC403_Project
             const int MAX_HEALTHBAR_WIDTH = 226;
             lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
 
-            lblPlayerHealthFull.Text = player.Health.ToString();
+            lblPlayerHealthFull.Text = player.Health.ToString() +"/"+ player.MaxHealth.ToString();
 
             lblPlayerStrength.Text = "Attack Power: " + (player._strength*4).ToString();
 
@@ -468,7 +485,6 @@ namespace Fall2020_CSC403_Project
             player._strength = 1;
             removeClassMenu();
             removeAttackBoost();
-            displayFirstLevel();
             this.Controls.Remove(SettingsButton);
             this.Controls.Remove(ClassTankButton);
             this.Controls.Remove(ClassFighterButton);
@@ -479,6 +495,7 @@ namespace Fall2020_CSC403_Project
             this.Controls.Remove(picAssassin);
             this.Controls.Remove(DisplayClassFighter);
             this.picPlayer = picTank;
+            displayFirstLevel();
         }
 
         private void ClassFighterButton_Click(object sender, EventArgs e)
@@ -488,7 +505,6 @@ namespace Fall2020_CSC403_Project
             player._strength = 2;
             removeClassMenu();
             removeAttackBoost();
-            displayFirstLevel();
             this.Controls.Remove(SettingsButton);
             this.Controls.Remove(ClassTankButton);
             this.Controls.Remove(ClassFighterButton);
@@ -498,7 +514,7 @@ namespace Fall2020_CSC403_Project
             this.Controls.Remove(picTank);
             this.Controls.Remove(picAssassin);
             this.Controls.Remove(DisplayClassFighter);
-
+            displayFirstLevel();
         }
 
         private void ClassAssassinButton_Click(object sender, EventArgs e)
@@ -508,7 +524,6 @@ namespace Fall2020_CSC403_Project
             player._strength = 3;
             removeClassMenu();
             removeAttackBoost();
-            displayFirstLevel();
             this.Controls.Remove(SettingsButton);
             this.Controls.Remove(ClassTankButton);
             this.Controls.Remove(ClassFighterButton);
@@ -519,27 +534,21 @@ namespace Fall2020_CSC403_Project
             this.Controls.Remove(picTank);
             this.Controls.Remove(DisplayClassFighter);
             this.picPlayer = picAssassin;
+            displayFirstLevel();
         }
 
         private void LoadSong()
         {
             if (currentSong >= 0 && currentSong < songNames.Length)
             {
-
                 StopAndDispose();
-
                 string song = songNames[currentSong];
-
-
 
                 try
                 {
-
                     Stream stream = (Stream)rm.GetObject(song);
-
                     var waveStream = new RawSourceWaveStream(stream, new WaveFormat());
                     waveOut.Init(waveStream);
-
                 }
                 catch (Exception ex)
                 {
@@ -551,8 +560,6 @@ namespace Fall2020_CSC403_Project
 
         private void PlayButtonClick(object sender, EventArgs e)
         {
-
-
             if (waveOut.PlaybackState == PlaybackState.Stopped)
             {
                 waveOut.Play();
@@ -566,7 +573,6 @@ namespace Fall2020_CSC403_Project
 
         private void PauseButtonClick(object sender, EventArgs e)
         {
-
             if (waveOut.PlaybackState == PlaybackState.Playing)
             {
                 waveOut.Pause();
@@ -598,7 +604,7 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void StopAndDispose()
+        public void StopAndDispose()
         {
             if (waveOut.PlaybackState != PlaybackState.Stopped)
             {
@@ -612,8 +618,7 @@ namespace Fall2020_CSC403_Project
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            
+        {            
             this.Controls.Remove(mainMenuPlay);
             this.Controls.Remove(pictureBox1);
             removeMainMenu();
@@ -682,6 +687,19 @@ namespace Fall2020_CSC403_Project
         private void ResumeGameButton_Click(object sender, EventArgs e)
         {
             removePauseMenu();
+        }
+
+        internal void HaltAll()
+        {
+            StopAndDispose();
+            HaltMove = true;
+            bossKoolaid = null;
+            enemyPoisonPacket = null;
+            enemyCheeto = null;
+            enemyFlea = null;
+            fleaFlag = false;
+
+            walls = null;
         }
     }
 }

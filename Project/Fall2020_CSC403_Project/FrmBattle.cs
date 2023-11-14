@@ -14,20 +14,22 @@ namespace Fall2020_CSC403_Project
         private Player player;
         private FrmLevel level;
 
-
         private FrmBattle()
         {
             InitializeComponent();
             player = Game.player;
         }
 
-        public void Setup()
+        public void Setup(PictureBox picPlayer)
         {
             // update for this enemy
             picEnemy.BackgroundImage = enemy.Img;
             picEnemy.Refresh();
             BackColor = enemy.Color;
             picBossBattle.Visible = false;
+
+            this.picPlayer.BackgroundImage = picPlayer.BackgroundImage;
+            picPlayer.Refresh();    
 
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;
@@ -37,7 +39,7 @@ namespace Fall2020_CSC403_Project
             UpdateStats();
         }
 
-        public void SetupForBossBattle()
+        public void SetupForBossBattle(FrmLevel lvl)
         {
             picBossBattle.Location = Point.Empty;
             picBossBattle.Size = ClientSize;
@@ -47,6 +49,8 @@ namespace Fall2020_CSC403_Project
             simpleSound.Play();
 
             tmrFinalBattle.Enabled = true;
+            fightingBoss = true;
+            level = lvl;
         }
 
         public void SetupForFlea(FrmLevel level)
@@ -54,13 +58,13 @@ namespace Fall2020_CSC403_Project
             this.level = level;
         }
 
-        public static FrmBattle GetInstance(Enemy enemy)
+        public static FrmBattle GetInstance(Enemy enemy, PictureBox picPlayer)
         {
             if (instance == null)
             {
                 instance = new FrmBattle();
                 instance.enemy = enemy;
-                instance.Setup();
+                instance.Setup(picPlayer);
             }
             return instance;
         }
@@ -74,8 +78,8 @@ namespace Fall2020_CSC403_Project
             lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
             lblEnemyHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
 
-            lblPlayerHealthFull.Text = player.Health.ToString();
-            lblEnemyHealthFull.Text = enemy.Health.ToString();
+            lblPlayerHealthFull.Text = player.Health.ToString() + "/" + player.MaxHealth.ToString();
+            lblEnemyHealthFull.Text = enemy.Health.ToString() + "/" + enemy.MaxHealth.ToString();
 
             lblPlayerStrength.Text = "Attack Power: " + (player._strength * 4).ToString();
 
@@ -107,7 +111,7 @@ namespace Fall2020_CSC403_Project
 
             if (enemy.Health > 0)
             {
-                enemy.OnAttack(-2);
+                enemy.OnAttack(-3);
             }
 
             UpdateStats();
@@ -199,19 +203,24 @@ namespace Fall2020_CSC403_Project
                         break;
                 }
             }
+            if (enemy.Health <= 0 && enemy.Name == "enemyBossKoolaid")
+            {
+                player.Score += 10;
+                NextLevel();
+            }
             if (player.Health <= 0)
             {
                 FrmGameOver frmGameOver = new FrmGameOver();
                 frmGameOver.Show();
 
                 instance = null;
-                Close();
+                this.Close();
             }
             else if (enemy.Health <= 0)
             {
                 player.Score += 20;
                 instance = null;
-                Close();
+                this.Close();
             }
         }
         private void EnemyDamage(int amount)
@@ -240,7 +249,7 @@ namespace Fall2020_CSC403_Project
         
             if (enemy.Health > 0)
             {
-                enemy.OnAttack(-2);
+                enemy.OnAttack(-3);
             }
 
             
@@ -253,17 +262,31 @@ namespace Fall2020_CSC403_Project
                 instance = null;
                 Close();
             }
-
             else if (enemy.Health <= 0)
             {
                 player.Score += 20;
                 instance = null;
                 Close();
             }
+
             player.buffAttack();
             UpdateStats();
         }
 
+        private void NextLevel()
+        {
+            FrmLevel2 level2 = new FrmLevel2();
+            //level2.FormClosed += GameExit;
+            level2.picPlayer.BackgroundImage = picPlayer.BackgroundImage;
+            level2.Show();
 
+            level.HaltAll();
+            level.Hide();
+        }
+
+        private void GameExit(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

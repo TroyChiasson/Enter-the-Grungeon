@@ -14,11 +14,6 @@ namespace Fall2020_CSC403_Project.code
         public String Name { get; set; }
 
         /// <summary>
-        /// THis is the image for an enemy
-        /// </summary>
-        public Image Img { get; set; }
-
-        /// <summary>
         /// this is the background color for the fight form for this enemy
         /// </summary>
         public Color Color { get; set; }
@@ -31,11 +26,8 @@ namespace Fall2020_CSC403_Project.code
         public Enemy(Vector2 initPos, Collider collider, int strength=2) : base(initPos, collider, strength) { }
 
         // random movement function to make flea traverse map
-        public void MoveRand()
-        {
-            Random rand = new Random();
-            int moveDir = rand.Next(32);
-
+        public void MoveRand(int moveDir)
+        { 
             switch (moveDir)
             {
                 case 0:
