@@ -29,18 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel2));
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
-            this.ChooseClassLabel = new System.Windows.Forms.Label();
-            this.ClassAssassinButton = new System.Windows.Forms.Button();
-            this.ClassFighterButton = new System.Windows.Forms.Button();
-            this.ClassTankButton = new System.Windows.Forms.Button();
-            this.DisplayClassFighter = new System.Windows.Forms.PictureBox();
-            this.picTank = new System.Windows.Forms.PictureBox();
-            this.picAssassin = new System.Windows.Forms.PictureBox();
-            this.ClassMenuBackground = new System.Windows.Forms.PictureBox();
             this.picWall7 = new System.Windows.Forms.PictureBox();
             this.picWall5 = new System.Windows.Forms.PictureBox();
             this.picWall0 = new System.Windows.Forms.PictureBox();
@@ -54,27 +45,16 @@
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
-            this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picEnemyFlea = new System.Windows.Forms.PictureBox();
             this.PlayButton = new System.Windows.Forms.Button();
             this.PauseButton = new System.Windows.Forms.Button();
             this.NextButton = new System.Windows.Forms.Button();
-            this.mainMenuPlay = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.SettingsButton = new System.Windows.Forms.Button();
-            this.VolumeUp = new System.Windows.Forms.Button();
-            this.VolumeDown = new System.Windows.Forms.Button();
-            this.BackToMenu = new System.Windows.Forms.Button();
             this.VolumeUpInGame = new System.Windows.Forms.Button();
             this.VolumeDownInGame = new System.Windows.Forms.Button();
             this.lblPlayerHealthFull = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblPlayerScore = new System.Windows.Forms.Label();
             this.lblPlayerStrength = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.DisplayClassFighter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picTank)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAssassin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClassMenuBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall0)).BeginInit();
@@ -88,9 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -115,87 +93,6 @@
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
-            // 
-            // ChooseClassLabel
-            // 
-            this.ChooseClassLabel.AutoSize = true;
-            this.ChooseClassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChooseClassLabel.Location = new System.Drawing.Point(412, 168);
-            this.ChooseClassLabel.Name = "ChooseClassLabel";
-            this.ChooseClassLabel.Size = new System.Drawing.Size(295, 46);
-            this.ChooseClassLabel.TabIndex = 31;
-            this.ChooseClassLabel.Text = "Choose a class";
-            // 
-            // ClassAssassinButton
-            // 
-            this.ClassAssassinButton.Location = new System.Drawing.Point(867, 322);
-            this.ClassAssassinButton.Name = "ClassAssassinButton";
-            this.ClassAssassinButton.Size = new System.Drawing.Size(219, 99);
-            this.ClassAssassinButton.TabIndex = 30;
-            this.ClassAssassinButton.Text = "Assassin";
-            this.ClassAssassinButton.UseVisualStyleBackColor = true;
-            this.ClassAssassinButton.Click += new System.EventHandler(this.ClassAssassinButton_Click);
-            // 
-            // ClassFighterButton
-            // 
-            this.ClassFighterButton.Location = new System.Drawing.Point(471, 322);
-            this.ClassFighterButton.Name = "ClassFighterButton";
-            this.ClassFighterButton.Size = new System.Drawing.Size(219, 99);
-            this.ClassFighterButton.TabIndex = 29;
-            this.ClassFighterButton.Text = "Fighter";
-            this.ClassFighterButton.UseVisualStyleBackColor = true;
-            this.ClassFighterButton.Click += new System.EventHandler(this.ClassFighterButton_Click);
-            // 
-            // ClassTankButton
-            // 
-            this.ClassTankButton.Location = new System.Drawing.Point(91, 326);
-            this.ClassTankButton.Name = "ClassTankButton";
-            this.ClassTankButton.Size = new System.Drawing.Size(219, 99);
-            this.ClassTankButton.TabIndex = 28;
-            this.ClassTankButton.Text = "Tank";
-            this.ClassTankButton.UseVisualStyleBackColor = true;
-            this.ClassTankButton.Click += new System.EventHandler(this.ClassTankButton_Click);
-            // 
-            // DisplayClassFighter
-            // 
-            this.DisplayClassFighter.BackColor = System.Drawing.Color.Transparent;
-            this.DisplayClassFighter.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
-            this.DisplayClassFighter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.DisplayClassFighter.Location = new System.Drawing.Point(557, 452);
-            this.DisplayClassFighter.Name = "DisplayClassFighter";
-            this.DisplayClassFighter.Size = new System.Drawing.Size(54, 106);
-            this.DisplayClassFighter.TabIndex = 34;
-            this.DisplayClassFighter.TabStop = false;
-            // 
-            // picTank
-            // 
-            this.picTank.BackColor = System.Drawing.Color.Transparent;
-            this.picTank.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Tank;
-            this.picTank.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picTank.Location = new System.Drawing.Point(179, 454);
-            this.picTank.Name = "picTank";
-            this.picTank.Size = new System.Drawing.Size(58, 113);
-            this.picTank.TabIndex = 32;
-            this.picTank.TabStop = false;
-            // 
-            // picAssassin
-            // 
-            this.picAssassin.BackColor = System.Drawing.Color.Transparent;
-            this.picAssassin.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.assassin;
-            this.picAssassin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picAssassin.Location = new System.Drawing.Point(972, 445);
-            this.picAssassin.Name = "picAssassin";
-            this.picAssassin.Size = new System.Drawing.Size(54, 106);
-            this.picAssassin.TabIndex = 33;
-            this.picAssassin.TabStop = false;
-            // 
-            // ClassMenuBackground
-            // 
-            this.ClassMenuBackground.Location = new System.Drawing.Point(-12, 1);
-            this.ClassMenuBackground.Name = "ClassMenuBackground";
-            this.ClassMenuBackground.Size = new System.Drawing.Size(1187, 742);
-            this.ClassMenuBackground.TabIndex = 19;
-            this.ClassMenuBackground.TabStop = false;
             // 
             // picWall7
             // 
@@ -330,17 +227,6 @@
             this.picEnemyCheeto.TabIndex = 5;
             this.picEnemyCheeto.TabStop = false;
             // 
-            // picBossKoolAid
-            // 
-            this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
-            this.picBossKoolAid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBossKoolAid.BackgroundImage")));
-            this.picBossKoolAid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossKoolAid.Location = new System.Drawing.Point(971, 74);
-            this.picBossKoolAid.Name = "picBossKoolAid";
-            this.picBossKoolAid.Size = new System.Drawing.Size(193, 194);
-            this.picBossKoolAid.TabIndex = 1;
-            this.picBossKoolAid.TabStop = false;
-            // 
             // picEnemyFlea
             // 
             this.picEnemyFlea.BackColor = System.Drawing.Color.Transparent;
@@ -381,65 +267,6 @@
             this.NextButton.Text = "Next";
             this.NextButton.UseVisualStyleBackColor = true;
             this.NextButton.Click += new System.EventHandler(this.NextButtonClick);
-            // 
-            // mainMenuPlay
-            // 
-            this.mainMenuPlay.Location = new System.Drawing.Point(357, 175);
-            this.mainMenuPlay.Name = "mainMenuPlay";
-            this.mainMenuPlay.Size = new System.Drawing.Size(334, 141);
-            this.mainMenuPlay.TabIndex = 35;
-            this.mainMenuPlay.Text = "Play";
-            this.mainMenuPlay.UseVisualStyleBackColor = true;
-            this.mainMenuPlay.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox1.Location = new System.Drawing.Point(-58, -35);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1399, 779);
-            this.pictureBox1.TabIndex = 36;
-            this.pictureBox1.TabStop = false;
-            // 
-            // SettingsButton
-            // 
-            this.SettingsButton.Location = new System.Drawing.Point(356, 425);
-            this.SettingsButton.Name = "SettingsButton";
-            this.SettingsButton.Size = new System.Drawing.Size(334, 141);
-            this.SettingsButton.TabIndex = 37;
-            this.SettingsButton.Text = "Settings";
-            this.SettingsButton.UseVisualStyleBackColor = true;
-            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
-            // 
-            // VolumeUp
-            // 
-            this.VolumeUp.Location = new System.Drawing.Point(741, 322);
-            this.VolumeUp.Name = "VolumeUp";
-            this.VolumeUp.Size = new System.Drawing.Size(140, 65);
-            this.VolumeUp.TabIndex = 38;
-            this.VolumeUp.Text = "Volume+";
-            this.VolumeUp.UseVisualStyleBackColor = true;
-            this.VolumeUp.Click += new System.EventHandler(this.VolumeUp_Click);
-            // 
-            // VolumeDown
-            // 
-            this.VolumeDown.Location = new System.Drawing.Point(254, 324);
-            this.VolumeDown.Name = "VolumeDown";
-            this.VolumeDown.Size = new System.Drawing.Size(140, 65);
-            this.VolumeDown.TabIndex = 39;
-            this.VolumeDown.Text = "Volume-";
-            this.VolumeDown.UseVisualStyleBackColor = true;
-            this.VolumeDown.Click += new System.EventHandler(this.VolumeDown_Click);
-            // 
-            // BackToMenu
-            // 
-            this.BackToMenu.Location = new System.Drawing.Point(481, 528);
-            this.BackToMenu.Name = "BackToMenu";
-            this.BackToMenu.Size = new System.Drawing.Size(140, 65);
-            this.BackToMenu.TabIndex = 40;
-            this.BackToMenu.Text = "Back To Main Menu";
-            this.BackToMenu.UseVisualStyleBackColor = true;
-            this.BackToMenu.Click += new System.EventHandler(this.BackToMenu_Click);
             // 
             // VolumeUpInGame
             // 
@@ -526,7 +353,6 @@
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picEnemyPoisonPacket);
             this.Controls.Add(this.picEnemyCheeto);
-            this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.lblInGameTime);
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
@@ -536,20 +362,6 @@
             this.Controls.Add(this.lblPlayerStrength);
             this.Controls.Add(this.picWall0);
             this.Controls.Add(this.picEnemyFlea);
-            this.Controls.Add(this.DisplayClassFighter);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.SettingsButton);
-            this.Controls.Add(this.ClassMenuBackground);
-            this.Controls.Add(this.VolumeDown);
-            this.Controls.Add(this.VolumeUp);
-            this.Controls.Add(this.BackToMenu);
-            this.Controls.Add(this.mainMenuPlay);
-            this.Controls.Add(this.ClassFighterButton);
-            this.Controls.Add(this.ChooseClassLabel);
-            this.Controls.Add(this.ClassAssassinButton);
-            this.Controls.Add(this.picAssassin);
-            this.Controls.Add(this.picTank);
-            this.Controls.Add(this.ClassTankButton);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -557,10 +369,6 @@
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.DisplayClassFighter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picTank)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAssassin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ClassMenuBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall0)).EndInit();
@@ -574,9 +382,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -585,7 +391,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox picPlayer;
-        private System.Windows.Forms.PictureBox picBossKoolAid;
         private System.Windows.Forms.Label lblInGameTime;
         private System.Windows.Forms.Timer tmrUpdateInGameTime;
         private System.Windows.Forms.Timer tmrPlayerMove;
@@ -602,23 +407,9 @@
         private System.Windows.Forms.PictureBox picWall0;
         private System.Windows.Forms.PictureBox picWall7;
         private System.Windows.Forms.PictureBox picEnemyFlea;
-        private System.Windows.Forms.PictureBox ClassMenuBackground;
-        private System.Windows.Forms.PictureBox DisplayClassFighter;
-        private System.Windows.Forms.PictureBox picTank;
-        private System.Windows.Forms.PictureBox picAssassin;
-        private System.Windows.Forms.Label ChooseClassLabel;
-        private System.Windows.Forms.Button ClassAssassinButton;
-        private System.Windows.Forms.Button ClassFighterButton;
-        private System.Windows.Forms.Button ClassTankButton;
         private System.Windows.Forms.Button PlayButton;
         private System.Windows.Forms.Button PauseButton;
         private System.Windows.Forms.Button NextButton;
-        private System.Windows.Forms.Button mainMenuPlay;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button SettingsButton;
-        private System.Windows.Forms.Button VolumeUp;
-        private System.Windows.Forms.Button VolumeDown;
-        private System.Windows.Forms.Button BackToMenu;
         private System.Windows.Forms.Button VolumeUpInGame;
         private System.Windows.Forms.Button VolumeDownInGame;
         private System.Windows.Forms.Label lblPlayerHealthFull;

@@ -119,14 +119,14 @@ namespace Fall2020_CSC403_Project
             }
             if (enemy.Health <= 0 && fightingBoss)
             {
-                FrmLevel2 lvl2 = new FrmLevel2();
-                lvl2.Show();
-
                 fightingBoss = false;
 
                 player.Score += 30;
                 instance = null;
                 Close();
+
+                FrmLevel2 lvl2 = new FrmLevel2();
+                lvl2.Show();
             }
             if (player.Health <= 0)
             {
