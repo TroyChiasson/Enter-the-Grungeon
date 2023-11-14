@@ -182,7 +182,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="help.txt" />
     <None Include="data\Tank.png" />
     <None Include="data\assassin.png" />
     <Content Include="data\game_over.png" />
