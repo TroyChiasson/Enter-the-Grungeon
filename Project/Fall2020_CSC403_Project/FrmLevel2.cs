@@ -240,7 +240,7 @@ namespace Fall2020_CSC403_Project
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle = FrmBattle.GetInstance(enemy, picPlayer);
             frmBattle.Show();
 
             if (enemy == enemyFlea)

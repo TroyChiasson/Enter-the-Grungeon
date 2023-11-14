@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
@@ -8,6 +9,11 @@ namespace Fall2020_CSC403_Project.code
     {
         public int Health { get; set; }
         public int MaxHealth { get; set; }
+        /// <summary>
+        /// THis is the image for an enemy
+        /// </summary>
+        public Image Img { get; set; }
+
         public float _strength;
 
         public event Action<int> AttackEvent;

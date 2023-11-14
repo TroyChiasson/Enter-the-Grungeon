@@ -12,9 +12,10 @@ namespace Fall2020_CSC403_Project
         public static FrmBattle instance = null;
         private Enemy enemy;
         private Player player;
+        private FrmLevel level = null;
         private bool fightingFlea = false;
         private bool fightingBoss = false;
-        private bool BossDead;
+
 
         private FrmBattle()
         {
@@ -22,13 +23,16 @@ namespace Fall2020_CSC403_Project
             player = Game.player;
         }
 
-        public void Setup()
+        public void Setup(PictureBox picPlayer)
         {
             // update for this enemy
             picEnemy.BackgroundImage = enemy.Img;
             picEnemy.Refresh();
             BackColor = enemy.Color;
             picBossBattle.Visible = false;
+
+            this.picPlayer.BackgroundImage = picPlayer.BackgroundImage;
+            picPlayer.Refresh();    
 
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;
@@ -38,7 +42,7 @@ namespace Fall2020_CSC403_Project
             UpdateStats();
         }
 
-        public void SetupForBossBattle(bool BossDead)
+        public void SetupForBossBattle(FrmLevel lvl)
         {
             picBossBattle.Location = Point.Empty;
             picBossBattle.Size = ClientSize;
@@ -49,8 +53,7 @@ namespace Fall2020_CSC403_Project
 
             tmrFinalBattle.Enabled = true;
             fightingBoss = true;
-
-            this.BossDead = BossDead;
+            level = lvl;
         }
 
         public void SetupForFlea()
@@ -58,13 +61,13 @@ namespace Fall2020_CSC403_Project
             fightingFlea = true;
         }
 
-        public static FrmBattle GetInstance(Enemy enemy)
+        public static FrmBattle GetInstance(Enemy enemy, PictureBox picPlayer)
         {
             if (instance == null)
             {
                 instance = new FrmBattle();
                 instance.enemy = enemy;
-                instance.Setup();
+                instance.Setup(picPlayer);
             }
             return instance;
         }
@@ -116,18 +119,14 @@ namespace Fall2020_CSC403_Project
 
                 fightingFlea = false;
 
-                player.Score += 10;
-                instance = null;
-                Close();
+                player.Score -= 10;
             }
             if (enemy.Health <= 0 && fightingBoss)
             {
                 fightingBoss = false;
-                BossDead = true;
                 
-                player.Score += 30;
-                instance = null;
-                Close();
+                player.Score += 10;
+                NextLevel();
             }
             if (player.Health <= 0)
             {
@@ -135,13 +134,13 @@ namespace Fall2020_CSC403_Project
                 frmGameOver.Show();
 
                 instance = null;
-                Close();
+                this.Close();
             }
             else if (enemy.Health <= 0)
             {
                 player.Score += 20;
                 instance = null;
-                Close();
+                this.Close();
             }
         }
 
@@ -191,6 +190,21 @@ namespace Fall2020_CSC403_Project
 
             player.buffAttack();
             UpdateStats();
+        }
+
+        private void NextLevel()
+        {
+            FrmLevel2 level2 = new FrmLevel2();
+            level2.FormClosed += GameExit;
+            level2.Show();
+
+            level.StopAndDispose();
+            level.Hide();
+        }
+
+        private void GameExit(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -14,11 +14,6 @@ namespace Fall2020_CSC403_Project.code
         public String Name { get; set; }
 
         /// <summary>
-        /// THis is the image for an enemy
-        /// </summary>
-        public Image Img { get; set; }
-
-        /// <summary>
         /// this is the background color for the fight form for this enemy
         /// </summary>
         public Color Color { get; set; }

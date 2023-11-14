@@ -34,8 +34,6 @@ namespace Fall2020_CSC403_Project
         private bool changingSong = false;
 
         private bool fleaFlag = true;
-        
-        public bool BossDead { get; set; }
 
         private Tuple<Key, Vector2>[] moveKeys;
 
@@ -43,8 +41,6 @@ namespace Fall2020_CSC403_Project
         {
             InitializeComponent();
             this.KeyPreview = true;
-            this.BossDead = false;
-
         }
 
         public void displayClassMenu()
@@ -84,6 +80,10 @@ namespace Fall2020_CSC403_Project
             this.VolumeUpInGame.BringToFront();
             this.VolumeDownInGame.BringToFront();
             this.ClassMenuBackground.BringToFront();
+            this.picEnemyCheeto.BringToFront();
+            this.picBossKoolAid.BringToFront();
+            this.picEnemyFlea.BringToFront();
+            this.picPlayer.BringToFront();
             this.picWall0.BringToFront();
             this.picWall1.BringToFront();
             this.picWall2.BringToFront();
@@ -94,10 +94,6 @@ namespace Fall2020_CSC403_Project
             this.picWall7.BringToFront();
             this.picWall8.BringToFront();
             this.picWall9.BringToFront();
-            this.picEnemyCheeto.BringToFront();
-            this.picBossKoolAid.BringToFront();
-            this.picEnemyFlea.BringToFront();
-            this.picPlayer.BringToFront();
             this.lblInGameTime.BringToFront();
             this.lblPlayerScore.BringToFront();
             this.lblPlayerStrength.BringToFront();
@@ -167,6 +163,7 @@ namespace Fall2020_CSC403_Project
             enemyCheeto.Name = "enemyCheeto";
             enemyFlea.Name = "enemyFlea";
 
+            player.Img = picPlayer.BackgroundImage;
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -338,12 +335,12 @@ namespace Fall2020_CSC403_Project
         {
             player.ResetMoveSpeed();
             player.MoveBack();
-            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle = FrmBattle.GetInstance(enemy, picPlayer);
             frmBattle.Show();
 
             if (enemy == bossKoolaid)
             {
-                frmBattle.SetupForBossBattle(BossDead);
+                frmBattle.SetupForBossBattle(this);
             }
 
             if (enemy == enemyFlea)
@@ -371,19 +368,13 @@ namespace Fall2020_CSC403_Project
                     break;
                 case "enemyFlea":
                     enemyFlea = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    enemyFlea.Img = null;
                     picEnemyFlea.BackgroundImage = null;
                     fleaFlag = false;
                     break;
             }
-
-            if (BossDead) 
-            {
-                FrmLevel2 level2 = new FrmLevel2();
-                level2.FormClosed += GameExit;
-                level2.Show();
-                this.Hide();
-            }
         }
+
 
         private void playerMove()
         {
@@ -565,7 +556,7 @@ namespace Fall2020_CSC403_Project
 
         }
 
-        private void StopAndDispose()
+        public void StopAndDispose()
         {
             if (waveOut.PlaybackState != PlaybackState.Stopped)
             {
