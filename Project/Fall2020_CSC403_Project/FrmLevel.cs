@@ -284,8 +284,8 @@ namespace Fall2020_CSC403_Project
             // randomly move flea
             if (fleaFlag == true)
             {
-                enemyFlea.Move();
                 enemyFlea.MoveRand();
+                enemyFlea.Move();
 
 
                 // check collision with enemies and walls
