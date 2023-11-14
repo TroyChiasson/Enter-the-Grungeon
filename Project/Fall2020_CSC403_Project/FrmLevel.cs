@@ -37,10 +37,13 @@ namespace Fall2020_CSC403_Project
 
         private Tuple<Key, Vector2>[] moveKeys;
 
+        public bool HaltMove { get; set; }
+
         public FrmLevel()
         {
             InitializeComponent();
             this.KeyPreview = true;
+            this.HaltMove = false;
         }
 
         public void displayClassMenu()
@@ -56,8 +59,7 @@ namespace Fall2020_CSC403_Project
  
         }
         public void displayMainMenu()
-        {
-            
+        {        
             this.pictureBox1.BringToFront();
             this.mainMenuPlay.BringToFront();
             this.SettingsButton.BringToFront();
@@ -223,7 +225,7 @@ namespace Fall2020_CSC403_Project
             return new Vector2(pic.Location.X, pic.Location.Y);
         }
 
-        private Vector2 RemovePosition(int x, int y)
+        private Vector2 RemovePosition(int x = 0, int y = 0)
         {
             return new Vector2(x, y);
         }
@@ -350,23 +352,23 @@ namespace Fall2020_CSC403_Project
             switch (enemy.Name)
             {
                 case "bossKoolaid":
-                    bossKoolaid = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    bossKoolaid = new Enemy(RemovePosition(), RemoveCollider());
                     bossKoolaid.Img = null;
                     picBossKoolAid.BackgroundImage = null;
                     break;
                 case "enemyPoisonPacket":
-                    enemyPoisonPacket = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    enemyPoisonPacket = new Enemy(RemovePosition(), RemoveCollider());
                     enemyPoisonPacket.Img = null;
                     picEnemyPoisonPacket.BackgroundImage = null;
 
                     break;
                 case "enemyCheeto":
-                    enemyCheeto = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    enemyCheeto = new Enemy(RemovePosition(), RemoveCollider());
                     enemyCheeto.Img = null;
                     picEnemyCheeto.BackgroundImage = null;
                     break;
                 case "enemyFlea":
-                    enemyFlea = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    enemyFlea = new Enemy(RemovePosition(), RemoveCollider());
                     enemyFlea.Img = null;
                     picEnemyFlea.BackgroundImage = null;
                     fleaFlag = false;
@@ -412,12 +414,12 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            playerMove();
+            if (!HaltMove) { playerMove(); }
         }
 
         private void FrmLevel_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            playerMove();
+            if (!HaltMove) { playerMove(); }
         }
 
 

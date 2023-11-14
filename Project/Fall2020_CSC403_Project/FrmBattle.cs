@@ -195,11 +195,12 @@ namespace Fall2020_CSC403_Project
         private void NextLevel()
         {
             FrmLevel2 level2 = new FrmLevel2();
-            level2.FormClosed += GameExit;
+            //level2.FormClosed += GameExit;
             level2.picPlayer.BackgroundImage = picPlayer.BackgroundImage;
             level2.Show();
 
             level.StopAndDispose();
+            level.HaltMove = true;
             level.Hide();
         }
 
