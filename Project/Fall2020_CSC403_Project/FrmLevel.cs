@@ -19,7 +19,6 @@ namespace Fall2020_CSC403_Project
         private Enemy enemyCheeto;
         private Enemy enemyFlea;
         private Character[] walls;
-        private string playerName = "hi";
 
 
         private DateTime timeBegin;
@@ -71,6 +70,7 @@ namespace Fall2020_CSC403_Project
         {
             removeMainMenu();
             removeSettingsMenu();
+            removeAttackBoost();
             this.Controls.Remove(VolumeUp);
             this.Controls.Remove(VolumeDown);
             this.Controls.Remove(BackToMenu);
@@ -113,6 +113,14 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        public void displayAttackBoost()
+        {
+            this.attackBoostPopup.Show();
+            this.attackBoostPopup.BringToFront();
+            this.attackBoostButton.Show();
+            this.attackBoostButton.BringToFront();
+        }
+
         public void removeSettingsMenu()
         {
             this.ClassMenuBackground.SendToBack();
@@ -142,7 +150,11 @@ namespace Fall2020_CSC403_Project
             this.DisplayClassFighter.SendToBack();
         }
 
-
+        public void removeAttackBoost() {
+            
+            this.attackBoostButton.Hide();
+            this.attackBoostPopup.Hide();
+        }
 
 
         private void FrmLevel_Load(object sender, EventArgs e)
@@ -344,7 +356,7 @@ namespace Fall2020_CSC403_Project
 
             if (enemy == enemyFlea)
             {
-                frmBattle.SetupForFlea();
+                frmBattle.SetupForFlea(this);
             }
 
             switch (enemy.Name)
@@ -425,6 +437,7 @@ namespace Fall2020_CSC403_Project
             player.Health = 50;
             player._strength = 1;
             removeClassMenu();
+            removeAttackBoost();
             displayFirstLevel();
             this.Controls.Remove(SettingsButton);
             this.Controls.Remove(ClassTankButton);
@@ -444,6 +457,7 @@ namespace Fall2020_CSC403_Project
             player.Health = 20;
             player._strength = 2;
             removeClassMenu();
+            removeAttackBoost();
             displayFirstLevel();
             this.Controls.Remove(SettingsButton);
             this.Controls.Remove(ClassTankButton);
@@ -463,6 +477,7 @@ namespace Fall2020_CSC403_Project
             player.Health = 15;
             player._strength = 3;
             removeClassMenu();
+            removeAttackBoost();
             displayFirstLevel();
             this.Controls.Remove(SettingsButton);
             this.Controls.Remove(ClassTankButton);
@@ -621,6 +636,12 @@ namespace Fall2020_CSC403_Project
         private void SetNameButton_Click(object sender, EventArgs e)
         {
             Game.player.playerName = playerNameTextBox.Text;
+        }
+
+
+        private void attackBoostButton_Click(object sender, EventArgs e)
+        {
+            removeAttackBoost();
         }
     }
 }

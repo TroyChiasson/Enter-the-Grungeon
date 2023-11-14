@@ -69,6 +69,8 @@
             this.playerNameTextBox = new System.Windows.Forms.TextBox();
             this.playerNameLabel = new System.Windows.Forms.Label();
             this.SetNameButton = new System.Windows.Forms.Button();
+            this.attackBoostPopup = new System.Windows.Forms.RichTextBox();
+            this.attackBoostButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DisplayClassFighter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAssassin)).BeginInit();
@@ -528,6 +530,28 @@
             this.SetNameButton.UseVisualStyleBackColor = true;
             this.SetNameButton.Click += new System.EventHandler(this.SetNameButton_Click);
             // 
+            // attackBoostPopup
+            // 
+            this.attackBoostPopup.BackColor = System.Drawing.Color.IndianRed;
+            this.attackBoostPopup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attackBoostPopup.Location = new System.Drawing.Point(481, 307);
+            this.attackBoostPopup.Name = "attackBoostPopup";
+            this.attackBoostPopup.ReadOnly = true;
+            this.attackBoostPopup.Size = new System.Drawing.Size(233, 112);
+            this.attackBoostPopup.TabIndex = 46;
+            this.attackBoostPopup.TabStop = false;
+            this.attackBoostPopup.Text = "\n   You\'ve gotten an attack\n                  boost!";
+            // 
+            // attackBoostButton
+            // 
+            this.attackBoostButton.Location = new System.Drawing.Point(557, 380);
+            this.attackBoostButton.Name = "attackBoostButton";
+            this.attackBoostButton.Size = new System.Drawing.Size(80, 25);
+            this.attackBoostButton.TabIndex = 47;
+            this.attackBoostButton.Text = "Continue";
+            this.attackBoostButton.UseVisualStyleBackColor = true;
+            this.attackBoostButton.Click += new System.EventHandler(this.attackBoostButton_Click);
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,9 +559,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
-            this.Controls.Add(this.SetNameButton);
-            this.Controls.Add(this.playerNameLabel);
-            this.Controls.Add(this.playerNameTextBox);
+            this.Controls.Add(this.attackBoostButton);
+            this.Controls.Add(this.attackBoostPopup);
             this.Controls.Add(this.VolumeDownInGame);
             this.Controls.Add(this.VolumeUpInGame);
             this.Controls.Add(this.NextButton);
@@ -552,8 +575,8 @@
             this.Controls.Add(this.picWall4);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picEnemyPoisonPacket);
-            this.Controls.Add(this.picEnemyCheeto);
             this.Controls.Add(this.picBossKoolAid);
+            this.Controls.Add(this.picEnemyCheeto);
             this.Controls.Add(this.lblInGameTime);
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
@@ -564,8 +587,6 @@
             this.Controls.Add(this.picWall0);
             this.Controls.Add(this.picEnemyFlea);
             this.Controls.Add(this.DisplayClassFighter);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.SettingsButton);
             this.Controls.Add(this.ClassMenuBackground);
             this.Controls.Add(this.VolumeDown);
             this.Controls.Add(this.VolumeUp);
@@ -577,6 +598,11 @@
             this.Controls.Add(this.picAssassin);
             this.Controls.Add(this.picTank);
             this.Controls.Add(this.ClassTankButton);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.SettingsButton);
+            this.Controls.Add(this.playerNameTextBox);
+            this.Controls.Add(this.playerNameLabel);
+            this.Controls.Add(this.SetNameButton);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -655,5 +681,7 @@
         private System.Windows.Forms.TextBox playerNameTextBox;
         private System.Windows.Forms.Label playerNameLabel;
         private System.Windows.Forms.Button SetNameButton;
+        private System.Windows.Forms.RichTextBox attackBoostPopup;
+        private System.Windows.Forms.Button attackBoostButton;
     }
 }

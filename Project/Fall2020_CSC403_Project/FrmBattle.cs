@@ -12,7 +12,9 @@ namespace Fall2020_CSC403_Project
         public static FrmBattle instance = null;
         private Enemy enemy;
         private Player player;
+        private FrmLevel level;
         private bool fightingFlea = false;
+
 
         private FrmBattle()
         {
@@ -48,9 +50,10 @@ namespace Fall2020_CSC403_Project
             tmrFinalBattle.Enabled = true;
         }
 
-        public void SetupForFlea()
+        public void SetupForFlea(FrmLevel level)
         {
             fightingFlea = true;
+            this.level = level;
         }
 
         public static FrmBattle GetInstance(Enemy enemy)
@@ -102,10 +105,12 @@ namespace Fall2020_CSC403_Project
                         break;
                     case 1:
                         player.buffAttack();
+                        level.displayAttackBoost();
                         break;
                     case 2:
                         player.buffHealth();
                         player.buffAttack();
+                        level.displayAttackBoost();
                         break;
                 }
 
@@ -174,6 +179,55 @@ namespace Fall2020_CSC403_Project
                 Close();
             }
             player.buffAttack();
+        }
+
+        private void HeavyAttackButton_Click(object sender, EventArgs e)
+        {
+            player.OnAttack(-6);
+            if (enemy.Health > 0)
+            {
+                enemy.OnAttack(-2);
+                enemy.OnAttack(-2);
+            }
+
+            UpdateStats();
+
+            if (enemy.Health <= 0 && fightingFlea)
+            {
+                Random rand = new Random();
+                int buffEffect = rand.Next(2);
+                switch (buffEffect)
+                {
+                    case 0:
+                        player.buffHealth();
+                        break;
+                    case 1:
+                        player.buffAttack();
+                        level.displayAttackBoost();
+                        break;
+                    case 2:
+                        player.buffHealth();
+                        player.buffAttack();
+                        level.displayAttackBoost();
+                        break;
+                }
+
+                fightingFlea = false;
+            }
+            if (player.Health <= 0)
+            {
+                FrmGameOver frmGameOver = new FrmGameOver();
+                frmGameOver.Show();
+
+                instance = null;
+                Close();
+            }
+            else if (enemy.Health <= 0)
+            {
+                player.Score += 20;
+                instance = null;
+                Close();
+            }
         }
     }
 }

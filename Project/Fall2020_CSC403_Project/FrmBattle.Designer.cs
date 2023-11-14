@@ -36,6 +36,7 @@
             this.lblPlayerStrength = new System.Windows.Forms.Label();
             this.lblPlayerScore = new System.Windows.Forms.Label();
             this.buttonTaunt = new System.Windows.Forms.Button();
+            this.HeavyAttackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -44,7 +45,7 @@
             // btnAttack
             // 
             this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttack.Location = new System.Drawing.Point(127, 422);
+            this.btnAttack.Location = new System.Drawing.Point(52, 426);
             this.btnAttack.Name = "btnAttack";
             this.btnAttack.Size = new System.Drawing.Size(128, 43);
             this.btnAttack.TabIndex = 2;
@@ -157,13 +158,24 @@
             // buttonTaunt
             // 
             this.buttonTaunt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTaunt.Location = new System.Drawing.Point(127, 486);
+            this.buttonTaunt.Location = new System.Drawing.Point(119, 475);
             this.buttonTaunt.Name = "buttonTaunt";
             this.buttonTaunt.Size = new System.Drawing.Size(128, 43);
             this.buttonTaunt.TabIndex = 41;
             this.buttonTaunt.Text = "Taunt";
             this.buttonTaunt.UseVisualStyleBackColor = true;
             this.buttonTaunt.Click += new System.EventHandler(this.buttonTaunt_Click);
+            // 
+            // HeavyAttackButton
+            // 
+            this.HeavyAttackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeavyAttackButton.Location = new System.Drawing.Point(186, 426);
+            this.HeavyAttackButton.Name = "HeavyAttackButton";
+            this.HeavyAttackButton.Size = new System.Drawing.Size(128, 43);
+            this.HeavyAttackButton.TabIndex = 42;
+            this.HeavyAttackButton.Text = "Heavy Attack";
+            this.HeavyAttackButton.UseVisualStyleBackColor = true;
+            this.HeavyAttackButton.Click += new System.EventHandler(this.HeavyAttackButton_Click);
             // 
             // FrmBattle
             // 
@@ -172,10 +184,11 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(822, 603);
+            this.Controls.Add(this.picBossBattle);
+            this.Controls.Add(this.HeavyAttackButton);
             this.Controls.Add(this.buttonTaunt);
             this.Controls.Add(this.lblPlayerScore);
             this.Controls.Add(this.lblPlayerStrength);
-            this.Controls.Add(this.picBossBattle);
             this.Controls.Add(this.lblEnemyHealthFull);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPlayerHealthFull);
@@ -210,5 +223,6 @@
         private System.Windows.Forms.Label lblPlayerStrength;
         private System.Windows.Forms.Label lblPlayerScore;
         private System.Windows.Forms.Button buttonTaunt;
+        private System.Windows.Forms.Button HeavyAttackButton;
     }
 }
