@@ -32,6 +32,7 @@ namespace Fall2020_CSC403_Project
         private bool changingSong = false;
 
         private bool fleaFlag = true;
+        private bool pause = false;
 
         private Tuple<Key, Vector2>[] moveKeys;
 
@@ -71,6 +72,7 @@ namespace Fall2020_CSC403_Project
             removeMainMenu();
             removeSettingsMenu();
             removeAttackBoost();
+            removePauseMenu();
             this.Controls.Remove(VolumeUp);
             this.Controls.Remove(VolumeDown);
             this.Controls.Remove(BackToMenu);
@@ -103,7 +105,8 @@ namespace Fall2020_CSC403_Project
         }
 
         public void displaySettingsMenu()
-        {  
+        {
+            
             this.mainMenuPlay.SendToBack();
             this.SettingsButton.SendToBack();
             this.ClassMenuBackground.BringToFront();
@@ -113,12 +116,31 @@ namespace Fall2020_CSC403_Project
 
         }
 
+        public void displayPauseMenu()
+        {
+            if (Keyboard.IsKeyDown(Key.Escape))
+            {
+                this.PauseMenuBackground.BringToFront();
+                this.ResumeGameButton.BringToFront();
+                this.QuitToMainMenuButton.BringToFront();
+                pause = true;
+            }
+        }
+
         public void displayAttackBoost()
         {
             this.attackBoostPopup.Show();
             this.attackBoostPopup.BringToFront();
             this.attackBoostButton.Show();
             this.attackBoostButton.BringToFront();
+        }
+
+        public void removePauseMenu()
+        {
+            this.PauseMenuBackground.SendToBack();
+            this.ResumeGameButton.SendToBack();
+            this.QuitToMainMenuButton.SendToBack();
+            pause = false;
         }
 
         public void removeSettingsMenu()
@@ -294,7 +316,7 @@ namespace Fall2020_CSC403_Project
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
 
             // randomly move flea
-            if (fleaFlag == true)
+            if (fleaFlag == true && pause == false)
             {
                 enemyFlea.MoveRand();
                 enemyFlea.Move();
@@ -422,11 +444,15 @@ namespace Fall2020_CSC403_Project
 
         private void FrmLevel_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
+            
+            displayPauseMenu();
             playerMove();
         }
 
         private void FrmLevel_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
+            
+            displayPauseMenu();
             playerMove();
         }
 
@@ -642,6 +668,16 @@ namespace Fall2020_CSC403_Project
         private void attackBoostButton_Click(object sender, EventArgs e)
         {
             removeAttackBoost();
+        }
+
+        private void QuitToMainMenuButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void ResumeGameButton_Click(object sender, EventArgs e)
+        {
+            removePauseMenu();
         }
     }
 }

@@ -71,6 +71,9 @@
             this.SetNameButton = new System.Windows.Forms.Button();
             this.attackBoostPopup = new System.Windows.Forms.RichTextBox();
             this.attackBoostButton = new System.Windows.Forms.Button();
+            this.PauseMenuBackground = new System.Windows.Forms.PictureBox();
+            this.ResumeGameButton = new System.Windows.Forms.Button();
+            this.QuitToMainMenuButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DisplayClassFighter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTank)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAssassin)).BeginInit();
@@ -91,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PauseMenuBackground)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -437,7 +441,7 @@
             this.BackToMenu.Name = "BackToMenu";
             this.BackToMenu.Size = new System.Drawing.Size(140, 65);
             this.BackToMenu.TabIndex = 40;
-            this.BackToMenu.Text = "Back To Main Menu";
+            this.BackToMenu.Text = "Back To Menu";
             this.BackToMenu.UseVisualStyleBackColor = true;
             this.BackToMenu.Click += new System.EventHandler(this.BackToMenu_Click);
             // 
@@ -552,6 +556,34 @@
             this.attackBoostButton.UseVisualStyleBackColor = true;
             this.attackBoostButton.Click += new System.EventHandler(this.attackBoostButton_Click);
             // 
+            // PauseMenuBackground
+            // 
+            this.PauseMenuBackground.Location = new System.Drawing.Point(-5, -8);
+            this.PauseMenuBackground.Name = "PauseMenuBackground";
+            this.PauseMenuBackground.Size = new System.Drawing.Size(1187, 742);
+            this.PauseMenuBackground.TabIndex = 48;
+            this.PauseMenuBackground.TabStop = false;
+            // 
+            // ResumeGameButton
+            // 
+            this.ResumeGameButton.Location = new System.Drawing.Point(469, 271);
+            this.ResumeGameButton.Name = "ResumeGameButton";
+            this.ResumeGameButton.Size = new System.Drawing.Size(206, 100);
+            this.ResumeGameButton.TabIndex = 49;
+            this.ResumeGameButton.Text = "Resume Game";
+            this.ResumeGameButton.UseVisualStyleBackColor = true;
+            this.ResumeGameButton.Click += new System.EventHandler(this.ResumeGameButton_Click);
+            // 
+            // QuitToMainMenuButton
+            // 
+            this.QuitToMainMenuButton.Location = new System.Drawing.Point(469, 411);
+            this.QuitToMainMenuButton.Name = "QuitToMainMenuButton";
+            this.QuitToMainMenuButton.Size = new System.Drawing.Size(206, 100);
+            this.QuitToMainMenuButton.TabIndex = 50;
+            this.QuitToMainMenuButton.Text = "Quit to Main Menu";
+            this.QuitToMainMenuButton.UseVisualStyleBackColor = true;
+            this.QuitToMainMenuButton.Click += new System.EventHandler(this.QuitToMainMenuButton_Click);
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,8 +591,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
-            this.Controls.Add(this.attackBoostButton);
-            this.Controls.Add(this.attackBoostPopup);
+            this.Controls.Add(this.ResumeGameButton);
+            this.Controls.Add(this.QuitToMainMenuButton);
             this.Controls.Add(this.VolumeDownInGame);
             this.Controls.Add(this.VolumeUpInGame);
             this.Controls.Add(this.NextButton);
@@ -590,8 +622,6 @@
             this.Controls.Add(this.ClassMenuBackground);
             this.Controls.Add(this.VolumeDown);
             this.Controls.Add(this.VolumeUp);
-            this.Controls.Add(this.BackToMenu);
-            this.Controls.Add(this.mainMenuPlay);
             this.Controls.Add(this.ClassFighterButton);
             this.Controls.Add(this.ChooseClassLabel);
             this.Controls.Add(this.ClassAssassinButton);
@@ -603,6 +633,11 @@
             this.Controls.Add(this.playerNameTextBox);
             this.Controls.Add(this.playerNameLabel);
             this.Controls.Add(this.SetNameButton);
+            this.Controls.Add(this.attackBoostPopup);
+            this.Controls.Add(this.attackBoostButton);
+            this.Controls.Add(this.BackToMenu);
+            this.Controls.Add(this.mainMenuPlay);
+            this.Controls.Add(this.PauseMenuBackground);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -630,6 +665,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PauseMenuBackground)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -683,5 +719,8 @@
         private System.Windows.Forms.Button SetNameButton;
         private System.Windows.Forms.RichTextBox attackBoostPopup;
         private System.Windows.Forms.Button attackBoostButton;
+        private System.Windows.Forms.PictureBox PauseMenuBackground;
+        private System.Windows.Forms.Button ResumeGameButton;
+        private System.Windows.Forms.Button QuitToMainMenuButton;
     }
 }
