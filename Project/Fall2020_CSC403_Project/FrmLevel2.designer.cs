@@ -299,25 +299,23 @@
             // 
             // ResumeGameButton
             // 
-            this.ResumeGameButton.Location = new System.Drawing.Point(485, 270);
+            this.ResumeGameButton.Location = new System.Drawing.Point(485, 255);
             this.ResumeGameButton.Name = "ResumeGameButton";
             this.ResumeGameButton.Size = new System.Drawing.Size(206, 100);
             this.ResumeGameButton.TabIndex = 50;
             this.ResumeGameButton.Text = "Resume Game";
             this.ResumeGameButton.UseVisualStyleBackColor = true;
             this.ResumeGameButton.Click += new System.EventHandler(this.ResumeGameButton_Click);
-
             // 
             // QuitToMainMenuButton
             // 
-            this.QuitToMainMenuButton.Location = new System.Drawing.Point(485, 376);
+            this.QuitToMainMenuButton.Location = new System.Drawing.Point(485, 389);
             this.QuitToMainMenuButton.Name = "QuitToMainMenuButton";
             this.QuitToMainMenuButton.Size = new System.Drawing.Size(206, 100);
             this.QuitToMainMenuButton.TabIndex = 51;
             this.QuitToMainMenuButton.Text = "Quit to Main Menu";
             this.QuitToMainMenuButton.UseVisualStyleBackColor = true;
             this.QuitToMainMenuButton.Click += new System.EventHandler(this.QuitToMainMenuButton_Click);
-
             // 
             // FrmLevel2
             // 
