@@ -290,7 +290,8 @@ namespace Fall2020_CSC403_Project
             // randomly move flea
             if (fleaFlag == true)
             {
-                enemyFlea.MoveRand();
+                Random rand = new Random();
+                enemyFlea.MoveRand(rand.Next(32));
                 enemyFlea.Move();
 
 
@@ -320,6 +321,10 @@ namespace Fall2020_CSC403_Project
         private bool HitAWall(Character c)
         {
             bool hitAWall = false;
+
+            if (walls == null) 
+                return  hitAWall;
+
             for (int w = 0; w < walls.Length; w++)
             {
                 if (c.Collider.Intersects(walls[w].Collider))
@@ -623,11 +628,6 @@ namespace Fall2020_CSC403_Project
             Game.player.playerName = playerNameTextBox.Text;
         }
 
-        private void GameExit(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
-
         internal void HaltAll()
         {
             StopAndDispose();
@@ -636,6 +636,8 @@ namespace Fall2020_CSC403_Project
             enemyPoisonPacket = null;
             enemyCheeto = null;
             enemyFlea = null;
+
+            walls = null;
         }
     }
 }

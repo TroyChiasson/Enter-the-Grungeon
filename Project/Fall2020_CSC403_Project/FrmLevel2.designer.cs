@@ -32,19 +32,12 @@
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
-            this.picWall5 = new System.Windows.Forms.PictureBox();
+            this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picWall0 = new System.Windows.Forms.PictureBox();
             this.picWall1 = new System.Windows.Forms.PictureBox();
-            this.picWall9 = new System.Windows.Forms.PictureBox();
-            this.picWall8 = new System.Windows.Forms.PictureBox();
-            this.picWall6 = new System.Windows.Forms.PictureBox();
-            this.picWall3 = new System.Windows.Forms.PictureBox();
-            this.picWall4 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
-            this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
-            this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
-            this.picEnemyFlea = new System.Windows.Forms.PictureBox();
+            this.picEnemyFlea0 = new System.Windows.Forms.PictureBox();
             this.PlayButton = new System.Windows.Forms.Button();
             this.PauseButton = new System.Windows.Forms.Button();
             this.NextButton = new System.Windows.Forms.Button();
@@ -54,21 +47,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblPlayerScore = new System.Windows.Forms.Label();
             this.lblPlayerStrength = new System.Windows.Forms.Label();
-            this.picWall7 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall5)).BeginInit();
+            this.picEnemyFlea2 = new System.Windows.Forms.PictureBox();
+            this.picEnemyFlea1 = new System.Windows.Forms.PictureBox();
+            this.lblPlayerScore2 = new System.Windows.Forms.Label();
+            this.lblPlayerStrength2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -94,15 +84,15 @@
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
             // 
-            // picWall5
+            // picWall3
             // 
-            this.picWall5.BackColor = System.Drawing.Color.Transparent;
-            this.picWall5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall5.Location = new System.Drawing.Point(1093, 1);
-            this.picWall5.Name = "picWall5";
-            this.picWall5.Size = new System.Drawing.Size(82, 722);
-            this.picWall5.TabIndex = 15;
-            this.picWall5.TabStop = false;
+            this.picWall3.BackColor = System.Drawing.Color.Transparent;
+            this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
+            this.picWall3.Location = new System.Drawing.Point(1093, 1);
+            this.picWall3.Name = "picWall3";
+            this.picWall3.Size = new System.Drawing.Size(82, 722);
+            this.picWall3.TabIndex = 15;
+            this.picWall3.TabStop = false;
             // 
             // picWall0
             // 
@@ -120,68 +110,18 @@
             this.picWall1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.picWall1.Location = new System.Drawing.Point(2, 1);
             this.picWall1.Name = "picWall1";
-            this.picWall1.Size = new System.Drawing.Size(82, 388);
+            this.picWall1.Size = new System.Drawing.Size(82, 475);
             this.picWall1.TabIndex = 12;
             this.picWall1.TabStop = false;
-            // 
-            // picWall9
-            // 
-            this.picWall9.BackColor = System.Drawing.Color.Transparent;
-            this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall9.Location = new System.Drawing.Point(757, 163);
-            this.picWall9.Name = "picWall9";
-            this.picWall9.Size = new System.Drawing.Size(124, 88);
-            this.picWall9.TabIndex = 11;
-            this.picWall9.TabStop = false;
-            // 
-            // picWall8
-            // 
-            this.picWall8.BackColor = System.Drawing.Color.Transparent;
-            this.picWall8.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall8.Location = new System.Drawing.Point(209, 183);
-            this.picWall8.Name = "picWall8";
-            this.picWall8.Size = new System.Drawing.Size(251, 90);
-            this.picWall8.TabIndex = 10;
-            this.picWall8.TabStop = false;
-            // 
-            // picWall6
-            // 
-            this.picWall6.BackColor = System.Drawing.Color.Transparent;
-            this.picWall6.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall6.Location = new System.Drawing.Point(891, 388);
-            this.picWall6.Name = "picWall6";
-            this.picWall6.Size = new System.Drawing.Size(203, 88);
-            this.picWall6.TabIndex = 8;
-            this.picWall6.TabStop = false;
-            // 
-            // picWall3
-            // 
-            this.picWall3.BackColor = System.Drawing.Color.Transparent;
-            this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall3.Location = new System.Drawing.Point(2, 454);
-            this.picWall3.Name = "picWall3";
-            this.picWall3.Size = new System.Drawing.Size(82, 87);
-            this.picWall3.TabIndex = 7;
-            this.picWall3.TabStop = false;
-            // 
-            // picWall4
-            // 
-            this.picWall4.BackColor = System.Drawing.Color.Transparent;
-            this.picWall4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall4.Location = new System.Drawing.Point(209, 656);
-            this.picWall4.Name = "picWall4";
-            this.picWall4.Size = new System.Drawing.Size(885, 67);
-            this.picWall4.TabIndex = 6;
-            this.picWall4.TabStop = false;
             // 
             // picWall2
             // 
             this.picWall2.BackColor = System.Drawing.Color.Transparent;
             this.picWall2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall2.Location = new System.Drawing.Point(2, 388);
+            this.picWall2.Location = new System.Drawing.Point(222, 651);
             this.picWall2.Name = "picWall2";
-            this.picWall2.Size = new System.Drawing.Size(428, 67);
-            this.picWall2.TabIndex = 3;
+            this.picWall2.Size = new System.Drawing.Size(872, 72);
+            this.picWall2.TabIndex = 6;
             this.picWall2.TabStop = false;
             // 
             // picPlayer
@@ -189,44 +129,22 @@
             this.picPlayer.BackColor = System.Drawing.Color.Transparent;
             this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picPlayer.Location = new System.Drawing.Point(117, 540);
+            this.picPlayer.Location = new System.Drawing.Point(163, 504);
             this.picPlayer.Name = "picPlayer";
             this.picPlayer.Size = new System.Drawing.Size(54, 106);
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
-            // picEnemyPoisonPacket
+            // picEnemyFlea0
             // 
-            this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
-            this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyPoisonPacket.Location = new System.Drawing.Point(1000, 540);
-            this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
-            this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96);
-            this.picEnemyPoisonPacket.TabIndex = 4;
-            this.picEnemyPoisonPacket.TabStop = false;
-            // 
-            // picEnemyCheeto
-            // 
-            this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
-            this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEnemyCheeto.Location = new System.Drawing.Point(981, 124);
-            this.picEnemyCheeto.Name = "picEnemyCheeto";
-            this.picEnemyCheeto.Size = new System.Drawing.Size(64, 107);
-            this.picEnemyCheeto.TabIndex = 5;
-            this.picEnemyCheeto.TabStop = false;
-            // 
-            // picEnemyFlea
-            // 
-            this.picEnemyFlea.BackColor = System.Drawing.Color.Transparent;
-            this.picEnemyFlea.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_flea_1;
-            this.picEnemyFlea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picEnemyFlea.Location = new System.Drawing.Point(561, 221);
-            this.picEnemyFlea.Name = "picEnemyFlea";
-            this.picEnemyFlea.Size = new System.Drawing.Size(124, 104);
-            this.picEnemyFlea.TabIndex = 18;
-            this.picEnemyFlea.TabStop = false;
+            this.picEnemyFlea0.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemyFlea0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_flea_1;
+            this.picEnemyFlea0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picEnemyFlea0.Location = new System.Drawing.Point(171, 138);
+            this.picEnemyFlea0.Name = "picEnemyFlea0";
+            this.picEnemyFlea0.Size = new System.Drawing.Size(124, 104);
+            this.picEnemyFlea0.TabIndex = 18;
+            this.picEnemyFlea0.TabStop = false;
             // 
             // PlayButton
             // 
@@ -321,15 +239,51 @@
             this.lblPlayerStrength.TabIndex = 38;
             this.lblPlayerStrength.Text = "strength";
             // 
-            // picWall7
+            // picEnemyFlea2
             // 
-            this.picWall7.BackColor = System.Drawing.Color.Transparent;
-            this.picWall7.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
-            this.picWall7.Location = new System.Drawing.Point(645, 418);
-            this.picWall7.Name = "picWall7";
-            this.picWall7.Size = new System.Drawing.Size(114, 241);
-            this.picWall7.TabIndex = 17;
-            this.picWall7.TabStop = false;
+            this.picEnemyFlea2.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemyFlea2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_flea_1;
+            this.picEnemyFlea2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picEnemyFlea2.Location = new System.Drawing.Point(891, 504);
+            this.picEnemyFlea2.Name = "picEnemyFlea2";
+            this.picEnemyFlea2.Size = new System.Drawing.Size(124, 104);
+            this.picEnemyFlea2.TabIndex = 43;
+            this.picEnemyFlea2.TabStop = false;
+            // 
+            // picEnemyFlea1
+            // 
+            this.picEnemyFlea1.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemyFlea1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_flea_1;
+            this.picEnemyFlea1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picEnemyFlea1.Location = new System.Drawing.Point(891, 138);
+            this.picEnemyFlea1.Name = "picEnemyFlea1";
+            this.picEnemyFlea1.Size = new System.Drawing.Size(124, 104);
+            this.picEnemyFlea1.TabIndex = 45;
+            this.picEnemyFlea1.TabStop = false;
+            // 
+            // lblPlayerScore2
+            // 
+            this.lblPlayerScore2.AutoSize = true;
+            this.lblPlayerScore2.BackColor = System.Drawing.Color.Black;
+            this.lblPlayerScore2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerScore2.ForeColor = System.Drawing.Color.White;
+            this.lblPlayerScore2.Location = new System.Drawing.Point(249, 30);
+            this.lblPlayerScore2.Name = "lblPlayerScore2";
+            this.lblPlayerScore2.Size = new System.Drawing.Size(46, 18);
+            this.lblPlayerScore2.TabIndex = 46;
+            this.lblPlayerScore2.Text = "score";
+            // 
+            // lblPlayerStrength2
+            // 
+            this.lblPlayerStrength2.AutoSize = true;
+            this.lblPlayerStrength2.BackColor = System.Drawing.Color.Black;
+            this.lblPlayerStrength2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerStrength2.ForeColor = System.Drawing.Color.White;
+            this.lblPlayerStrength2.Location = new System.Drawing.Point(249, 5);
+            this.lblPlayerStrength2.Name = "lblPlayerStrength2";
+            this.lblPlayerStrength2.Size = new System.Drawing.Size(61, 18);
+            this.lblPlayerStrength2.TabIndex = 47;
+            this.lblPlayerStrength2.Text = "strength";
             // 
             // FrmLevel2
             // 
@@ -338,21 +292,15 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.Controls.Add(this.lblPlayerScore2);
+            this.Controls.Add(this.lblPlayerStrength2);
             this.Controls.Add(this.VolumeDownInGame);
             this.Controls.Add(this.VolumeUpInGame);
             this.Controls.Add(this.NextButton);
             this.Controls.Add(this.PauseButton);
             this.Controls.Add(this.PlayButton);
-            this.Controls.Add(this.picWall7);
-            this.Controls.Add(this.picWall5);
-            this.Controls.Add(this.picWall9);
-            this.Controls.Add(this.picWall8);
-            this.Controls.Add(this.picWall6);
             this.Controls.Add(this.picWall3);
-            this.Controls.Add(this.picWall4);
             this.Controls.Add(this.picWall2);
-            this.Controls.Add(this.picEnemyPoisonPacket);
-            this.Controls.Add(this.picEnemyCheeto);
             this.Controls.Add(this.lblInGameTime);
             this.Controls.Add(this.lblPlayerHealthFull);
             this.Controls.Add(this.label1);
@@ -361,28 +309,24 @@
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.lblPlayerScore);
             this.Controls.Add(this.lblPlayerStrength);
-            this.Controls.Add(this.picEnemyFlea);
+            this.Controls.Add(this.picEnemyFlea0);
+            this.Controls.Add(this.picEnemyFlea1);
+            this.Controls.Add(this.picEnemyFlea2);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Enter The Grungeon";
+            this.Text = "dwawd";
             this.Load += new System.EventHandler(this.FrmLevel_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.picWall5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picWall7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyFlea1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,17 +337,10 @@
         private System.Windows.Forms.Timer tmrUpdateInGameTime;
         private System.Windows.Forms.Timer tmrPlayerMove;
         private System.Windows.Forms.PictureBox picWall2;
-        private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
-        private System.Windows.Forms.PictureBox picEnemyCheeto;
-        private System.Windows.Forms.PictureBox picWall4;
-        private System.Windows.Forms.PictureBox picWall3;
-        private System.Windows.Forms.PictureBox picWall6;
-        private System.Windows.Forms.PictureBox picWall8;
-        private System.Windows.Forms.PictureBox picWall9;
         private System.Windows.Forms.PictureBox picWall1;
-        private System.Windows.Forms.PictureBox picWall5;
+        private System.Windows.Forms.PictureBox picWall3;
         private System.Windows.Forms.PictureBox picWall0;
-        private System.Windows.Forms.PictureBox picEnemyFlea;
+        private System.Windows.Forms.PictureBox picEnemyFlea0;
         private System.Windows.Forms.Button PlayButton;
         private System.Windows.Forms.Button PauseButton;
         private System.Windows.Forms.Button NextButton;
@@ -414,6 +351,9 @@
         private System.Windows.Forms.Label lblPlayerScore;
         private System.Windows.Forms.Label lblPlayerStrength;
         public System.Windows.Forms.PictureBox picPlayer;
-        private System.Windows.Forms.PictureBox picWall7;
+        private System.Windows.Forms.PictureBox picEnemyFlea2;
+        private System.Windows.Forms.PictureBox picEnemyFlea1;
+        private System.Windows.Forms.Label lblPlayerScore2;
+        private System.Windows.Forms.Label lblPlayerStrength2;
     }
 }

@@ -14,9 +14,9 @@ namespace Fall2020_CSC403_Project
     {
         private Player player;
 
-        private Enemy enemyPoisonPacket;
-        private Enemy enemyCheeto;
-        private Enemy enemyFlea;
+        private Enemy enemyFlea0;
+        private Enemy enemyFlea1;
+        private Enemy enemyFlea2;
         private Character[] walls;
 
         private DateTime timeBegin;
@@ -28,8 +28,6 @@ namespace Fall2020_CSC403_Project
         private ResourceManager rm;
         private string[] songNames; // Array to store the resource names of your songs
         private bool changingSong = false;
-
-        private bool fleaFlag = true;
 
         private Tuple<Key, Vector2>[] moveKeys;
 
@@ -44,23 +42,25 @@ namespace Fall2020_CSC403_Project
         private void FrmLevel_Load(object sender, EventArgs e)
         {
             const int PADDING = 7;
-            const int NUM_WALLS = 10;
-            
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
-            enemyFlea = new Enemy(CreatePosition(picEnemyFlea), CreateCollider(picEnemyFlea, PADDING), 1);
+            const int NUM_WALLS = 4;
 
-            enemyPoisonPacket.Name = "enemyPoisonPacket";
-            enemyCheeto.Name = "enemyCheeto";
-            enemyFlea.Name = "enemyFlea";
+            enemyFlea0 = new Enemy(CreatePosition(picEnemyFlea0), CreateCollider(picEnemyFlea0, PADDING));
+            enemyFlea1 = new Enemy(CreatePosition(picEnemyFlea1), CreateCollider(picEnemyFlea1, PADDING));
+            enemyFlea2 = new Enemy(CreatePosition(picEnemyFlea2), CreateCollider(picEnemyFlea2, PADDING));
 
-            enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-            enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
-            enemyFlea.Img = picEnemyFlea.BackgroundImage;
 
-            enemyPoisonPacket.Color = Color.Green;
-            enemyCheeto.Color = Color.FromArgb(255, 245, 161);
-            enemyFlea.Color = Color.BurlyWood;
+            enemyFlea0.Name = "enemyFlea0";
+            enemyFlea1.Name = "enemyFlea1";
+            enemyFlea2.Name = "enemyFlea2";
+
+            enemyFlea0.Img = picEnemyFlea0.BackgroundImage;
+            enemyFlea1.Img = picEnemyFlea1.BackgroundImage;
+            enemyFlea2.Img = picEnemyFlea2.BackgroundImage;
+
+
+            enemyFlea0.Color = Color.BurlyWood;
+            enemyFlea1.Color = Color.BurlyWood;
+            enemyFlea2.Color = Color.BurlyWood;
 
             walls = new Character[NUM_WALLS];
             for (int w = 0; w < NUM_WALLS; w++)
@@ -148,46 +148,84 @@ namespace Fall2020_CSC403_Project
             }
 
             // check collision with enemies
-            if (HitAChar(player, enemyPoisonPacket))
+            if (HitAChar(player, enemyFlea0))
             {
-                Fight(enemyPoisonPacket);
+                Fight(enemyFlea0);
             }
-            else if (HitAChar(player, enemyCheeto))
+            else if(HitAChar(player, enemyFlea1))
             {
-                Fight(enemyCheeto);
+                Fight(enemyFlea1);
             }
-            else if (HitAChar(player, enemyFlea))
+            else if(HitAChar(player, enemyFlea2))
             {
-                Fight(enemyFlea);
+                Fight(enemyFlea2);
             }
+
+            Random rand = new Random();
 
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
 
             // randomly move flea
-            if (fleaFlag == true)
+            enemyFlea0.MoveRand(rand.Next(32));
+            enemyFlea0.Move();
+
+            // check collision with enemies and walls
+            if (HitAWall(enemyFlea0))
             {
-                enemyFlea.MoveRand();
-                enemyFlea.Move();
-
-
-                // check collision with enemies and walls
-                if (HitAWall(enemyFlea))
-                {
-                    enemyFlea.MoveBack();
-                }
-                if (HitAChar(enemyFlea, enemyPoisonPacket))
-                {
-                    enemyFlea.MoveBack();
-                }
-                if (HitAChar(enemyFlea, enemyCheeto))
-                {
-                    enemyFlea.MoveBack();
-                }
-
-                // update flea's picture box
-                picEnemyFlea.Location = new Point((int)enemyFlea.Position.x, (int)enemyFlea.Position.y);
+                enemyFlea0.MoveBack();
             }
+            if (HitAChar(enemyFlea0, enemyFlea1))
+            {
+                enemyFlea0.MoveBack();
+            }
+            if (HitAChar(enemyFlea0, enemyFlea2))
+            {
+                enemyFlea0.MoveBack();
+            }
+
+            // update flea's picture box
+            picEnemyFlea0.Location = new Point((int)enemyFlea0.Position.x, (int)enemyFlea0.Position.y);
+
+            enemyFlea1.MoveRand(rand.Next(32));
+            enemyFlea1.Move();
+
+            // check collision with enemies and walls
+            if (HitAWall(enemyFlea1))
+            {
+                enemyFlea1.MoveBack();
+            }
+            if (HitAChar(enemyFlea1, enemyFlea0))
+            {
+                enemyFlea1.MoveBack();
+            }
+            if (HitAChar(enemyFlea1, enemyFlea2))
+            {
+                enemyFlea1.MoveBack();
+            }
+
+            // update flea's picture box
+            picEnemyFlea1.Location = new Point((int)enemyFlea1.Position.x, (int)enemyFlea1.Position.y);
+
+            enemyFlea2.MoveRand(rand.Next(32));
+            enemyFlea2.Move();
+
+            // check collision with enemies and walls
+            if (HitAWall(enemyFlea2))
+            {
+                enemyFlea2.MoveBack();
+            }
+            if (HitAChar(enemyFlea2, enemyFlea0))
+            {
+                enemyFlea2.MoveBack();
+            }
+            if (HitAChar(enemyFlea2, enemyFlea1))
+            {
+                enemyFlea2.MoveBack();
+            }
+
+            // update flea's picture box
+            picEnemyFlea2.Location = new Point((int)enemyFlea2.Position.x, (int)enemyFlea2.Position.y);           
         }
 
         private bool HitAWall(Character c)
@@ -215,30 +253,23 @@ namespace Fall2020_CSC403_Project
             player.MoveBack();
             frmBattle = FrmBattle.GetInstance(enemy, picPlayer);
             frmBattle.Show();
+            frmBattle.SetupForFlea();
 
-            if (enemy == enemyFlea)
-            {
-                frmBattle.SetupForFlea();
-            }
 
             switch (enemy.Name)
             {
-                case "enemyPoisonPacket":
-                    enemyPoisonPacket = new Enemy(RemovePosition(0, 0), RemoveCollider());
-                    enemyPoisonPacket.Img = null;
-                    picEnemyPoisonPacket.BackgroundImage = null;
-
+                case "enemyFlea0":
+                    enemyFlea0 = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    picEnemyFlea0.BackgroundImage = null;
                     break;
-                case "enemyCheeto":
-                    enemyCheeto = new Enemy(RemovePosition(0, 0), RemoveCollider());
-                    enemyCheeto.Img = null;
-                    picEnemyCheeto.BackgroundImage = null;
+                case "enemyFlea1":
+                    enemyFlea1 = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    picEnemyFlea1.BackgroundImage = null;
                     break;
-                case "enemyFlea":
-                    enemyFlea = new Enemy(RemovePosition(0, 0), RemoveCollider());
-                    picEnemyFlea.BackgroundImage = null;
-                    fleaFlag = false;
-                    break;
+                case "enemyFlea2":
+                    enemyFlea2 = new Enemy(RemovePosition(0, 0), RemoveCollider());
+                    picEnemyFlea2.BackgroundImage = null;
+                    break;  
             }
         }
 
@@ -270,9 +301,9 @@ namespace Fall2020_CSC403_Project
 
             lblPlayerHealthFull.Text = player.Health.ToString() + "/" + player.MaxHealth.ToString();
 
-            lblPlayerStrength.Text = "Attack Power: " + (player._strength*4).ToString();
+            lblPlayerStrength2.Text = "Attack Power: " + (player._strength*4).ToString();
 
-            lblPlayerScore.Text = "Score: " + player.Score.ToString();
+            lblPlayerScore2.Text = "Score: " + player.Score.ToString();
         }
 
 

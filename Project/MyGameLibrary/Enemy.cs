@@ -26,11 +26,8 @@ namespace Fall2020_CSC403_Project.code
         public Enemy(Vector2 initPos, Collider collider, int strength=2) : base(initPos, collider, strength) { }
 
         // random movement function to make flea traverse map
-        public void MoveRand()
-        {
-            Random rand = new Random();
-            int moveDir = rand.Next(32);
-
+        public void MoveRand(int moveDir)
+        { 
             switch (moveDir)
             {
                 case 0:

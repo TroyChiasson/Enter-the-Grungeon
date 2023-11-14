@@ -36,7 +36,7 @@ namespace Fall2020_CSC403_Project.code
         }
 
         //increases MaxHealth and adds new amount Health
-        public void buffHealth(int amount = 4) 
+        public void buffHealth(int amount = 5) 
         {
             MaxHealth += amount;
             AlterHealth(amount);
