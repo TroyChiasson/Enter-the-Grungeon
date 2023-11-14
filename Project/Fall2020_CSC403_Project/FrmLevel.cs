@@ -133,6 +133,7 @@ namespace Fall2020_CSC403_Project
             this.attackBoostPopup.BringToFront();
             this.attackBoostButton.Show();
             this.attackBoostButton.BringToFront();
+            pause = true;
         }
 
         public void removePauseMenu()
@@ -176,6 +177,7 @@ namespace Fall2020_CSC403_Project
             
             this.attackBoostButton.Hide();
             this.attackBoostPopup.Hide();
+            pause = false;
         }
 
 
@@ -409,21 +411,23 @@ namespace Fall2020_CSC403_Project
 
         private void playerMove()
         {
-            Vector2 moveDir = new Vector2(0, 0);
-
-            foreach (Tuple<Key, Vector2> keyBind in this.moveKeys)
+            if (pause == false)
             {
-                if (Keyboard.IsKeyDown(keyBind.Item1))
-                {
-                    moveDir = new Vector2(moveDir.x + keyBind.Item2.x, moveDir.y + keyBind.Item2.y);
-                }
-            }
+                Vector2 moveDir = new Vector2(0, 0);
 
-            if (moveDir.Equals(new Vector2(0, 0)))
-                player.ResetMoveSpeed();
-            else
-                player.MoveVector(moveDir);
-            
+                foreach (Tuple<Key, Vector2> keyBind in this.moveKeys)
+                {
+                    if (Keyboard.IsKeyDown(keyBind.Item1))
+                    {
+                        moveDir = new Vector2(moveDir.x + keyBind.Item2.x, moveDir.y + keyBind.Item2.y);
+                    }
+                }
+
+                if (moveDir.Equals(new Vector2(0, 0)))
+                    player.ResetMoveSpeed();
+                else
+                    player.MoveVector(moveDir);
+            }
         }
 
         private void playerStatsUpdate()

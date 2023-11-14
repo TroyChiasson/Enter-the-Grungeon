@@ -591,8 +591,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
-            this.Controls.Add(this.ResumeGameButton);
-            this.Controls.Add(this.QuitToMainMenuButton);
             this.Controls.Add(this.VolumeDownInGame);
             this.Controls.Add(this.VolumeUpInGame);
             this.Controls.Add(this.NextButton);
@@ -638,6 +636,8 @@
             this.Controls.Add(this.BackToMenu);
             this.Controls.Add(this.mainMenuPlay);
             this.Controls.Add(this.PauseMenuBackground);
+            this.Controls.Add(this.ResumeGameButton);
+            this.Controls.Add(this.QuitToMainMenuButton);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
