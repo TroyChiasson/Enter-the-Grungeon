@@ -31,6 +31,8 @@ namespace Fall2020_CSC403_Project
 
         private Tuple<Key, Vector2>[] moveKeys;
 
+        private int count = 0;
+
         public FrmLevel2()
         {
             player = Game.player;
@@ -152,11 +154,11 @@ namespace Fall2020_CSC403_Project
             {
                 Fight(enemyFlea0);
             }
-            else if(HitAChar(player, enemyFlea1))
+            else if (HitAChar(player, enemyFlea1))
             {
                 Fight(enemyFlea1);
             }
-            else if(HitAChar(player, enemyFlea2))
+            else if (HitAChar(player, enemyFlea2))
             {
                 Fight(enemyFlea2);
             }
@@ -166,66 +168,79 @@ namespace Fall2020_CSC403_Project
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
 
-            // randomly move flea
-            enemyFlea0.MoveRand(rand.Next(32));
-            enemyFlea0.Move();
+            // randomly move flea every 3 ticks
+            if (count % 3 == 0)
+            { 
+                enemyFlea0.MoveRand(rand.Next(32));
+                enemyFlea0.Move();
 
-            // check collision with enemies and walls
-            if (HitAWall(enemyFlea0))
-            {
-                enemyFlea0.MoveBack();
-            }
-            if (HitAChar(enemyFlea0, enemyFlea1))
-            {
-                enemyFlea0.MoveBack();
-            }
-            if (HitAChar(enemyFlea0, enemyFlea2))
-            {
-                enemyFlea0.MoveBack();
-            }
+                // check collision with enemies and walls
+                if (HitAWall(enemyFlea0))
+                {
+                    enemyFlea0.MoveBack();
+                }
+                if (HitAChar(enemyFlea0, enemyFlea1))
+                {
+                    enemyFlea0.MoveBack();
+                }
+                if (HitAChar(enemyFlea0, enemyFlea2))
+                {
+                    enemyFlea0.MoveBack();
+                }
 
-            // update flea's picture box
-            picEnemyFlea0.Location = new Point((int)enemyFlea0.Position.x, (int)enemyFlea0.Position.y);
-
-            enemyFlea1.MoveRand(rand.Next(32));
-            enemyFlea1.Move();
-
-            // check collision with enemies and walls
-            if (HitAWall(enemyFlea1))
-            {
-                enemyFlea1.MoveBack();
-            }
-            if (HitAChar(enemyFlea1, enemyFlea0))
-            {
-                enemyFlea1.MoveBack();
-            }
-            if (HitAChar(enemyFlea1, enemyFlea2))
-            {
-                enemyFlea1.MoveBack();
+                // update flea's picture box
+                picEnemyFlea0.Location = new Point((int)enemyFlea0.Position.x, (int)enemyFlea0.Position.y);
             }
 
-            // update flea's picture box
-            picEnemyFlea1.Location = new Point((int)enemyFlea1.Position.x, (int)enemyFlea1.Position.y);
-
-            enemyFlea2.MoveRand(rand.Next(32));
-            enemyFlea2.Move();
-
-            // check collision with enemies and walls
-            if (HitAWall(enemyFlea2))
+            // randomly move flea every 3 ticks
+            if (count % 3 == 1)
             {
-                enemyFlea2.MoveBack();
-            }
-            if (HitAChar(enemyFlea2, enemyFlea0))
-            {
-                enemyFlea2.MoveBack();
-            }
-            if (HitAChar(enemyFlea2, enemyFlea1))
-            {
-                enemyFlea2.MoveBack();
+                enemyFlea1.MoveRand(rand.Next(32));
+                enemyFlea1.Move();
+
+                // check collision with enemies and walls
+                if (HitAWall(enemyFlea1))
+                {
+                    enemyFlea1.MoveBack();
+                }
+                if (HitAChar(enemyFlea1, enemyFlea0))
+                {
+                    enemyFlea1.MoveBack();
+                }
+                if (HitAChar(enemyFlea1, enemyFlea2))
+                {
+                    enemyFlea1.MoveBack();
+                }
+
+                // update flea's picture box
+                picEnemyFlea1.Location = new Point((int)enemyFlea1.Position.x, (int)enemyFlea1.Position.y);
             }
 
-            // update flea's picture box
-            picEnemyFlea2.Location = new Point((int)enemyFlea2.Position.x, (int)enemyFlea2.Position.y);           
+            // randomly move flea every 3 ticks
+            if (count % 3 == 2)
+            {
+                enemyFlea2.MoveRand(rand.Next(32));
+                enemyFlea2.Move();
+
+                // check collision with enemies and walls
+                if (HitAWall(enemyFlea2))
+                {
+                    enemyFlea2.MoveBack();
+                }
+                if (HitAChar(enemyFlea2, enemyFlea0))
+                {
+                    enemyFlea2.MoveBack();
+                }
+                if (HitAChar(enemyFlea2, enemyFlea1))
+                {
+                    enemyFlea2.MoveBack();
+                }
+
+                // update flea's picture box
+                picEnemyFlea2.Location = new Point((int)enemyFlea2.Position.x, (int)enemyFlea2.Position.y);
+            }
+            count++;
+            if (count >= 1000) { count = 0; }
         }
 
         private bool HitAWall(Character c)
