@@ -84,27 +84,30 @@ namespace Fall2020_CSC403_Project
 
         private void btnAttack_Click(object sender, EventArgs e)
         {
-            player.OnAttack(-4);
+            switch (enemy.Name)
+            {
+                case "enemyBossKoolAid":
+                    player.OnAttack(-4);
+                    break;
+
+                case "enemyPoisonPacket":
+                    // Weak to Piercing damage
+                    player.OnAttack(-5);
+                    break;
+
+                case "enemyCheeto":
+                    // resistant to bludgeoning damage
+                    player.OnAttack(-3);
+                    break;
+
+                case "enemyFlea":
+                    player.OnAttack(-4);
+                    break;
+            }
+
             if (enemy.Health > 0)
             {
-                switch (enemy.Name)
-                {
-                    case "enemyBossKoolAid":
-                        enemy.OnAttack(-2);
-                        break;
-
-                    case "enemyPoisonPacket":
-                        enemy.OnAttack(-2);
-                        break;
-
-                    case "enemyCheeto":
-                        enemy.OnAttack(-2);
-                        break;
-
-                    case "enemyFlea":
-                        enemy.OnAttack(-2);
-                        break;
-                }
+                enemy.OnAttack(-2);
             }
 
             UpdateStats();
@@ -148,27 +151,31 @@ namespace Fall2020_CSC403_Project
 
         private void HeavyAttackButton_Click(object sender, EventArgs e)
         {
-            player.OnAttack(-6);
+            switch (enemy.Name)
+            {
+                case "enemyBossKoolAid":
+                    player.OnAttack(-6);
+                    break;
+
+                case "enemyPoisonPacket":
+                    // resistant to piercing damage
+                    player.OnAttack(-5);
+                    break;
+
+                case "enemyCheeto":
+                    // weak to bludgeoning damage
+                    player.OnAttack(-7);
+                    break;
+
+                case "enemyFlea":
+                    player.OnAttack(-6);
+                    break;
+            }
+
             if (enemy.Health > 0)
             {
-                switch (enemy.Name)
-                {
-                    case "enemyBossKoolAid":
-                        enemy.OnAttack(-2);
-                        break;
-
-                    case "enemyPoisonPacket":
-                        enemy.OnAttack(-2);
-                        break;
-
-                    case "enemyCheeto":
-                        enemy.OnAttack(-2);
-                        break;
-
-                    case "enemyFlea":
-                        enemy.OnAttack(-2);
-                        break;
-                }
+                enemy.OnAttack(-2);
+                enemy.OnAttack(-2);
             }
             UpdateStats();
 
@@ -230,7 +237,7 @@ namespace Fall2020_CSC403_Project
 
         private void buttonTaunt_Click(object sender, EventArgs e)
         {
-
+        
             if (enemy.Health > 0)
             {
                 enemy.OnAttack(-2);
