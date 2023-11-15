@@ -113,12 +113,16 @@ namespace Fall2020_CSC403_Project
                                                 break;
                                             case 1:
                                                 frmBattle.player.buffAttack(12);
+                                                level.displayAttackBoost();
+
                                                 break;
                                             case 2:
                                                 frmBattle.player.buffHealth(15);
                                                 frmBattle.player.buffAttack(8);
+                                                level.displayAttackBoost();
                                                 break;
                                         }
+                                        this.Close();
                                     }
                                 }
                                 else

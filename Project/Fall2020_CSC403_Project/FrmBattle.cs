@@ -126,8 +126,6 @@ namespace Fall2020_CSC403_Project
                 enemy.OnAttack(-3);
             }
 
-            UpdateStats();
-
             if (enemy.Health <= 0 && enemy.Name == "enemyFlea")
             {
                 FrmPaymentChoice frmPaymentChoice = new FrmPaymentChoice(this);
@@ -152,6 +150,9 @@ namespace Fall2020_CSC403_Project
                 }
                 */               
             }
+
+            UpdateStats();
+            
             if (enemy.Health <= 0 && enemy.Name == "enemyBossKoolAid")
             {
                 player.Score += 10;
@@ -211,10 +212,12 @@ namespace Fall2020_CSC403_Project
             {
                 enemy.OnAttack(-4);
             }
-            UpdateStats();
 
             if (enemy.Health <= 0 && enemy.Name == "enemyFlea")
             {
+                FrmPaymentChoice frmPaymentChoice = new FrmPaymentChoice(this);
+                frmPaymentChoice.Show();
+                /*
                 Random rand = new Random();
                 int buffEffect = rand.Next(2);
                 switch (buffEffect)
@@ -232,7 +235,10 @@ namespace Fall2020_CSC403_Project
                         level.displayAttackBoost();
                         break;
                 }
+                */
             }
+
+            UpdateStats();
             if (enemy.Health <= 0 && enemy.Name == "enemyBossKoolAid")
             {
                 player.Score += 10;
