@@ -84,7 +84,7 @@
             this.Controls.Add(this.TryAgain);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FrmGameOver";
-            this.Text = "FrmGameOver";
+            this.Text = "Enter The Grungeon";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
