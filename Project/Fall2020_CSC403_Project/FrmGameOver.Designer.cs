@@ -67,7 +67,7 @@
             // 
             // ScoreBoardTextBox
             // 
-            this.ScoreBoardTextBox.Location = new System.Drawing.Point(330, 64);
+            this.ScoreBoardTextBox.Location = new System.Drawing.Point(12, 9);
             this.ScoreBoardTextBox.MaximumSize = new System.Drawing.Size(100, 100);
             this.ScoreBoardTextBox.Name = "ScoreBoardTextBox";
             this.ScoreBoardTextBox.Size = new System.Drawing.Size(100, 100);
