@@ -11,7 +11,7 @@ namespace Fall2020_CSC403_Project
     {
         public static FrmBattle instance = null;
         private Enemy enemy;
-        private Player player;
+        public Player player;
         private bool fightingFlea = false;
 
         private FrmBattle()
@@ -93,22 +93,8 @@ namespace Fall2020_CSC403_Project
 
             if (enemy.Health <= 0 && fightingFlea)
             {
-                Random rand = new Random();
-                int buffEffect = rand.Next(2);
-                switch (buffEffect)
-                {
-                    case 0:
-                        player.buffHealth();
-                        break;
-                    case 1:
-                        player.buffAttack();
-                        break;
-                    case 2:
-                        player.buffHealth();
-                        player.buffAttack();
-                        break;
-                }
-
+                FrmPaymentChoice frmPaymentChoice = new FrmPaymentChoice(this);
+                frmPaymentChoice.Show();
                 fightingFlea = false;
             }
             if (player.Health <= 0)
