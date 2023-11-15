@@ -130,6 +130,9 @@ namespace Fall2020_CSC403_Project
 
             if (enemy.Health <= 0 && enemy.Name == "enemyFlea")
             {
+                FrmPaymentChoice frmPaymentChoice = new FrmPaymentChoice(this);
+                frmPaymentChoice.Show();
+                /*
                 Random rand = new Random();
                 int buffEffect = rand.Next(2);
                 switch (buffEffect)
@@ -146,6 +149,7 @@ namespace Fall2020_CSC403_Project
                         player.buffAttack();
                         level.displayAttackBoost();
                         break;
+                */
                 }
             }
             if (enemy.Health <= 0 && enemy.Name == "enemyBossKoolAid")
