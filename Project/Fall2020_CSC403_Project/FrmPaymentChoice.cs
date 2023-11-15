@@ -73,7 +73,7 @@ namespace Fall2020_CSC403_Project
 
                                     string paymentStatusJson = await paymentStatusResponse.Content.ReadAsStringAsync();
 
-                                    MessageBox.Show($"Response Content: {paymentStatusJson}");
+                                    //MessageBox.Show($"Response Content: {paymentStatusJson}");
 
                                     // Deserialize the JSON response into PaymentStatus object
                                     var paymentStatus = JsonConvert.DeserializeObject<PaymentStatus>(paymentStatusJson);
