@@ -11,8 +11,8 @@ namespace Fall2020_CSC403_Project
     {
         public static FrmBattle instance = null;
         private Enemy enemy;
-        private Player player;
-        private FrmLevel level;
+        public Player player;
+        public FrmLevel level { get; private set; }
 
         private FrmBattle()
         {
@@ -149,8 +149,8 @@ namespace Fall2020_CSC403_Project
                         player.buffAttack();
                         level.displayAttackBoost();
                         break;
-                */
                 }
+                */               
             }
             if (enemy.Health <= 0 && enemy.Name == "enemyBossKoolAid")
             {

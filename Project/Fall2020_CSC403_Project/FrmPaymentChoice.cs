@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Reflection.Emit;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,12 +13,14 @@ namespace Fall2020_CSC403_Project
     {
 
         private FrmBattle frmBattle;
+        private FrmLevel level;
         public Player player;
 
         public FrmPaymentChoice(FrmBattle frmBattle)
         {
             InitializeComponent();
             this.frmBattle = frmBattle;
+            this.level = frmBattle.level;
             player = Game.player;
             textBox1.Text = "If you do not care about the hard working developers then Click exit to continue with no stat boost";
             textBox2.Text = "If you wish to buy an in-game boost to health and attack click the Pay button!";
@@ -84,35 +87,36 @@ namespace Fall2020_CSC403_Project
                                         switch (buffEffect)
                                         {
                                             case 0:
-                                                frmBattle.player.buffHealth(20);
+                                                frmBattle.player.buffHealth(25);
                                                 break;
                                             case 1:
-                                                frmBattle.player.buffAttack(10);
+                                                frmBattle.player.buffAttack(12);
+                                                level.displayAttackBoost();
                                                 break;
                                             case 2:
-                                                frmBattle.player.buffHealth(10);
-                                                frmBattle.player.buffAttack(5);
+                                                frmBattle.player.buffHealth(15);
+                                                frmBattle.player.buffAttack(8);
+                                                level.displayAttackBoost();
                                                 break;
                                         }
+                                        this.Close();
                                     }
                                     else
                                     {
-                                      
-
                                         //  existing code for applying buffs
                                         Random rand = new Random();
                                         int buffEffect = rand.Next(2);
                                         switch (buffEffect)
                                         {
                                             case 0:
-                                                frmBattle.player.buffHealth(20);
+                                                frmBattle.player.buffHealth(25);
                                                 break;
                                             case 1:
-                                                frmBattle.player.buffAttack(10);
+                                                frmBattle.player.buffAttack(12);
                                                 break;
                                             case 2:
-                                                frmBattle.player.buffHealth(10);
-                                                frmBattle.player.buffAttack(5);
+                                                frmBattle.player.buffHealth(15);
+                                                frmBattle.player.buffAttack(8);
                                                 break;
                                         }
                                     }
