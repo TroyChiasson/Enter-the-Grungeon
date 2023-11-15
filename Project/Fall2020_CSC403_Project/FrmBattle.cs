@@ -13,10 +13,12 @@ namespace Fall2020_CSC403_Project
         private Enemy enemy;
         public Player player;
         public FrmLevel level { get; private set; }
+        public float resetStrength = Game.player._strength;
 
         private FrmBattle()
         {
             InitializeComponent();
+            
             player = Game.player;
         }
 
@@ -168,6 +170,7 @@ namespace Fall2020_CSC403_Project
             }
             else if (enemy.Health <= 0)
             {
+                player._strength = resetStrength;
                 player.Score += 20;
                 instance = null;
                 Close();
@@ -281,14 +284,11 @@ namespace Fall2020_CSC403_Project
         }
 
         private void buttonTaunt_Click(object sender, EventArgs e)
-        {
-        
+        {        
             if (enemy.Health > 0)
             {
                 enemy.OnAttack(-3);
             }
-
-            
 
             if (player.Health <= 0)
             {

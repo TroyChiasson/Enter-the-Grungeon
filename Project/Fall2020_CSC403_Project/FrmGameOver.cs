@@ -19,11 +19,10 @@ namespace Fall2020_CSC403_Project
         {
             InitializeComponent();
             
-            // Austin fix this
-            //string playerName = Game.player.playerName;
-            //File.AppendAllLines(@"D:\CODE\leaderboard.txt", new string[] { playerName + " " + Game.player.Score.ToString()}); 
-            //string content = File.ReadAllText(@"D:\CODE\leaderboard.txt");
-            //ScoreBoardTextBox.Text = content;
+            string playerName = Game.player.playerName;
+            File.AppendAllLines(@"leaderboard.txt", new string[] { playerName + " " + Game.player.Score.ToString()}); 
+            string content = File.ReadAllText(@"leaderboard.txt");
+            ScoreBoardTextBox.Text = content;
 
         }
 

@@ -196,6 +196,9 @@
             this.Controls.Add(this.btnAttack);
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.buttonTaunt);
+            this.Controls.Add(this.lblPlayerScore);
+            this.Controls.Add(this.lblPlayerStrength);
             this.DoubleBuffered = true;
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
